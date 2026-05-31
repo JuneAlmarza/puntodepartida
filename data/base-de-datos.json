@@ -1,0 +1,3271 @@
+[
+  {
+    "id": "diseno-grafico",
+    "categoria": "Diseño Gráfico",
+    "subcategorias": [
+      {
+        "id": "branding",
+        "nombre": "Branding",
+        "referentes": [
+          {
+            "nombre": "Collins",
+            "slug": "collins",
+            "url": "https://wearecollins.com/"
+          },
+          {
+            "nombre": "Pentagram",
+            "slug": "pentagram",
+            "url": "https://www.pentagram.com/"
+          },
+          {
+            "nombre": "Studio Dumbar",
+            "slug": "studio-dumbar",
+            "url": "https://studiodumbar.com/"
+          },
+          {
+            "nombre": "Mucho",
+            "slug": "mucho",
+            "url": "https://wearemucho.com/"
+          },
+          {
+            "nombre": "Wolff Olins",
+            "slug": "wolff-olins",
+            "url": "https://wolffolins.com/"
+          },
+          {
+            "nombre": "Porto Rocha",
+            "slug": "porto-rocha",
+            "url": "https://www.portorocha.com/"
+          },
+          {
+            "nombre": "Gretel",
+            "slug": "gretel",
+            "url": "https://gretelny.com/"
+          },
+          {
+            "nombre": "DIA Studio",
+            "slug": "dia-studio",
+            "url": "https://www.dia.studio/"
+          },
+          {
+            "nombre": "Base Design",
+            "slug": "base-design",
+            "url": "https://www.basedesign.com/"
+          }
+        ]
+      },
+      {
+        "id": "identidad-visual",
+        "nombre": "Identidad visual",
+        "referentes": [
+          {
+            "nombre": "Paula Scher",
+            "slug": "paula-scher",
+            "url": "https://disenadorasgraficas.com/biografia/paula-scher/"
+          },
+          {
+            "nombre": "Lance Wyman",
+            "slug": "lance-wyman",
+            "url": "https://www.instagram.com/lancewymannews/?hl=es"
+          },
+          {
+            "nombre": "Bureau Borsche",
+            "slug": "bureau-borsche",
+            "url": "https://bureauborsche.com/"
+          },
+          {
+            "nombre": "Studio Feixen",
+            "slug": "studio-feixen",
+            "url": "https://www.studiofeixen.ch/"
+          },
+          {
+            "nombre": "Spin Studio",
+            "slug": "spin-studio",
+            "url": "https://spin.co.uk/"
+          },
+          {
+            "nombre": "Hey Studio",
+            "slug": "hey-studio",
+            "url": "https://heystudio.es/"
+          },
+          {
+            "nombre": "Hort",
+            "slug": "hort",
+            "url": "https://www.instagram.com/hortberlin/?hl=es"
+          },
+          {
+            "nombre": "North Design",
+            "slug": "north-design",
+            "url": "https://www.northdesign.co.uk/"
+          },
+          {
+            "nombre": "Studio Rejane Dal Bello",
+            "slug": "studio-rejane-dal-bello",
+            "url": "https://rejanedalbello.com/"
+          }
+        ]
+      },
+      {
+        "id": "diseno-tipografia",
+        "nombre": "Diseño de tipografía",
+        "referentes": [
+          {
+            "nombre": "Eric Gill",
+            "slug": "eric-gill",
+            "url": "https://es.wikipedia.org/wiki/Eric_Gill"
+          },
+          {
+            "nombre": "Hermann Zapf",
+            "slug": "hermann-zapf",
+            "url": "https://www.instagram.com/zapfiana/"
+          },
+          {
+            "nombre": "Kris Sowersby (Klim Type Foundry)",
+            "slug": "kris-sowersby",
+            "url": "https://klim.co.nz/"
+          },
+          {
+            "nombre": "Christian Schwartz (Commercial Type)",
+            "slug": "christian-schwartz",
+            "url": "https://www.christianschwartz.com/"
+          },
+          {
+            "nombre": "Peter Biľak (Typotheque)",
+            "slug": "peter-bilak",
+            "url": "https://peterbilak.com/"
+          },
+          {
+            "nombre": "David Rudnick",
+            "slug": "david-rudnick",
+            "url": "https://davidrudnick.org/"
+          },
+          {
+            "nombre": "Karl Nawrot",
+            "slug": "karl-nawrot",
+            "url": "https://www.karlnawrot.com/typefaces/"
+          },
+          {
+            "nombre": "NaN Foundry",
+            "slug": "nan-foundry",
+            "url": "https://www.nan.xyz/"
+          },
+          {
+            "nombre": "Elias Hanzer",
+            "slug": "elias-hanzer",
+            "url": "https://eliashanzer.com/"
+          },
+          {
+            "nombre": "Ines Davodeau",
+            "slug": "ines-davodeau",
+            "url": "https://inesdavodeau.com/"
+          },
+          {
+            "nombre": "Dinamo Typefaces",
+            "slug": "dinamo-typefaces",
+            "url": "https://abcdinamo.com/"
+          },
+          {
+            "nombre": "Grilli Type",
+            "slug": "grilli-type",
+            "url": "https://www.grillitype.com/"
+          },
+          {
+            "nombre": "Colophon Foundry",
+            "slug": "colophon-foundry",
+            "url": "https://www.colophon-foundry.org/"
+          },
+          {
+            "nombre": "Sharp Type",
+            "slug": "sharp-type",
+            "url": "https://www.sharptype.co/"
+          },
+          {
+            "nombre": "OH no Type Co.",
+            "slug": "oh-no-type-co",
+            "url": "https://ohnotype.co/"
+          },
+          {
+            "nombre": "Velvetyne Type Foundry",
+            "slug": "velvetyne-type-foundry",
+            "url": "https://velvetyne.fr/"
+          },
+          {
+            "nombre": "Blaze Type",
+            "slug": "blaze-type",
+            "url": "https://blazetype.eu/"
+          },
+          {
+            "nombre": "María Doreuli",
+            "slug": "maria-doreuli",
+            "url": "https://www.instagram.com/doreuli/"
+          },
+          {
+            "nombre": "Nadine Chahine",
+            "slug": "nadine-chahine",
+            "url": "https://www.instagram.com/arabictype/?hl=es"
+          },
+          {
+            "nombre": "Kris Holmes",
+            "slug": "kris-holmes",
+            "url": "https://disenadorasgraficas.com/biografia/kris-holmes/"
+          }
+        ]
+      },
+      {
+        "id": "diseno-editorial",
+        "nombre": "Diseño editorial",
+        "referentes": [
+          {
+            "nombre": "Irma Boom",
+            "slug": "irma-boom",
+            "url": "https://irmaboom.nl/"
+          },
+          {
+            "nombre": "Studio 150",
+            "slug": "studio-150",
+            "url": "https://studio150.info/"
+          },
+          {
+            "nombre": "Actual Source",
+            "slug": "actual-source",
+            "url": "https://actualsource.org/"
+          },
+          {
+            "nombre": "A Practice for Everyday Life",
+            "slug": "a-practice-for-everyday-life",
+            "url": "https://apracticeforeverydaylife.com/"
+          },
+          {
+            "nombre": "OK-RM",
+            "slug": "ok-rm",
+            "url": "https://www.ok-rm.co.uk/"
+          },
+          {
+            "nombre": "Atlas Studio",
+            "slug": "atlas-studio",
+            "url": "https://atlasstudio.ch/"
+          },
+          {
+            "nombre": "Sara De Bondt",
+            "slug": "sara-de-bondt",
+            "url": "https://saradebondt.com/"
+          },
+          {
+            "nombre": "Experimental Jetset",
+            "slug": "experimental-jetset",
+            "url": "https://www.jetset.nl/"
+          },
+          {
+            "nombre": "Naranjo-Etxeberria",
+            "slug": "naranjo-etxeberria",
+            "url": "https://naranjoetxeberria.com/"
+          },
+          {
+            "nombre": "Astrid Stavro",
+            "slug": "astrid-stavro",
+            "url": "https://astridstavro.design/"
+          }
+        ]
+      },
+      {
+        "id": "direccion-de-arte",
+        "nombre": "Dirección de arte",
+        "referentes": [
+          {
+            "nombre": "Lotta Nieminen",
+            "slug": "lotta-nieminen",
+            "url": "https://www.lottanieminen.com/index"
+          },
+          {
+            "nombre": "Veronica Ditting",
+            "slug": "veronica-ditting",
+            "url": "https://studioveronicaditting.com/"
+          },
+          {
+            "nombre": "Benjamin Grillon",
+            "slug": "benjamin-grillon",
+            "url": "https://studioveronicaditting.com/"
+          },
+          {
+            "nombre": "Bureau Mirko Borsche",
+            "slug": "bureau-mirko-borsche",
+            "url": "https://bureauborsche.com/"
+          },
+          {
+            "nombre": "RoAndCo Studio",
+            "slug": "roandco-studio",
+            "url": "https://www.roandcostudio.com/"
+          },
+          {
+            "nombre": "Zak Group",
+            "slug": "zak-group",
+            "url": "https://www.zak.group/"
+          },
+          {
+            "nombre": "Eszter Laki",
+            "slug": "eszter-laki",
+            "url": "https://www.behance.net/lakieszti"
+          },
+          {
+            "nombre": "Studio Yukiko",
+            "slug": "studio-yukiko",
+            "url": "https://y-u-k-i-k-o.com/"
+          },
+          {
+            "nombre": "Mathias Augustyniak & Michael Amzalag (M/M Paris)",
+            "slug": "mathias-augustyniak-and-michael-amzalag",
+            "url": "https://www.instagram.com/mmparisdotcom"
+          }
+        ]
+      },
+      {
+        "id": "diseno-packaging",
+        "nombre": "Diseño de packaging",
+        "referentes": [
+          {
+            "nombre": "Stranger & Stranger",
+            "slug": "stranger-and-stranger",
+            "url": "https://www.strangerandstranger.com/"
+          },
+          {
+            "nombre": "Pearlfisher",
+            "slug": "pearlfisher",
+            "url": "https://pearlfisher.com/"
+          },
+          {
+            "nombre": "Backbone Branding",
+            "slug": "backbone-branding",
+            "url": "https://backbonebranding.com/"
+          },
+          {
+            "nombre": "Anagrama",
+            "slug": "anagrama",
+            "url": "https://www.anagrama-ed.es/"
+          },
+          {
+            "nombre": "Studio MPLS",
+            "slug": "studio-mpls",
+            "url": "https://studiompls.com/"
+          },
+          {
+            "nombre": "Mucho",
+            "slug": "mucho",
+            "url": "https://wearemucho.com/"
+          },
+          {
+            "nombre": "Smörgåsbord Studio",
+            "slug": "smorgasbord-studio",
+            "url": "https://smorgasbord.studio/"
+          },
+          {
+            "nombre": "BVD",
+            "slug": "bvd",
+            "url": "https://bvd.se/"
+          },
+          {
+            "nombre": "Mousegraphics",
+            "slug": "mousegraphics",
+            "url": "https://www.mousegraphics.eu/"
+          }
+        ]
+      },
+      {
+        "id": "ilustracion",
+        "nombre": "Ilustración",
+        "referentes": [
+          {
+            "nombre": "Malika Favre",
+            "slug": "malika-favre",
+            "url": "https://www.malikafavre.com/"
+          },
+          {
+            "nombre": "Jean Jullien",
+            "slug": "jean-jullien",
+            "url": "https://www.jeanjullien.com/"
+          },
+          {
+            "nombre": "Olimpia Zagnoli",
+            "slug": "olimpia-zagnoli",
+            "url": "https://www.olimpiazagnoli.com/"
+          },
+          {
+            "nombre": "Yukai Du",
+            "slug": "yukai-du",
+            "url": "https://www.yukaidu.com/"
+          },
+          {
+            "nombre": "Laura Callaghan",
+            "slug": "laura-callaghan",
+            "url": "https://www.lauracallaghanillustration.com/"
+          },
+          {
+            "nombre": "Christoph Niemann",
+            "slug": "christoph-niemann",
+            "url": "https://www.christophniemann.com/"
+          },
+          {
+            "nombre": "Martina Paukova",
+            "slug": "martina-paukova",
+            "url": "https://martinapaukova.com/"
+          },
+          {
+            "nombre": "Cachetejack",
+            "slug": "cachetejack",
+            "url": "https://cachetejack.com/"
+          },
+          {
+            "nombre": "Ricardo Cavolo",
+            "slug": "ricardo-cavolo",
+            "url": "https://shop.ricardocavolo.com/es"
+          }
+        ]
+      },
+      {
+        "id": "carteleria",
+        "nombre": "Cartelería",
+        "referentes": [
+          {
+            "nombre": "Paula Scher",
+            "slug": "paula-scher",
+            "url": "https://disenadorasgraficas.com/biografia/paula-scher/"
+          },
+          {
+            "nombre": "Niklaus Troxler",
+            "slug": "niklaus-troxler",
+            "url": "https://www.troxlerart.ch/news"
+          },
+          {
+            "nombre": "Josef Müller-Brockmann",
+            "slug": "josef-muller-brockmann",
+            "url": "https://es.wikipedia.org/wiki/Josef_M%C3%BCller-Brockmann"
+          },
+          {
+            "nombre": "Shigeo Fukuda",
+            "slug": "shigeo-fukuda",
+            "url": "https://es.wikipedia.org/wiki/Shigeo_Fukuda"
+          },
+          {
+            "nombre": "Studio Feixen",
+            "slug": "studio-feixen",
+            "url": "https://www.studiofeixen.ch/"
+          },
+          {
+            "nombre": "Hort",
+            "slug": "hort",
+            "url": "https://www.instagram.com/hortberlin/?hl=es"
+          },
+          {
+            "nombre": "La Boca",
+            "slug": "la-boca",
+            "url": "https://site.laboca.co.uk/"
+          },
+          {
+            "nombre": "Bureau Borsche",
+            "slug": "bureau-borsche",
+            "url": "https://bureauborsche.com/"
+          }
+        ]
+      },
+      {
+        "id": "senaletica",
+        "nombre": "Señalética",
+        "referentes": [
+          {
+            "nombre": "Lance Wyman",
+            "slug": "lance-wyman",
+            "url": "https://www.instagram.com/lancewymannews/?hl=es"
+          },
+          {
+            "nombre": "Margaret Calvert",
+            "slug": "margaret-calvert",
+            "url": "https://disenadorasgraficas.com/biografia/margaret_calvert/"
+          },
+          {
+            "nombre": "Ruedi Baur",
+            "slug": "ruedi-baur",
+            "url": "https://ruedi-vera-baur.eu/fr"
+          },
+          {
+            "nombre": "Pentagram (NYC wayfinding)",
+            "slug": "pentagram",
+            "url": "https://www.pentagram.com/"
+          },
+          {
+            "nombre": "Applied Wayfinding",
+            "slug": "applied-wayfinding",
+            "url": "https://appliedinformation.group/"
+          },
+          {
+            "nombre": "Studio Dumbar",
+            "slug": "studio-dumbar",
+            "url": "https://studiodumbar.com/"
+          },
+          {
+            "nombre": "Mijksenaar",
+            "slug": "mijksenaar",
+            "url": "https://www.mijksenaar.com/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "diseno-digital-interactivo",
+    "categoria": "Diseño Digital e Interactivo",
+    "subcategorias": [
+      {
+        "id": "web-inmersiva",
+        "nombre": "Web inmersiva",
+        "referentes": [
+          {
+            "nombre": "Active Theory",
+            "slug": "active-theory",
+            "url": "https://activetheory.net/"
+          },
+          {
+            "nombre": "Resn",
+            "slug": "resn",
+            "url": "https://resn.co.nz/"
+          },
+          {
+            "nombre": "Immersive Garden",
+            "slug": "immersive-garden",
+            "url": "https://immersive-g.com/"
+          },
+          {
+            "nombre": "Dogstudio",
+            "slug": "dogstudio",
+            "url": "https://dogstudio.co/mx/"
+          },
+          {
+            "nombre": "MediaMonks",
+            "slug": "mediamonks",
+            "url": "https://www.monks.com/es"
+          },
+          {
+            "nombre": "Obys Agency",
+            "slug": "obys-agency",
+            "url": "https://obys.agency/"
+          },
+          {
+            "nombre": "Jam3",
+            "slug": "jam3",
+            "url": "https://www.behance.net/wearejam3?locale=es_ES"
+          }
+        ]
+      },
+      {
+        "id": "interfaces-experimentales",
+        "nombre": "Interfaces experimentales",
+        "referentes": [
+          {
+            "nombre": "Locomotive",
+            "slug": "locomotive",
+            "url": "https://locomotive.ca/en"
+          },
+          {
+            "nombre": "Bruno Simon",
+            "slug": "bruno-simon",
+            "url": "https://bruno-simon.com/"
+          },
+          {
+            "nombre": "Stink Studios",
+            "slug": "stink-studios",
+            "url": "https://www.stinkstudios.com/"
+          },
+          {
+            "nombre": "Anton & Irene",
+            "slug": "anton-and-irene",
+            "url": "https://antonandirene.com/"
+          },
+          {
+            "nombre": "Red Collar",
+            "slug": "red-collar",
+            "url": "https://www.instagram.com/redcollar.co/"
+          },
+          {
+            "nombre": "ToyFight",
+            "slug": "toyfight",
+            "url": "https://toyfight.co/"
+          }
+        ]
+      },
+      {
+        "id": "interaccion-ux",
+        "nombre": "Interacción y experiencia del usuario",
+        "referentes": [
+          {
+            "nombre": "IDEO",
+            "slug": "ideo",
+            "url": "https://www.ideo.com/"
+          },
+          {
+            "nombre": "Frog Design",
+            "slug": "frog-design",
+            "url": "https://www.frog.co/"
+          },
+          {
+            "nombre": "Designit",
+            "slug": "designit",
+            "url": "https://www.designit.com/"
+          },
+          {
+            "nombre": "Ustwo",
+            "slug": "ustwo",
+            "url": "https://ustwo.com/"
+          },
+          {
+            "nombre": "Fantasy Interactive",
+            "slug": "fantasy-interactive",
+            "url": "https://fantasy.co/"
+          },
+          {
+            "nombre": "Clay Agency",
+            "slug": "clay-agency",
+            "url": "https://clay.global/"
+          }
+        ]
+      },
+      {
+        "id": "narrativas-digitales",
+        "nombre": "Narrativas digitales",
+        "referentes": [
+          {
+            "nombre": "Hello Monday",
+            "slug": "hello-monday",
+            "url": "https://hellomonday.com/"
+          },
+          {
+            "nombre": "Resn",
+            "slug": "resn",
+            "url": "https://resn.co.nz/"
+          },
+          {
+            "nombre": "Active Theory",
+            "slug": "active-theory",
+            "url": "https://activetheory.net/"
+          },
+          {
+            "nombre": "MediaMonks",
+            "slug": "mediamonks",
+            "url": "https://www.monks.com/es"
+          },
+          {
+            "nombre": "Makemepulse",
+            "slug": "makemepulse",
+            "url": "https://www.makemepulse.com/"
+          }
+        ]
+      },
+      {
+        "id": "creative-coding-web",
+        "nombre": "Creative coding aplicado a web",
+        "referentes": [
+          {
+            "nombre": "Zach Lieberman",
+            "slug": "zach-lieberman",
+            "url": "https://www.instagram.com/zach.lieberman/?hl=es"
+          },
+          {
+            "nombre": "Tim Rodenbröker",
+            "slug": "tim-rodenbroker",
+            "url": "https://trcc.timrodenbroeker.de/"
+          },
+          {
+            "nombre": "Yuxi Liu (Three.js)",
+            "slug": "yuxi-liu",
+            "url": "https://dcode-network.eu/cohort/yuxi-liu/"
+          },
+          {
+            "nombre": "Ricardo Cabello (Mr.doob – Three.js)",
+            "slug": "ricardo-cabello",
+            "url": "https://ricardocabello.com/"
+          },
+          {
+            "nombre": "Zachary Corzine",
+            "slug": "zachary-corzine",
+            "url": "https://www.zacharycorzine.com/"
+          },
+          {
+            "nombre": "FIELD.IO",
+            "slug": "field-io",
+            "url": "https://field.io/"
+          }
+        ]
+      },
+      {
+        "id": "microinteracciones-motion-ui",
+        "nombre": "Microinteracciones y motion UI",
+        "referentes": [
+          {
+            "nombre": "Cuberto",
+            "slug": "cuberto",
+            "url": "https://cuberto.com/"
+          },
+          {
+            "nombre": "LottieFiles creators",
+            "slug": "lottiefiles-creators",
+            "url": "https://lottiefiles.com/es/lottie-creator"
+          },
+          {
+            "nombre": "Ustwo",
+            "slug": "ustwo",
+            "url": "https://ustwo.com/"
+          },
+          {
+            "nombre": "Illo Studio",
+            "slug": "illo-studio",
+            "url": "https://illo.tv/"
+          },
+          {
+            "nombre": "Ordinary Folk",
+            "slug": "ordinary-folk",
+            "url": "https://www.ordinaryfolk.co/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "motion-video",
+    "categoria": "Motion y Video",
+    "subcategorias": [
+      {
+        "id": "motion-grafico",
+        "nombre": "Motion gráfico",
+        "referentes": [
+          {
+            "nombre": "Buck",
+            "slug": "buck",
+            "url": "https://buck.co/"
+          },
+          {
+            "nombre": "Giant Ant",
+            "slug": "giant-ant",
+            "url": "https://www.giantant.ca/"
+          },
+          {
+            "nombre": "Ordinary Folk",
+            "slug": "ordinary-folk",
+            "url": "https://www.ordinaryfolk.co/"
+          },
+          {
+            "nombre": "Illo Studio",
+            "slug": "illo-studio",
+            "url": "https://illo.tv/"
+          },
+          {
+            "nombre": "Cub Studio",
+            "slug": "cub-studio",
+            "url": "https://www.cubstudio.com/"
+          }
+        ]
+      },
+      {
+        "id": "animacion-2d",
+        "nombre": "Animación 2D",
+        "referentes": [
+          {
+            "nombre": "Kurzgesagt",
+            "slug": "kurzgesagt",
+            "url": "https://kurzgesagt.org/"
+          },
+          {
+            "nombre": "Henrique Barone",
+            "slug": "henrique-barone",
+            "url": "https://www.henriquebarone.com/"
+          },
+          {
+            "nombre": "Bee Grandinetti",
+            "slug": "bee-grandinetti",
+            "url": "https://www.beegrandinetti.com/"
+          },
+          {
+            "nombre": "Oddfellows",
+            "slug": "oddfellows",
+            "url": "https://oddfellows.tv/"
+          },
+          {
+            "nombre": "Cartoon Saloon",
+            "slug": "cartoon-saloon",
+            "url": "https://www.cartoonsaloon.ie/"
+          }
+        ]
+      },
+      {
+        "id": "animacion-3d",
+        "nombre": "Animación 3D",
+        "referentes": [
+          {
+            "nombre": "ManvsMachine",
+            "slug": "manvsmachine",
+            "url": "https://mvsm.com/"
+          },
+          {
+            "nombre": "FutureDeluxe",
+            "slug": "futuredeluxe",
+            "url": "https://futuredeluxe.com/"
+          },
+          {
+            "nombre": "Tendril",
+            "slug": "tendril",
+            "url": "https://tendril.studio/"
+          },
+          {
+            "nombre": "Builders Club",
+            "slug": "builders-club",
+            "url": "https://builders-club.com/"
+          },
+          {
+            "nombre": "Ditroit",
+            "slug": "ditroit",
+            "url": "https://ditroit.it/"
+          }
+        ]
+      },
+      {
+        "id": "motion-narrativo",
+        "nombre": "Motion narrativo",
+        "referentes": [
+          {
+            "nombre": "Giant Ant",
+            "slug": "giant-ant",
+            "url": "https://www.giantant.ca/"
+          },
+          {
+            "nombre": "Oddfellows",
+            "slug": "oddfellows",
+            "url": "https://oddfellows.tv/"
+          },
+          {
+            "nombre": "Cub Studio",
+            "slug": "cub-studio",
+            "url": "https://www.cubstudio.com/"
+          },
+          {
+            "nombre": "Illo Studio",
+            "slug": "illo-studio",
+            "url": "https://illo.tv/"
+          },
+          {
+            "nombre": "Golden Wolf",
+            "slug": "golden-wolf",
+            "url": "https://www.goldenwolf.tv/"
+          }
+        ]
+      },
+      {
+        "id": "motion-experimental",
+        "nombre": "Motion experimental",
+        "referentes": [
+          {
+            "nombre": "Universal Everything",
+            "slug": "universal-everything",
+            "url": "https://www.universaleverything.com/"
+          },
+          {
+            "nombre": "FutureDeluxe",
+            "slug": "futuredeluxe",
+            "url": "https://futuredeluxe.com/"
+          },
+          {
+            "nombre": "ManvsMachine",
+            "slug": "manvsmachine",
+            "url": "https://mvsm.com/"
+          },
+          {
+            "nombre": "Maxim Zhestkov",
+            "slug": "maxim-zhestkov",
+            "url": "https://zhestkov.studio/"
+          },
+          {
+            "nombre": "Yonk",
+            "slug": "yonk",
+            "url": "https://www.yonk.online/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3d-cgi",
+    "categoria": "3D y CGI",
+    "subcategorias": [
+      {
+        "id": "modelado-3d",
+        "nombre": "Modelado 3D",
+        "referentes": [
+          {
+            "nombre": "Six N. Five",
+            "slug": "six-n-five",
+            "url": "https://sixnfive.com/"
+          },
+          {
+            "nombre": "Andrés Reisinger",
+            "slug": "andres-reisinger",
+            "url": "https://reisinger.studio/"
+          },
+          {
+            "nombre": "Zigor Samaniego",
+            "slug": "zigor-samaniego",
+            "url": "https://zigorsamaniego.net/"
+          },
+          {
+            "nombre": "Ben Marriott",
+            "slug": "ben-marriott",
+            "url": "http://zigorsamaniego.net/"
+          },
+          {
+            "nombre": "Yimbo Escárrega",
+            "slug": "yimbo-escarrega",
+            "url": "https://www.instagram.com/yimbo8/"
+          }
+        ]
+      },
+      {
+        "id": "render-materiales",
+        "nombre": "Render y materiales",
+        "referentes": [
+          {
+            "nombre": "Peter Tarka",
+            "slug": "peter-tarka",
+            "url": "https://petertarka.com/"
+          },
+          {
+            "nombre": "ManvsMachine",
+            "slug": "manvsmachine",
+            "url": "https://mvsm.com/"
+          },
+          {
+            "nombre": "Tendril",
+            "slug": "tendril",
+            "url": "https://tendril.studio/"
+          },
+          {
+            "nombre": "Ditroit",
+            "slug": "ditroit",
+            "url": "https://ditroit.it/"
+          },
+          {
+            "nombre": "Builders Club",
+            "slug": "builders-club",
+            "url": "https://builders-club.com/"
+          }
+        ]
+      },
+      {
+        "id": "simulacion-efectos",
+        "nombre": "Simulación y efectos",
+        "referentes": [
+          {
+            "nombre": "FutureDeluxe",
+            "slug": "futuredeluxe",
+            "url": "https://futuredeluxe.com/"
+          },
+          {
+            "nombre": "Universal Everything",
+            "slug": "universal-everything",
+            "url": "https://www.universaleverything.com/"
+          },
+          {
+            "nombre": "Maxim Zhestkov",
+            "slug": "maxim-zhestkov",
+            "url": "https://zhestkov.studio/"
+          },
+          {
+            "nombre": "Refik Anadol",
+            "slug": "refik-anadol",
+            "url": "https://refikanadol.com/"
+          },
+          {
+            "nombre": "Yonk",
+            "slug": "yonk",
+            "url": "https://www.yonk.online/"
+          }
+        ]
+      },
+      {
+        "id": "3d-narrativo",
+        "nombre": "3D narrativo",
+        "referentes": [
+          {
+            "nombre": "Giant Ant",
+            "slug": "giant-ant",
+            "url": "https://www.giantant.ca/"
+          },
+          {
+            "nombre": "Oddfellows",
+            "slug": "oddfellows",
+            "url": "https://oddfellows.tv/"
+          },
+          {
+            "nombre": "Illo Studio",
+            "slug": "illo-studio",
+            "url": "https://illo.tv/"
+          },
+          {
+            "nombre": "Buck",
+            "slug": "buck",
+            "url": "https://buck.co/"
+          },
+          {
+            "nombre": "Golden Wolf",
+            "slug": "golden-wolf",
+            "url": "https://www.goldenwolf.tv/"
+          }
+        ]
+      },
+      {
+        "id": "3d-experimental",
+        "nombre": "3D experimental",
+        "referentes": [
+          {
+            "nombre": "Universal Everything",
+            "slug": "universal-everything",
+            "url": "https://www.universaleverything.com/"
+          },
+          {
+            "nombre": "Maxim Zhestkov",
+            "slug": "maxim-zhestkov",
+            "url": "https://zhestkov.studio/"
+          },
+          {
+            "nombre": "Extraweg",
+            "slug": "extraweg",
+            "url": "https://extraweg.com/"
+          },
+          {
+            "nombre": "Wang & Söderström",
+            "slug": "wang-and-soderstrom",
+            "url": "https://wangsoderstrom.com/"
+          },
+          {
+            "nombre": "TeamLab",
+            "slug": "teamlab",
+            "url": "https://www.teamlab.art/es/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "diseno-industrial-producto",
+    "categoria": "Diseño Industrial y de Producto",
+    "subcategorias": [
+      {
+        "id": "producto-consumo",
+        "nombre": "Diseño de producto de consumo",
+        "referentes": [
+          {
+            "nombre": "Dieter Rams (Braun)",
+            "slug": "dieter-rams",
+            "url": "https://www.braundesign.es/"
+          },
+          {
+            "nombre": "Naoto Fukasawa",
+            "slug": "naoto-fukasawa",
+            "url": "https://naotofukasawa.com/"
+          },
+          {
+            "nombre": "Jasper Morrison",
+            "slug": "jasper-morrison",
+            "url": "https://jaspermorrison.com/"
+          },
+          {
+            "nombre": "Muji Design Team",
+            "slug": "muji-design-team",
+            "url": "https://www.ryohin-keikaku.jp/en/business/space-design-muji"
+          },
+          {
+            "nombre": "Teenage Engineering",
+            "slug": "teenage-engineering",
+            "url": "https://teenage.engineering/"
+          },
+          {
+            "nombre": "Nothing (Carl Pei / Studio)",
+            "slug": "nothing",
+            "url": "https://nothingstudio.es/"
+          },
+          {
+            "nombre": "Hay Design",
+            "slug": "hay-design",
+            "url": "https://www.hay.com/"
+          },
+          {
+            "nombre": "Konstantin Grcic",
+            "slug": "konstantin-grcic",
+            "url": "https://konstantin-grcic.com/"
+          }
+        ]
+      },
+      {
+        "id": "diseno-mobiliario",
+        "nombre": "Diseño de mobiliario",
+        "referentes": [
+          {
+            "nombre": "Charles & Ray Eames",
+            "slug": "charles-and-ray-eames",
+            "url": "https://www.eamesoffice.com/"
+          },
+          {
+            "nombre": "Ronan & Erwan Bouroullec",
+            "slug": "ronan-and-erwan-bouroullec",
+            "url": "https://www.bouroullec.com/"
+          },
+          {
+            "nombre": "Patricia Urquiola",
+            "slug": "patricia-urquiola",
+            "url": "https://patriciaurquiola.com/"
+          },
+          {
+            "nombre": "Nendo (Oki Sato)",
+            "slug": "nendo",
+            "url": "https://www.nendo.jp/"
+          },
+          {
+            "nombre": "Hella Jongerius",
+            "slug": "hella-jongerius",
+            "url": "https://jongeriuslab.com/"
+          },
+          {
+            "nombre": "Faye Toogood",
+            "slug": "faye-toogood",
+            "url": "https://www.fayetoogood.com/"
+          },
+          {
+            "nombre": "Marc Newson",
+            "slug": "marc-newson",
+            "url": "https://marc-newson.com/"
+          },
+          {
+            "nombre": "Snøhetta",
+            "slug": "snohetta",
+            "url": "chttps://www.snohetta.com/"
+          }
+        ]
+      },
+      {
+        "id": "transporte-movilidad",
+        "nombre": "Diseño de transporte y movilidad",
+        "referentes": [
+          {
+            "nombre": "Chris Bangle (BMW)",
+            "slug": "chris-bangle",
+            "url": "https://www.chrisbangleassociates.com/"
+          },
+          {
+            "nombre": "Jony Ive (LoveFrom)",
+            "slug": "jony-ive",
+            "url": "https://www.lovefrom.com/"
+          },
+          {
+            "nombre": "Pininfarina",
+            "slug": "pininfarina",
+            "url": "https://pininfarina.it/"
+          },
+          {
+            "nombre": "Layer Design (Benjamin Hubert)",
+            "slug": "layer-design",
+            "url": "https://layerdesign.com/"
+          },
+          {
+            "nombre": "Deepdesign",
+            "slug": "deepdesign",
+            "url": "https://www.deepdesign.it/"
+          },
+          {
+            "nombre": "PriestmanGoode",
+            "slug": "priestmangoode",
+            "url": "https://www.priestmangoode.com/"
+          },
+          {
+            "nombre": "Arrival Design Studio",
+            "slug": "arrival-design-studio",
+            "url": "https://www.arrivaldesign.co.uk/"
+          }
+        ]
+      },
+      {
+        "id": "herramientas-sistemas",
+        "nombre": "Diseño de herramientas y sistemas",
+        "referentes": [
+          {
+            "nombre": "IDEO",
+            "slug": "ideo",
+            "url": "https://www.ideo.com/"
+          },
+          {
+            "nombre": "Frog Design",
+            "slug": "frog-design",
+            "url": "https://www.frog.co/"
+          },
+          {
+            "nombre": "Fuseproject (Yves Béhar)",
+            "slug": "fuseproject",
+            "url": "https://fuseproject.com/"
+          },
+          {
+            "nombre": "Layer Design",
+            "slug": "layer-design",
+            "url": "https://layerdesign.com/"
+          },
+          {
+            "nombre": "PriestmanGoode",
+            "slug": "priestmangoode",
+            "url": "https://www.priestmangoode.com/"
+          },
+          {
+            "nombre": "Ammunition Group",
+            "slug": "ammunition-group",
+            "url": "https://ammunitiongroup.com/"
+          }
+        ]
+      },
+      {
+        "id": "diseno-sostenible",
+        "nombre": "Diseño sostenible e innovación material",
+        "referentes": [
+          {
+            "nombre": "Studio Formafantasma",
+            "slug": "studio-formafantasma",
+            "url": "https://formafantasma.com/"
+          },
+          {
+            "nombre": "Neri Oxman (MIT Media Lab)",
+            "slug": "neri-oxman",
+            "url": "https://www.media.mit.edu/people/neri/overview/"
+          },
+          {
+            "nombre": "Max Lamb",
+            "slug": "max-lamb",
+            "url": "https://maxlamb.org/"
+          },
+          {
+            "nombre": "Fernando Laposse",
+            "slug": "fernando-laposse",
+            "url": "https://www.fernandolaposse.com/"
+          },
+          {
+            "nombre": "Superflux",
+            "slug": "superflux",
+            "url": "https://superflux.in/#"
+          },
+          {
+            "nombre": "Studio Bitonti",
+            "slug": "studio-bitonti",
+            "url": "https://www.studiobitonti.com/"
+          }
+        ]
+      },
+      {
+        "id": "diseno-experimental-conceptual",
+        "nombre": "Diseño experimental y conceptual",
+        "referentes": [
+          {
+            "nombre": "Martino Gamper",
+            "slug": "martino-gamper",
+            "url": "https://www.martinogamper.com/"
+          },
+          {
+            "nombre": "Front Design",
+            "slug": "front-design",
+            "url": "http://www.frontdesign.se/"
+          },
+          {
+            "nombre": "Studio Drift",
+            "slug": "studio-drift",
+            "url": "https://studiodrift.com/"
+          },
+          {
+            "nombre": "Joris Laarman Lab",
+            "slug": "joris-laarman-lab",
+            "url": "https://www.jorislaarman.com/"
+          },
+          {
+            "nombre": "Maarten Baas",
+            "slug": "maarten-baas",
+            "url": "https://maartenbaas.com/"
+          },
+          {
+            "nombre": "Random International",
+            "slug": "random-international",
+            "url": "https://www.random-international.com/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "diseno-experiencias-servicios",
+    "categoria": "Diseño de Experiencias y Servicios",
+    "subcategorias": [
+      {
+        "id": "service-design",
+        "nombre": "Service design",
+        "referentes": [
+          {
+            "nombre": "Livework Studio",
+            "slug": "livework-studio",
+            "url": "https://liveworkstudio.com/"
+          },
+          {
+            "nombre": "Engine Service Design",
+            "slug": "engine-service-design",
+            "url": "https://enginecxdesign.com/"
+          },
+          {
+            "nombre": "IDEO",
+            "slug": "ideo",
+            "url": "https://www.ideo.com/"
+          },
+          {
+            "nombre": "Fjord (Accenture Song)",
+            "slug": "fjord",
+            "url": "https://www.accenture.com/us-en"
+          },
+          {
+            "nombre": "Designit",
+            "slug": "designit",
+            "url": "https://www.designit.com/"
+          },
+          {
+            "nombre": "Koos Service Design",
+            "slug": "koos-service-design",
+            "url": "https://koos.agency/service-design-services/"
+          },
+          {
+            "nombre": "Snook",
+            "slug": "snook",
+            "url": "https://www.snookstudio.co.uk/"
+          },
+          {
+            "nombre": "ThinkPublic",
+            "slug": "thinkpublic",
+            "url": "https://www.thinkpublic.com/"
+          }
+        ]
+      },
+      {
+        "id": "experiencias-fisicas",
+        "nombre": "Diseño de experiencias físicas",
+        "referentes": [
+          {
+            "nombre": "ESI Design",
+            "slug": "esi-design",
+            "url": "https://esi.nbbj.com/"
+          },
+          {
+            "nombre": "Moment Design",
+            "slug": "moment-design",
+            "url": "http://www.moment-design.com/"
+          },
+          {
+            "nombre": "Local Projects",
+            "slug": "local-projects",
+            "url": "https://localprojects.com/"
+          },
+          {
+            "nombre": "C2 Montreal",
+            "slug": "c2-montreal",
+            "url": "https://www.instagram.com/c2montreal/?hl=es"
+          },
+          {
+            "nombre": "Superflux",
+            "slug": "superflux",
+            "url": "https://superflux.in/#"
+          },
+          {
+            "nombre": "Tellart",
+            "slug": "tellart",
+            "url": "https://www.tellart.com/"
+          }
+        ]
+      },
+      {
+        "id": "retail-experiencia-marca",
+        "nombre": "Retail y experiencia de marca",
+        "referentes": [
+          {
+            "nombre": "Dalziel & Pow",
+            "slug": "dalziel-and-pow",
+            "url": "https://www.dalziel-pow.com/"
+          },
+          {
+            "nombre": "Brinkworth",
+            "slug": "brinkworth",
+            "url": "https://brinkworth.com/"
+          },
+          {
+            "nombre": "Green Room Design",
+            "slug": "green-room-design",
+            "url": "https://www.greenroomdesignstudio.com/"
+          },
+          {
+            "nombre": "Virgile & Partners",
+            "slug": "virgile-and-partners",
+            "url": "https://www.virgileandpartners.com/"
+          }
+        ]
+      },
+      {
+        "id": "salud-sector-publico",
+        "nombre": "Experiencia en salud y sector público",
+        "referentes": [
+          {
+            "nombre": "Participle",
+            "slug": "participle",
+            "url": "https://www.particlestudio.com/design"
+          },
+          {
+            "nombre": "Uscreates",
+            "slug": "uscreates",
+            "url": "https://www.instagram.com/uscreates/"
+          },
+          {
+            "nombre": "Snook",
+            "slug": "snook",
+            "url": "https://snook-design.com/"
+          },
+          {
+            "nombre": "Futuregov",
+            "slug": "futuregov",
+            "url": "https://futuregov.org/"
+          },
+          {
+            "nombre": "Healthwise Design",
+            "slug": "healthwise-design",
+            "url": "https://health-wise-living.com/"
+          }
+        ]
+      },
+      {
+        "id": "viaje-hosteleria",
+        "nombre": "Diseño de viaje y hostelería",
+        "referentes": [
+          {
+            "nombre": "WATG",
+            "slug": "watg",
+            "url": "https://www.watg.com/"
+          },
+          {
+            "nombre": "Areen Design",
+            "slug": "areen-design",
+            "url": "https://www.areen.com/"
+          },
+          {
+            "nombre": "Wilson Associates",
+            "slug": "wilson-associates",
+            "url": "https://www.wilson-associates.net/"
+          },
+          {
+            "nombre": "Yabu Pushelberg",
+            "slug": "yabu-pushelberg",
+            "url": "https://www.yabupushelberg.com/"
+          },
+          {
+            "nombre": "AvroKO",
+            "slug": "avroko",
+            "url": "https://www.avroko.com/"
+          }
+        ]
+      },
+      {
+        "id": "investigacion-codiseno",
+        "nombre": "Investigación y co-diseño",
+        "referentes": [
+          {
+            "nombre": "Copenhagen Institute of Interaction Design (CIID)",
+            "slug": "copenhagen-institute-of-interaction-design",
+            "url": "https://www.ciid.dk/"
+          },
+          {
+            "nombre": "ReD Associates",
+            "slug": "red-associates",
+            "url": "https://www.redassociates.com/"
+          },
+          {
+            "nombre": "Stby",
+            "slug": "stby",
+            "url": "https://www.stby.eu/"
+          },
+          {
+            "nombre": "Experientia",
+            "slug": "experientia",
+            "url": "https://experientiagroup.com/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "research-strategy",
+    "categoria": "Research & Strategy",
+    "subcategorias": [
+      {
+        "id": "design-research",
+        "nombre": "Design research",
+        "referentes": [
+          {
+            "nombre": "ReD Associates",
+            "slug": "red-associates",
+            "url": "https://www.redassociates.com/"
+          },
+          {
+            "nombre": "STBY",
+            "slug": "stby",
+            "url": "https://www.stby.eu/"
+          },
+          {
+            "nombre": "Experientia",
+            "slug": "experientia",
+            "url": "https://experientiagroup.com/"
+          },
+          {
+            "nombre": "Idean (Capgemini)",
+            "slug": "idean",
+            "url": "https://www.capgemini.com/es-es/"
+          },
+          {
+            "nombre": "Fjord",
+            "slug": "fjord-strategy",
+            "url": "https://www.instagram.com/fjord.sthlm/"
+          },
+          {
+            "nombre": "Jan Chipchase (Studio D)",
+            "slug": "jan-chipchase",
+            "url": "https://studiodradiodurans.com/"
+          },
+          {
+            "nombre": "Stripe Partners",
+            "slug": "stripe-partners",
+            "url": "https://stripepartners.com/"
+          }
+        ]
+      },
+      {
+        "id": "estrategia-marca",
+        "nombre": "Estrategia de marca",
+        "referentes": [
+          {
+            "nombre": "Wolff Olins",
+            "slug": "wolff-olins",
+            "url": "https://wolffolins.com/"
+          },
+          {
+            "nombre": "Landor & Fitch",
+            "slug": "landor-and-fitch",
+            "url": "https://landor.com/"
+          },
+          {
+            "nombre": "Interbrand",
+            "slug": "interbrand",
+            "url": "https://interbrand.com/"
+          },
+          {
+            "nombre": "Prophet",
+            "slug": "prophet",
+            "url": "v¡https://prophet.com/"
+          },
+          {
+            "nombre": "COLLINS",
+            "slug": "collins",
+            "url": "https://wearecollins.com/"
+          },
+          {
+            "nombre": "Siegel+Gale",
+            "slug": "siegel-gale",
+            "url": "https://www.siegelgale.com/"
+          }
+        ]
+      },
+      {
+        "id": "tendencias-prospectiva",
+        "nombre": "Tendencias y prospectiva",
+        "referentes": [
+          {
+            "nombre": "WGSN",
+            "slug": "wgsn",
+            "url": "https://www.wgsn.com/es"
+          },
+          {
+            "nombre": "Stylus",
+            "slug": "stylus",
+            "url": "https://stylus.com/"
+          },
+          {
+            "nombre": "Trend Union (Li Edelkoort)",
+            "slug": "trend-union",
+            "url": "https://www.edelkoort.us/"
+          },
+          {
+            "nombre": "The Future Laboratory",
+            "slug": "the-future-laboratory",
+            "url": "https://www.thefuturelaboratory.com/"
+          },
+          {
+            "nombre": "Copenhagen Institute of Interaction Design",
+            "slug": "copenhagen-institute-of-interaction-design",
+            "url": "https://www.ciid.dk/"
+          }
+        ]
+      },
+      {
+        "id": "ux-research",
+        "nombre": "UX Research",
+        "referentes": [
+          {
+            "nombre": "Nielsen Norman Group",
+            "slug": "nielsen-norman-group",
+            "url": "https://www.nngroup.com/"
+          },
+          {
+            "nombre": "Baymard Institute",
+            "slug": "baymard-institute",
+            "url": "https://baymard.com/"
+          },
+          {
+            "nombre": "Sara Wachter-Boettcher",
+            "slug": "sara-wachter-boettcher",
+            "url": "https://www.sarawb.com/"
+          },
+          {
+            "nombre": "Erika Hall",
+            "slug": "erika-hall",
+            "url": "https://medium.com/@mulegirl"
+          },
+          {
+            "nombre": "Cyd Harrell",
+            "slug": "cyd-harrell",
+            "url": "https://cydharrell.wpcomstaging.com/"
+          },
+          {
+            "nombre": "UserTesting",
+            "slug": "usertesting",
+            "url": "https://www.usertesting.com/"
+          }
+        ]
+      },
+      {
+        "id": "design-thinking-metodologia",
+        "nombre": "Design thinking y metodología",
+        "referentes": [
+          {
+            "nombre": "IDEO (d.school)",
+            "slug": "ideo-d-thinking",
+            "url": "https://designthinking.ideo.com/"
+          },
+          {
+            "nombre": "LUMA Institute",
+            "slug": "luma-institute",
+            "url": "https://www.luma-institute.com/"
+          },
+          {
+            "nombre": "Doblin (Deloitte)",
+            "slug": "doblin",
+            "url": "https://www.deloittedigital.com/es/es.html"
+          },
+          {
+            "nombre": "Fjord",
+            "slug": "fjord",
+            "url": "https://www.accenture.com/us-en"
+          },
+          {
+            "nombre": "Frog Design",
+            "slug": "frog-design",
+            "url": "https://www.frog.co/"
+          }
+        ]
+      },
+      {
+        "id": "diseno-especulativo",
+        "nombre": "Sistemas y diseño especulativo",
+        "referentes": [
+          {
+            "nombre": "Dunne & Raby",
+            "slug": "dunne-and-raby",
+            "url": "https://dunneandraby.co.uk/"
+          },
+          {
+            "nombre": "Superflux",
+            "slug": "superflux",
+            "url": "https://superflux.in/#"
+          },
+          {
+            "nombre": "Near Future Laboratory",
+            "slug": "near-future-laboratory",
+            "url": "https://nearfuturelaboratory.com/"
+          },
+          {
+            "nombre": "Changeist",
+            "slug": "changeist",
+            "url": "https://es.changeist.com/"
+          },
+          {
+            "nombre": "Dark Matter Laboratories",
+            "slug": "dark-matter-laboratories",
+            "url": "https://darkmatterlabs.org/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "diseno-moda-textil",
+    "categoria": "Diseño de Moda y Textil",
+    "subcategorias": [
+      {
+        "id": "moda-conceptual",
+        "nombre": "Diseño de moda conceptual",
+        "referentes": [
+          {
+            "nombre": "Rei Kawakubo (Comme des Garçons)",
+            "slug": "rei-kawakubo",
+            "url": "https://www.comme-des-garcons.com/"
+          },
+          {
+            "nombre": "Yohji Yamamoto",
+            "slug": "yohji-yamamoto",
+            "url": "https://theshopyohjiyamamoto.com/es"
+          },
+          {
+            "nombre": "Martin Margiela",
+            "slug": "martin-margiela",
+            "url": "https://www.maisonmargiela.com/es-es/"
+          },
+          {
+            "nombre": "Iris van Herpen",
+            "slug": "iris-van-herpen",
+            "url": "https://www.irisvanherpen.com/"
+          },
+          {
+            "nombre": "Walter Van Beirendonck",
+            "slug": "walter-van-beirendonck",
+            "url": "https://www.instagram.com/waltervanbeirendonckofficial/?hl=es"
+          },
+          {
+            "nombre": "Rick Owens",
+            "slug": "rick-owens",
+            "url": "https://www.rickowens.eu/"
+          },
+          {
+            "nombre": "Vivienne Westwood",
+            "slug": "vivienne-westwood",
+            "url": "https://www.viviennewestwood.com/en-es/home/"
+          }
+        ]
+      },
+      {
+        "id": "diseno-textil-tejidos",
+        "nombre": "Diseño textil y de tejidos",
+        "referentes": [
+          {
+            "nombre": "Nuno Corporation (Reiko Sudo)",
+            "slug": "nuno-corporation",
+            "url": "https://www.nuno.com/"
+          },
+          {
+            "nombre": "Kvadrat",
+            "slug": "kvadrat",
+            "url": "https://www.kvadrat.dk/en"
+          },
+          {
+            "nombre": "Maharam",
+            "slug": "maharam",
+            "url": "https://www.maharam.com/"
+          },
+          {
+            "nombre": "Elisa Strozyk",
+            "slug": "elisa-strozyk",
+            "url": "https://www.elisastrozyk.com/"
+          },
+          {
+            "nombre": "Claudy Jongstra",
+            "slug": "claudy-jongstra",
+            "url": "https://claudyjongstra.com/"
+          }
+        ]
+      },
+      {
+        "id": "moda-sostenible",
+        "nombre": "Moda sostenible y nuevos materiales",
+        "referentes": [
+          {
+            "nombre": "Stella McCartney",
+            "slug": "stella-mccartney",
+            "url": "https://www.stellamccartney.com/es/es/"
+          },
+          {
+            "nombre": "Eileen Fisher",
+            "slug": "eileen-fisher",
+            "url": "https://www.eileenfisher.com/"
+          },
+          {
+            "nombre": "Piñatex (Ananas Anam)",
+            "slug": "pinatex",
+            "url": "https://www.ananas-anam.com/"
+          },
+          {
+            "nombre": "Bolt",
+            "slug": "bolt",
+            "url": "https://www.instagram.com/bolt_bslk/"
+          },
+          {
+            "nombre": "Colorifix",
+            "slug": "colorifix",
+            "url": "https://www.colorifix.com/"
+          },
+          {
+            "nombre": "Pangaia",
+            "slug": "pangaia",
+            "url": "https://pangaia.com/"
+          }
+        ]
+      },
+      {
+        "id": "direccion-creativa-moda",
+        "nombre": "Dirección creativa de moda",
+        "referentes": [
+          {
+            "nombre": "Nick Knight (SHOWstudio)",
+            "slug": "nick-knight",
+            "url": "https://www.showstudio.com/"
+          },
+          {
+            "nombre": "Fabien Baron",
+            "slug": "fabien-baron",
+            "url": "https://www.baron-baron.com/"
+          },
+          {
+            "nombre": "Grace Wales Bonner",
+            "slug": "grace-wales-bonner",
+            "url": "https://walesbonner.com/"
+          },
+          {
+            "nombre": "Samuel Ross (A-Cold-Wall)",
+            "slug": "samuel-ross",
+            "url": "https://www.a-cold-wall.com/"
+          },
+          {
+            "nombre": "Marine Serre",
+            "slug": "marine-serre",
+            "url": "https://www.marineserre.com/en"
+          },
+          {
+            "nombre": "Phoebe Philo",
+            "slug": "phoebe-philo",
+            "url": "https://www.phoebephilo.com/en-eu"
+          }
+        ]
+      },
+      {
+        "id": "moda-tecnologia",
+        "nombre": "Moda y tecnología",
+        "referentes": [
+          {
+            "nombre": "Anouk Wipprecht",
+            "slug": "anouk-wipprecht",
+            "url": "https://www.anoukwipprecht.nl/"
+          },
+          {
+            "nombre": "Nervous System",
+            "slug": "nervous-system",
+            "url": "https://n-e-r-v-o-u-s.com/"
+          },
+          {
+            "nombre": "Borre Akkersdijk (BB.Suit)",
+            "slug": "borre-akkersdijk",
+            "url": "https://byborre.com/"
+          },
+          {
+            "nombre": "The Fabricant",
+            "slug": "the-fabricant",
+            "url": "https://www.thefabricant.com/"
+          },
+          {
+            "nombre": "XR Couture",
+            "slug": "xr-couture",
+            "url": "https://xrcouture.com/"
+          },
+          {
+            "nombre": "Auroboros",
+            "slug": "auroboros",
+            "url": "https://www.instagram.com/auro.boros/?hl=es"
+          }
+        ]
+      },
+      {
+        "id": "estampado-pattern",
+        "nombre": "Estampado y pattern design",
+        "referentes": [
+          {
+            "nombre": "Marimekko Design Team",
+            "slug": "marimekko-design-team",
+            "url": "https://www.instagram.com/marimekko/"
+          },
+          {
+            "nombre": "Orla Kiely",
+            "slug": "orla-kiely",
+            "url": "https://orlakiely.com/en-eu"
+          },
+          {
+            "nombre": "Josef Frank (Svenskt Tenn)",
+            "slug": "josef-frank",
+            "url": "https://www.svenskttenn.com/es/en/range/designers/josef-frank/"
+          },
+          {
+            "nombre": "Timorous Beasties",
+            "slug": "timorous-beasties",
+            "url": "https://www.timorousbeasties.com/"
+          },
+          {
+            "nombre": "Camille Walala",
+            "slug": "camille-walala",
+            "url": "https://www.camillewalala.com/"
+          },
+          {
+            "nombre": "Pattern People Studio",
+            "slug": "pattern-people-studio",
+            "url": "https://www.instagram.com/patternpeople/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "diseno-espacial-ambiental",
+    "categoria": "Diseño Espacial y Ambiental",
+    "subcategorias": [
+      {
+        "id": "arquitectura-interiores",
+        "nombre": "Arquitectura de interiores",
+        "referentes": [
+          {
+            "nombre": "India Mahdavi",
+            "slug": "india-mahdavi",
+            "url": "https://india-mahdavi.com/en/home"
+          },
+          {
+            "nombre": "Ilse Crawford (Studioilse)",
+            "slug": "ilse-crawford",
+            "url": "https://www.studioilse.com/"
+          },
+          {
+            "nombre": "Neri & Hu",
+            "slug": "neri-and-hu",
+            "url": "https://www.neriandhu.com/en"
+          },
+          {
+            "nombre": "Studio Ko",
+            "slug": "studio-ko",
+            "url": "https://www.studioko.fr/"
+          },
+          {
+            "nombre": "Vincenzo De Cotiis",
+            "slug": "vincenzo-de-cotiis",
+            "url": "https://www.decotiis.it/"
+          },
+          {
+            "nombre": "Kelly Wearstler",
+            "slug": "kelly-wearstler",
+            "url": "https://www.kellywearstler.com/"
+          },
+          {
+            "nombre": "Doriana & Massimiliano Fuksas",
+            "slug": "doriana-and-massimiliano-fuksas",
+            "url": "https://fuksas.com/"
+          }
+        ]
+      },
+      {
+        "id": "exposiciones-museos",
+        "nombre": "Diseño de exposiciones y museums",
+        "referentes": [
+          {
+            "nombre": "Local Projects",
+            "slug": "local-projects",
+            "url": "https://localprojects.com/"
+          },
+          {
+            "nombre": "Casson Mann",
+            "slug": "casson-mann",
+            "url": "https://www.cassonmann.com/"
+          },
+          {
+            "nombre": "Ralph Appelbaum Associates",
+            "slug": "ralph-appelbaum-associates",
+            "url": "https://raai.com/"
+          },
+          {
+            "nombre": "Atelier Brückner",
+            "slug": "atelier-bruckner",
+            "url": "https://www.atelier-brueckner.com/en"
+          },
+          {
+            "nombre": "Coordination Asia",
+            "slug": "coordination-asia",
+            "url": "https://coordination.asia/"
+          },
+          {
+            "nombre": "UNStudio",
+            "slug": "unstudio",
+            "url": "https://www.unstudio.com/"
+          }
+        ]
+      },
+      {
+        "id": "retail-espacios-comerciales",
+        "nombre": "Diseño de retail y espacios comerciales",
+        "referentes": [
+          {
+            "nombre": "Snøhetta",
+            "slug": "snohetta",
+            "url": "https://www.snohetta.com/"
+          },
+          {
+            "nombre": "Brinkworth",
+            "slug": "brinkworth",
+            "url": "https://www.instagram.com/brinkworthdesign/?hl=es"
+          },
+          {
+            "nombre": "Gensler",
+            "slug": "gensler",
+            "url": "https://www.gensler.com/"
+          },
+          {
+            "nombre": "Checkland Kindleysides",
+            "slug": "checkland-kindleysides",
+            "url": "https://www.checklandkindleysides.com/"
+          },
+          {
+            "nombre": "Dalziel & Pow",
+            "slug": "dalziel-and-pow",
+            "url": "https://www.dalziel-pow.com/"
+          },
+          {
+            "nombre": "UNStudio",
+            "slug": "unstudio",
+            "url": "https://www.unstudio.com/"
+          }
+        ]
+      },
+      {
+        "id": "diseno-urbano-espacio-publico",
+        "nombre": "Diseño urbano y espacio público",
+        "referentes": [
+          {
+            "nombre": "Gehl Architects",
+            "slug": "gehl-architects",
+            "url": "https://www.gehlpeople.com/"
+          },
+          {
+            "nombre": "WXY Architecture + Urban Design",
+            "slug": "wxy-architecture-urban-design",
+            "url": "https://www.wxystudio.com/"
+          },
+          {
+            "nombre": "Snøhetta",
+            "slug": "snohetta",
+            "url": "https://www.snohetta.com/"
+          },
+          {
+            "nombre": "Gustafson Porter + Bowman",
+            "slug": "gustafson-porter-bowman",
+            "url": "https://www.gp-b.com/"
+          },
+          {
+            "nombre": "Studio Gang",
+            "slug": "studio-gang",
+            "url": "https://studiogang.com/"
+          },
+          {
+            "nombre": "West 8",
+            "slug": "west-8",
+            "url": "https://www.west8.com/"
+          }
+        ]
+      },
+      {
+        "id": "sets-escenografia",
+        "nombre": "Diseño de sets y escenografía",
+        "referentes": [
+          {
+            "nombre": "Es Devlin",
+            "slug": "es-devlin",
+            "url": "https://esdevlin.com/"
+          },
+          {
+            "nombre": "Bob Crowley",
+            "slug": "bob-crowley",
+            "url": "https://www.theatredesign.org.uk/designer-pages/bobcrowley/"
+          },
+          {
+            "nombre": "Katrina Lindsay",
+            "slug": "katrina-lindsay",
+            "url": "https://www.instagram.com/katrina_lindsay_/"
+          },
+          {
+            "nombre": "Olivia du Monceau",
+            "slug": "olivia-du-monceau",
+            "url": "https://www.oliviadumonceau.com/"
+          },
+          {
+            "nombre": "Production Club",
+            "slug": "production-club",
+            "url": "https://www.theproduction.club/"
+          }
+        ]
+      },
+      {
+        "id": "arte-ambiental-instalaciones",
+        "nombre": "Arte ambiental e instalaciones",
+        "referentes": [
+          {
+            "nombre": "Olafur Eliasson (Studio Olafur Eliasson)",
+            "slug": "olafur-eliasson",
+            "url": "https://olafureliasson.net/"
+          },
+          {
+            "nombre": "Random International",
+            "slug": "random-international",
+            "url": "https://www.random-international.com/"
+          },
+          {
+            "nombre": "TeamLab",
+            "slug": "teamlab",
+            "url": "https://www.teamlab.art/es/"
+          },
+          {
+            "nombre": "Studio Drift",
+            "slug": "studio-drift",
+            "url": "https://studiodrift.com/"
+          },
+          {
+            "nombre": "Snarkitecture",
+            "slug": "snarkitecture",
+            "url": "https://www.snarkitecture.com/"
+          },
+          {
+            "nombre": "Refik Anadol",
+            "slug": "refik-anadol",
+            "url": "https://refikanadol.com/"
+          },
+          {
+            "nombre": "Lernert & Sander",
+            "slug": "lernert-and-sander",
+            "url": "http://lernertandsander.com/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "creative-coding-new-media",
+    "categoria": "Creative Coding y New Media",
+    "subcategorias": [
+      {
+        "id": "arte-generativo",
+        "nombre": "Arte generativo",
+        "referentes": [
+          {
+            "nombre": "Casey Reas",
+            "slug": "casey-reas",
+            "url": "https://reas.com/"
+          },
+          {
+            "nombre": "Ben Fry",
+            "slug": "ben-fry",
+            "url": "https://www.benfry.com/"
+          },
+          {
+            "nombre": "Vera Molnár",
+            "slug": "vera-molnar",
+            "url": "http://www.veramolnar.com/"
+          },
+          {
+            "nombre": "Tyler Hobbs",
+            "slug": "tyler-hobbs",
+            "url": "https://www.tylerxhobbs.com/"
+          },
+          {
+            "nombre": "Anna Ridler",
+            "slug": "anna-ridler",
+            "url": "https://annaridler.com/works"
+          },
+          {
+            "nombre": "Manolo Gamboa Naon",
+            "slug": "manolo-gamboa-naon",
+            "url": "https://www.behance.net/manoloide?locale=es_ES"
+          },
+          {
+            "nombre": "Lingdong Huang",
+            "slug": "lingdong-huang",
+            "url": "https://lingdong.works/"
+          }
+        ]
+      },
+      {
+        "id": "instalaciones-interactivas",
+        "nombre": "Instalaciones interactivas",
+        "referentes": [
+          {
+            "nombre": "TeamLab",
+            "slug": "teamlab",
+            "url": "https://www.teamlab.art/es/"
+          },
+          {
+            "nombre": "Ryoji Ikeda",
+            "slug": "ryoji-ikeda",
+            "url": "https://www.ryojiikeda.com/"
+          },
+          {
+            "nombre": "Random International",
+            "slug": "random-international",
+            "url": "https://www.random-international.com/"
+          },
+          {
+            "nombre": "United Visual Artists (UVA)",
+            "slug": "united-visual-artists",
+            "url": "https://www.uva.co.uk/"
+          },
+          {
+            "nombre": "Universal Everything",
+            "slug": "universal-everything",
+            "url": "https://www.universaleverything.com/"
+          },
+          {
+            "nombre": "Chris Milk (Within)",
+            "slug": "chris-milk",
+            "url": "http://milk.co/index.html"
+          }
+        ]
+      },
+      {
+        "id": "live-coding-performance",
+        "nombre": "Live coding y performance",
+        "referentes": [
+          {
+            "nombre": "Algorave (comunidad)",
+            "slug": "algorave",
+            "url": "https://algorave.com/"
+          },
+          {
+            "nombre": "Toplap (comunidad)",
+            "slug": "toplap",
+            "url": "https://forum.toplap.org/"
+          },
+          {
+            "nombre": "Shelly Knotts",
+            "slug": "shelly-knotts",
+            "url": "https://shellyknotts.wordpress.com/"
+          },
+          {
+            "nombre": "Joanne Armitage",
+            "slug": "joanne-armitage",
+            "url": "https://x.com/joannnne"
+          },
+          {
+            "nombre": "Renick Bell",
+            "slug": "renick-bell",
+            "url": "https://www.instagram.com/renickbell/"
+          },
+          {
+            "nombre": "Alexandra Cárdenas",
+            "slug": "alexandra-cardenas",
+            "url": "https://www.instagram.com/tiemposdelruido/"
+          }
+        ]
+      },
+      {
+        "id": "ia-arte-computacional",
+        "nombre": "IA y arte computacional",
+        "referentes": [
+          {
+            "nombre": "Memo Akten",
+            "slug": "memo-akten",
+            "url": "https://www.instagram.com/memo_akten/?hl=es"
+          },
+          {
+            "nombre": "Helena Sarin",
+            "slug": "helena-sarin",
+            "url": "https://aiartists.org/helena-sarin"
+          },
+          {
+            "nombre": "Gene Kogan",
+            "slug": "gene-kogan",
+            "url": "https://www.instagram.com/genekogan/"
+          },
+          {
+            "nombre": "Sofia Crespo",
+            "slug": "sofia-crespo",
+            "url": "https://sofiacrespo.com/"
+          },
+          {
+            "nombre": "Refik Anadol",
+            "slug": "refik-anadol",
+            "url": "https://refikanadol.com/"
+          },
+          {
+            "nombre": "Mario Klingemann",
+            "slug": "mario-klingemann",
+            "url": "https://quasimondo.com/"
+          }
+        ]
+      },
+      {
+        "id": "herramientas-entornos-creativos",
+        "nombre": "Herramientas y entornos creativos",
+        "referentes": [
+          {
+            "nombre": "Zach Lieberman (openFrameworks)",
+            "slug": "zach-lieberman",
+            "url": "https://www.instagram.com/zach.lieberman/?hl=es"
+          },
+          {
+            "nombre": "Daniel Shiffman (The Coding Train / p5.js)",
+            "slug": "daniel-shiffman",
+            "url": "https://thecodingtrain.com/"
+          },
+          {
+            "nombre": "Lauren McCarthy (p5.js)",
+            "slug": "lauren-mccarthy",
+            "url": "https://get-lauren.net/p5-js"
+          },
+          {
+            "nombre": "Golan Levin",
+            "slug": "golan-levin",
+            "url": "https://www.instagram.com/golanlevin/?hl=es"
+          },
+          {
+            "nombre": "Rune Madsen",
+            "slug": "rune-madsen",
+            "url": "https://runemadsen.com/"
+          },
+          {
+            "nombre": "Tega Brain",
+            "slug": "tega-brain",
+            "url": "https://tegabrain.com/"
+          }
+        ]
+      },
+      {
+        "id": "web-experimental-net-art",
+        "nombre": "Web experimental y net art",
+        "referentes": [
+          {
+            "nombre": "Jodi.org",
+            "slug": "jodi-org",
+            "url": "https://wifi4garden.com/"
+          },
+          {
+            "nombre": "Olia Lialina",
+            "slug": "olia-lialina",
+            "url": "https://art.teleportacia.org/"
+          },
+          {
+            "nombre": "Jonas Lund",
+            "slug": "jonas-lund",
+            "url": "https://jonaslund.com/"
+          },
+          {
+            "nombre": "Evan Roth",
+            "slug": "evan-roth",
+            "url": "https://www.evan-roth.com/timeline/"
+          },
+          {
+            "nombre": "Harm van den Dorpel",
+            "slug": "harm-van-den-dorpel",
+            "url": "https://harm.work/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fotografia-creacion-imagen",
+    "categoria": "Fotografía y Creación de Imagen",
+    "subcategorias": [
+      {
+        "id": "fotografia-moda-publicidad",
+        "nombre": "Fotografía de moda y publicidad",
+        "referentes": [
+          {
+            "nombre": "Tim Walker",
+            "slug": "tim-walker",
+            "url": "https://www.timwalkerphotography.com/"
+          },
+          {
+            "nombre": "Paolo Roversi",
+            "slug": "paolo-roversi",
+            "url": "https://www.strombolieditions.com/"
+          },
+          {
+            "nombre": "Mert & Marcus",
+            "slug": "mert-and-marcus",
+            "url": "https://www.artpartner.com/mert-alas-marcus-piggott"
+          },
+          {
+            "nombre": "Craig McDean",
+            "slug": "craig-mcdean",
+            "url": "https://www.instagram.com/craigmcdeanstudio/?hl=es"
+          },
+          {
+            "nombre": "Harley Weir",
+            "slug": "harley-weir",
+            "url": "https://www.instagram.com/harleyweir/?hl=es"
+          },
+          {
+            "nombre": "Inez & Vinoodh",
+            "slug": "inez-and-vinoodh",
+            "url": "https://www.inezandvinoodh.com/"
+          },
+          {
+            "nombre": "Nadav Kander",
+            "slug": "nadav-kander",
+            "url": "https://www.nadavkander.com/"
+          }
+        ]
+      },
+      {
+        "id": "fotografia-documental-editorial",
+        "nombre": "Fotografía documental y editorial",
+        "referentes": [
+          {
+            "nombre": "Sebastião Salgado",
+            "slug": "sebasti-o-salgado",
+            "url": "https://www.instagram.com/sebastiaosalgadooficial/"
+          },
+          {
+            "nombre": "Dorothea Lange",
+            "slug": "dorothea-lange",
+            "url": "https://independent-photo.com/es/news/dorothea-lange/"
+          },
+          {
+            "nombre": "Alec Soth",
+            "slug": "alec-soth",
+            "url": "https://alecsoth.com/photography/"
+          },
+          {
+            "nombre": "Larry Burrows",
+            "slug": "larry-burrows",
+            "url": "http://www.laurencemillergallery.com/artists/larry-burrows"
+          },
+          {
+            "nombre": "Lynsey Addario",
+            "slug": "lynsey-addario",
+            "url": "https://www.lynseyaddario.com/"
+          },
+          {
+            "nombre": "Magnum Photos (colectivo)",
+            "slug": "magnum-photos",
+            "url": "https://www.magnumphotos.com/"
+          }
+        ]
+      },
+      {
+        "id": "fotografia-producto-still-life",
+        "nombre": "Fotografía de producto y still life",
+        "referentes": [
+          {
+            "nombre": "Dan Tobin Smith",
+            "slug": "dan-tobin-smith",
+            "url": "https://www.dantobinsmith.com/"
+          },
+          {
+            "nombre": "Karl Taylor",
+            "slug": "karl-taylor",
+            "url": "https://karltaylor.com/"
+          },
+          {
+            "nombre": "Solve Sundsbo",
+            "slug": "solve-sundsbo",
+            "url": "https://www.solvesundsbo.com/"
+          },
+          {
+            "nombre": "Koto Studio",
+            "slug": "koto-studio",
+            "url": "https://koto.com/"
+          },
+          {
+            "nombre": "Bureau Beige",
+            "slug": "bureau-beige",
+            "url": "https://www.studiobeige.nl/"
+          }
+        ]
+      },
+      {
+        "id": "direccion-fotografia-set",
+        "nombre": "Dirección de fotografía y set",
+        "referentes": [
+          {
+            "nombre": "Lachlan Bailey",
+            "slug": "lachlan-bailey",
+            "url": "https://www.lachlanbailey.com/"
+          },
+          {
+            "nombre": "Charlotte Wales",
+            "slug": "charlotte-wales",
+            "url": "https://www.charlottewales.com/"
+          },
+          {
+            "nombre": "Michal Pudelka",
+            "slug": "michal-pudelka",
+            "url": "https://www.instagram.com/michal_pudelka/?hl=es"
+          },
+          {
+            "nombre": "Cass Bird",
+            "slug": "cass-bird",
+            "url": "https://www.cassbird.com/"
+          },
+          {
+            "nombre": "Campbell Addy",
+            "slug": "campbell-addy",
+            "url": "https://campbelladdy.com/"
+          },
+          {
+            "nombre": "Petra Collins",
+            "slug": "petra-collins",
+            "url": "https://petra-collins.com/"
+          }
+        ]
+      },
+      {
+        "id": "imagen-cgi-hibrida",
+        "nombre": "Imagen CGI e híbrida",
+        "referentes": [
+          {
+            "nombre": "Agi Haines",
+            "slug": "agi-haines",
+            "url": "https://www.agihaines.com/"
+          },
+          {
+            "nombre": "Barnaby Roper",
+            "slug": "barnaby-roper",
+            "url": "https://www.barnabyroper.com/"
+          },
+          {
+            "nombre": "Filip Custic",
+            "slug": "filip-custic",
+            "url": "https://www.instagram.com/filipcustic/?hl=es"
+          },
+          {
+            "nombre": "Quentin Jones",
+            "slug": "quentin-jones",
+            "url": "https://quentinjones.info/"
+          },
+          {
+            "nombre": "Mathery Studio",
+            "slug": "mathery-studio",
+            "url": "https://mathery.it/"
+          },
+          {
+            "nombre": "Erik Madigan Heck",
+            "slug": "erik-madigan-heck",
+            "url": "https://www.maisondesprit.com/"
+          }
+        ]
+      },
+      {
+        "id": "fotografia-experimental-artistica",
+        "nombre": "Fotografía experimental y artística",
+        "referentes": [
+          {
+            "nombre": "Wolfgang Tillmans",
+            "slug": "wolfgang-tillmans",
+            "url": "https://www.tillmans.co.uk/"
+          },
+          {
+            "nombre": "Cindy Sherman",
+            "slug": "cindy-sherman",
+            "url": "https://www.wikiart.org/es/cindy-sherman"
+          },
+          {
+            "nombre": "Ryan McGinley",
+            "slug": "ryan-mcginley",
+            "url": "https://ryanmcginley.com/"
+          },
+          {
+            "nombre": "Collier Schorr",
+            "slug": "collier-schorr",
+            "url": "https://www.instagram.com/collierschorrstudio/"
+          },
+          {
+            "nombre": "Viviane Sassen",
+            "slug": "viviane-sassen",
+            "url": "https://www.vivianesassen.com/"
+          },
+          {
+            "nombre": "Dana Lixenberg",
+            "slug": "dana-lixenberg",
+            "url": "https://grimmgallery.com/artists/42-dana-lixenberg/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "publicidad-direccion-creativa",
+    "categoria": "Publicidad y Dirección Creativa",
+    "subcategorias": [
+      {
+        "id": "agencias-creativas-globales",
+        "nombre": "Agencias creativas globales",
+        "referentes": [
+          {
+            "nombre": "Droga5",
+            "slug": "droga5",
+            "url": ""
+          },
+          {
+            "nombre": "Wieden+Kennedy",
+            "slug": "wieden-kennedy",
+            "url": ""
+          },
+          {
+            "nombre": "BBH London",
+            "slug": "bbh-london",
+            "url": ""
+          },
+          {
+            "nombre": "72andSunny",
+            "slug": "72andsunny",
+            "url": ""
+          },
+          {
+            "nombre": "Anomaly",
+            "slug": "anomaly",
+            "url": ""
+          },
+          {
+            "nombre": "Mother London",
+            "slug": "mother-london",
+            "url": ""
+          },
+          {
+            "nombre": "TBWA\\Chiat\\Day",
+            "slug": "tbwa-chiat-day",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "direccion-creativa-independiente",
+        "nombre": "Dirección creativa independiente",
+        "referentes": [
+          {
+            "nombre": "Stefan Sagmeister",
+            "slug": "stefan-sagmeister",
+            "url": ""
+          },
+          {
+            "nombre": "Si Scott",
+            "slug": "si-scott",
+            "url": ""
+          },
+          {
+            "nombre": "Dave Dye",
+            "slug": "dave-dye",
+            "url": ""
+          },
+          {
+            "nombre": "Mark Denton",
+            "slug": "mark-denton",
+            "url": ""
+          },
+          {
+            "nombre": "Trevor Beattie",
+            "slug": "trevor-beattie",
+            "url": ""
+          },
+          {
+            "nombre": "Nils Leonard",
+            "slug": "nils-leonard",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "campanas-brand-storytelling",
+        "nombre": "Campañas y brand storytelling",
+        "referentes": [
+          {
+            "nombre": "Adam&EveDDB",
+            "slug": "adamandeveddb",
+            "url": ""
+          },
+          {
+            "nombre": "AMV BBDO",
+            "slug": "amv-bbdo",
+            "url": ""
+          },
+          {
+            "nombre": "Leo Burnett",
+            "slug": "leo-burnett",
+            "url": ""
+          },
+          {
+            "nombre": "Ogilvy",
+            "slug": "ogilvy",
+            "url": ""
+          },
+          {
+            "nombre": "Grey London",
+            "slug": "grey-london",
+            "url": ""
+          },
+          {
+            "nombre": "McCann Worldgroup",
+            "slug": "mccann-worldgroup",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "produccion-creativa-contenido",
+        "nombre": "Producción creativa y contenido de marca",
+        "referentes": [
+          {
+            "nombre": "Smuggler Productions",
+            "slug": "smuggler-productions",
+            "url": ""
+          },
+          {
+            "nombre": "Biscuit Filmworks",
+            "slug": "biscuit-filmworks",
+            "url": ""
+          },
+          {
+            "nombre": "Pulse Films",
+            "slug": "pulse-films",
+            "url": ""
+          },
+          {
+            "nombre": "Park Pictures",
+            "slug": "park-pictures",
+            "url": ""
+          },
+          {
+            "nombre": "Riff Raff Films",
+            "slug": "riff-raff-films",
+            "url": ""
+          },
+          {
+            "nombre": "Iconoclast",
+            "slug": "iconoclast",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "publicidad-digital-social",
+        "nombre": "Publicidad digital y social",
+        "referentes": [
+          {
+            "nombre": "R/GA",
+            "slug": "r-ga",
+            "url": ""
+          },
+          {
+            "nombre": "AKQA",
+            "slug": "akqa",
+            "url": ""
+          },
+          {
+            "nombre": "Huge Inc.",
+            "slug": "huge-inc",
+            "url": ""
+          },
+          {
+            "nombre": "VaynerMedia",
+            "slug": "vaynermedia",
+            "url": ""
+          },
+          {
+            "nombre": "We Are Social",
+            "slug": "we-are-social",
+            "url": ""
+          },
+          {
+            "nombre": "Nord DDB",
+            "slug": "nord-ddb",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "creatividad-cultural-activismo",
+        "nombre": "Creatividad cultural y activismo de marca",
+        "referentes": [
+          {
+            "nombre": "Uncommon Creative Studio",
+            "slug": "uncommon-creative-studio",
+            "url": ""
+          },
+          {
+            "nombre": "Lucky Generals",
+            "slug": "lucky-generals",
+            "url": ""
+          },
+          {
+            "nombre": "The & Partnership",
+            "slug": "the-and-partnership",
+            "url": ""
+          },
+          {
+            "nombre": "New Commercial Arts",
+            "slug": "new-commercial-arts",
+            "url": ""
+          },
+          {
+            "nombre": "Forsman & Bodenfors",
+            "slug": "forsman-and-bonesfors",
+            "url": ""
+          },
+          {
+            "nombre": "GUT Agency",
+            "slug": "gut-agency",
+            "url": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "diseno-videojuegos",
+    "categoria": "Diseño de Videojuegos",
+    "subcategorias": [
+      {
+        "id": "game-design",
+        "nombre": "Diseño de juego (game design)",
+        "referentes": [
+          {
+            "nombre": "Hideo Kojima (Kojima Productions)",
+            "slug": "hideo-kojima",
+            "url": ""
+          },
+          {
+            "nombre": "Fumito Ueda (genDESIGN)",
+            "slug": "fumito-ueda",
+            "url": ""
+          },
+          {
+            "nombre": "Jonathan Blow",
+            "slug": "jonathan-blow",
+            "url": ""
+          },
+          {
+            "nombre": "Jenova Chen (thatgamecompany)",
+            "slug": "jenova-chen",
+            "url": ""
+          },
+          {
+            "nombre": "Toby Fox",
+            "slug": "toby-fox",
+            "url": ""
+          },
+          {
+            "nombre": "Arnt Jensen (Playdead)",
+            "slug": "arnt-jensen",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "direccion-arte-videojuegos",
+        "nombre": "Dirección de arte en videojuegos",
+        "referentes": [
+          {
+            "nombre": "Masahiro Sakurai (Nintendo)",
+            "slug": "masahiro-sakurai",
+            "url": ""
+          },
+          {
+            "nombre": "Yoshitaka Amano (Final Fantasy)",
+            "slug": "yoshitaka-amano",
+            "url": ""
+          },
+          {
+            "nombre": "Viktor Antonov (Half-Life 2)",
+            "slug": "viktor-antonov",
+            "url": ""
+          },
+          {
+            "nombre": "Jae-Hwan Kim (Nier: Automata)",
+            "slug": "jae-hwan-kim",
+            "url": ""
+          },
+          {
+            "nombre": "Moebius (influencia)",
+            "slug": "moebius",
+            "url": ""
+          },
+          {
+            "nombre": "Lena Raine",
+            "slug": "lena-raine",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "ui-ux-videojuegos",
+        "nombre": "UI/UX en videojuegos",
+        "referentes": [
+          {
+            "nombre": "Naughty Dog UI Team",
+            "slug": "naughty-dog-ui-team",
+            "url": ""
+          },
+          {
+            "nombre": "CD Projekt Red UI (Cyberpunk 2077)",
+            "slug": "cd-projekt-red-ui",
+            "url": ""
+          },
+          {
+            "nombre": "Yacht Club Games",
+            "slug": "yacht-club-games",
+            "url": ""
+          },
+          {
+            "nombre": "Cory Schmitz",
+            "slug": "cory-schmitz",
+            "url": ""
+          },
+          {
+            "nombre": "Oskar Stålberg",
+            "slug": "oskar-stalberg",
+            "url": ""
+          },
+          {
+            "nombre": "Nicole He",
+            "slug": "nicole-he",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "diseno-mundos-indie",
+        "nombre": "Diseño de mundos e indie",
+        "referentes": [
+          {
+            "nombre": "Double Fine Productions",
+            "slug": "double-fine-productions",
+            "url": ""
+          },
+          {
+            "nombre": "Devolver Digital",
+            "slug": "devolver-digital",
+            "url": ""
+          },
+          {
+            "nombre": "Annapurna Interactive",
+            "slug": "annapurna-interactive",
+            "url": ""
+          },
+          {
+            "nombre": "Amanita Design",
+            "slug": "amanita-design",
+            "url": ""
+          },
+          {
+            "nombre": "Heart Machine",
+            "slug": "heart-machine",
+            "url": ""
+          },
+          {
+            "nombre": "Klei Entertainment",
+            "slug": "klei-entertainment",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "motion-efectos-juegos",
+        "nombre": "Motion y efectos en juegos",
+        "referentes": [
+          {
+            "nombre": "Ghost VFX",
+            "slug": "ghost-vfx",
+            "url": ""
+          },
+          {
+            "nombre": "Axis Animation",
+            "slug": "axis-animation",
+            "url": ""
+          },
+          {
+            "nombre": "Blur Studio",
+            "slug": "blur-studio",
+            "url": ""
+          },
+          {
+            "nombre": "Digital Domain",
+            "slug": "digital-domain",
+            "url": ""
+          },
+          {
+            "nombre": "RealtimeUK",
+            "slug": "realtimeuk",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "narrativa-diseno-personajes",
+        "nombre": "Narrativa y diseño de personajes",
+        "referentes": [
+          {
+            "nombre": "Akira Toriyama",
+            "slug": "akira-toriyama",
+            "url": ""
+          },
+          {
+            "nombre": "Yoko Taro",
+            "slug": "yoko-taro",
+            "url": ""
+          },
+          {
+            "nombre": "Sam Barlow (Her Story)",
+            "slug": "sam-barlow",
+            "url": ""
+          },
+          {
+            "nombre": "Katsuya Terada",
+            "slug": "katsuya-terada",
+            "url": ""
+          },
+          {
+            "nombre": "Ilya Kuvshinov",
+            "slug": "ilya-kuvshinov",
+            "url": ""
+          },
+          {
+            "nombre": "Zeb West",
+            "slug": "zeb-west",
+            "url": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "diseno-sonido",
+    "categoria": "Diseño de Sonido",
+    "subcategorias": [
+      {
+        "id": "sound-design-cine-tv",
+        "nombre": "Sound design para cine y TV",
+        "referentes": [
+          {
+            "nombre": "Ben Burtt (Star Wars)",
+            "slug": "ben-burtt",
+            "url": ""
+          },
+          {
+            "nombre": "Walter Murch",
+            "slug": "walter-murch",
+            "url": ""
+          },
+          {
+            "nombre": "Randy Thom (Skywalker Sound)",
+            "slug": "randy-thom",
+            "url": ""
+          },
+          {
+            "nombre": "Ren Klyce",
+            "slug": "ren-klyce",
+            "url": ""
+          },
+          {
+            "nombre": "Richard King",
+            "slug": "richard-king",
+            "url": ""
+          },
+          {
+            "nombre": "Nicolas Becker",
+            "slug": "nicolas-becker",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "musica-sonido-experimental",
+        "nombre": "Música y diseño sonoro experimental",
+        "referentes": [
+          {
+            "nombre": "Arca",
+            "slug": "arca",
+            "url": ""
+          },
+          {
+            "nombre": "Holly Herndon",
+            "slug": "holly-herndon",
+            "url": ""
+          },
+          {
+            "nombre": "Matmos",
+            "slug": "matmos",
+            "url": ""
+          },
+          {
+            "nombre": "Robert Henke (Monolake)",
+            "slug": "robert-henke",
+            "url": ""
+          },
+          {
+            "nombre": "Ryoji Ikeda",
+            "slug": "ryoji-ikeda",
+            "url": ""
+          },
+          {
+            "nombre": "Alva Noto",
+            "slug": "alva-noto",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "identidad-sonora-marca",
+        "nombre": "Identidad sonora de marca",
+        "referentes": [
+          {
+            "nombre": "Sixième Son",
+            "slug": "sixieme-son",
+            "url": ""
+          },
+          {
+            "nombre": "Amp Sound Branding",
+            "slug": "amp-sound-branding",
+            "url": ""
+          },
+          {
+            "nombre": "Man Made Music",
+            "slug": "man-made-music",
+            "url": ""
+          },
+          {
+            "nombre": "MassiveMusic",
+            "slug": "massivemusic",
+            "url": ""
+          },
+          {
+            "nombre": "Sonicbrand",
+            "slug": "sonicbrand",
+            "url": ""
+          },
+          {
+            "nombre": "Resonance",
+            "slug": "resonance",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "sound-design-videojuegos",
+        "nombre": "Sound design para videojuegos",
+        "referentes": [
+          {
+            "nombre": "Akira Yamaoka (Silent Hill)",
+            "slug": "akira-yamaoka",
+            "url": ""
+          },
+          {
+            "nombre": "Nobuo Uematsu (Final Fantasy)",
+            "slug": "nobuo-uematsu",
+            "url": ""
+          },
+          {
+            "nombre": "Martin O'Donnell (Halo)",
+            "slug": "martin-o-donnell",
+            "url": ""
+          },
+          {
+            "nombre": "Jesper Kyd",
+            "slug": "jesper-kyd",
+            "url": ""
+          },
+          {
+            "nombre": "Yoko Shimomura",
+            "slug": "yoko-shimomura",
+            "url": ""
+          },
+          {
+            "nombre": "Disasterpeace (FEZ)",
+            "slug": "disasterpeace",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "experiencias-sonoras-instalaciones",
+        "nombre": "Diseño de experiencias sonoras e instalaciones",
+        "referentes": [
+          {
+            "nombre": "Janet Cardiff",
+            "slug": "janet-cardiff",
+            "url": ""
+          },
+          {
+            "nombre": "Chris Watson",
+            "slug": "chris-watson",
+            "url": ""
+          },
+          {
+            "nombre": "Francisco López",
+            "slug": "francisco-lopez",
+            "url": ""
+          },
+          {
+            "nombre": "Bill Fontana",
+            "slug": "bill-fontana",
+            "url": ""
+          },
+          {
+            "nombre": "Zimoun",
+            "slug": "zimoun",
+            "url": ""
+          },
+          {
+            "nombre": "Scanner (Robin Rimbaud)",
+            "slug": "scanner",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "id": "audio-ui-productos-digitales",
+        "nombre": "Audio para UI y productos digitales",
+        "referentes": [
+          {
+            "nombre": "Earworm",
+            "slug": "earworm",
+            "url": ""
+          },
+          {
+            "nombre": "Antfood",
+            "slug": "antfood",
+            "url": ""
+          },
+          {
+            "nombre": "Squeak E. Clean Studios",
+            "slug": "squeak-e-clean-studios",
+            "url": ""
+          },
+          {
+            "nombre": "Resonance",
+            "slug": "resonance",
+            "url": ""
+          },
+          {
+            "nombre": "Twang",
+            "slug": "twang",
+            "url": ""
+          },
+          {
+            "nombre": "MassiveMusic (digital)",
+            "slug": "massivemusic",
+            "url": ""
+          }
+        ]
+      }
+    ]
+  }
+]
