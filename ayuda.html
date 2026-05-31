@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ayuda</title>
+    <link rel="icon" href="www-assets/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="cursor-dot"></div>
+
+    <header class="header">
+        <div class="logo">
+            <a href="index.html"><img src="svg/logotipo.svg" alt="logotipo"></a>
+        </div>
+
+        <div class="menu-button" id="menuButton">
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+
+        <nav class="menu-panel" id="menuPanel">
+            <ul>
+                <li class="h3 arial-regular"><a href="index.html" class="white">. de partida</a></li>
+                <li class="h3 arial-regular"><a href="ayuda.html" class="white">ayuda</a></li>
+                <li class="icons">
+                    <a class="instagram-icon" href="https://www.instagram.com/junealmarza/"><img src="svg/instagram.svg" alt="instagram-icon"></a>
+                    <a class="github-icon" href="https://github.com/topics/design"><img src="svg/github.svg" alt="github-icon"></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="ayuda-main">
+        <section class="ayuda-about">
+            <h2 class="ayuda-section-title arial-regular h3">Sobre el proyecto</h2>
+            <div class="ayuda-text inter-regular p-mini">
+                <p><span class="blue">. de partida</span> es una herramienta para explorar caminos creativos cuando aún no tienes claro hacia dónde ir. Combina un cuestionario visual con una biblioteca de referencias para acercarte a disciplinas, subcategorías y artistas que encajen contigo.</p>
+                <p>La idea es sencilla: ubicarte, hacer match con imágenes que te inspiren y descubrir un top 3 de referentes. Para así desbloquear la base de datos y seguir investigando por tu cuenta.</p>
+                <p>Este proyecto está en construcción y crece con la comunidad. Si conoces referentes, categorías o recursos que encajen aquí, nos encantará leerte.</p>
+            </div>
+        </section>
+
+        <section class="ayuda-form-section" id="colaborar">
+            <h2 class="ayuda-section-title arial-regular h3">Completa la biblioteca</h2>
+            <p class="ayuda-form-lead inter-regular p-mini">Cuéntanos qué referente, categoría o recurso te gustaría añadir. Revisaremos cada propuesta.</p>
+
+            <form class="colab-form" id="colabForm" novalidate>
+
+                <div class="first-field">
+                    <label class="colab-field">
+                        <span class="colab-label inter-regular p-mini">Nombre</span>
+                        <input type="text" class="colab-input inter-regular p-mini" name="nombre" required autocomplete="name">
+                    </label>
+
+                    <label class="colab-field">
+                        <span class="colab-label inter-regular p-mini">Email</span>
+                        <input type="email" class="colab-input inter-regular p-mini" name="email" required autocomplete="email">
+                    </label>
+                </div>
+
+                <div class="second-field">
+                    <label class="colab-field">
+                        <span class="colab-label inter-regular p-mini">Categoría o área creativa</span>
+                        <input type="text" class="colab-input inter-regular p-mini" name="categoria" placeholder="Ej. Diseño gráfico, Ilustración…" required>
+                    </label>
+
+                    <label class="colab-field">
+                        <span class="colab-label inter-regular p-mini">Referente o recurso que propones</span>
+                        <input type="text" class="colab-input inter-regular p-mini" name="referente" placeholder="Nombre del artista, estudio, proyecto…" required>
+                    </label>
+                </div>
+
+                <label class="colab-field">
+                    <span class="colab-label inter-regular p-mini">Enlace (opcional)</span>
+                    <input type="url" class="colab-input inter-regular p-mini" name="enlace" placeholder="https://" autocomplete="url">
+                </label>
+
+                <label class="colab-field">
+                    <span class="colab-label inter-regular p-mini">Comentario</span>
+                    <textarea class="colab-input colab-input--area inter-regular p-mini" name="comentario" rows="4" placeholder="¿Por qué encaja aquí?"></textarea>
+                </label>
+
+                <div class="colab-form__actions">
+                    <button type="submit" class="quiz-btn quiz-btn--primary inter-regular">Enviar propuesta</button>
+                </div>
+            </form>
+
+            <p class="colab-thanks inter-regular p-mini" id="colabThanks" hidden>
+                ¡Gracias por tu propuesta! La tendremos en cuenta para ampliar la biblioteca.
+            </p>
+        </section>
+    </main>
+
+    <div class="footer">
+        <div>
+            <div class="footer-text h3 arial-regular">
+                ¿Tienes dudas?<br>
+                Escríbenos por <a class="instagram-btn blue" href="https://www.instagram.com/junealmarza/" target="_blank">Instagram</a> :)
+            </div>
+        </div>
+
+        <div class="www h1 arial-regular">ayuda</div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

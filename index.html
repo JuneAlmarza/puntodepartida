@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>. de partida</title>
+    <link rel="icon" href="home-assets/img/favicon.png" type="image/png">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+    <div id="siteLoader" class="site-loader">
+        <div class="site-loader__panel site-loader__panel--captcha" id="loaderCaptcha">
+            <h3 class="site-loader__heading arial-regular h3 black">Demuestra que eres unx artista:</h3>
+            <div class="captcha-box" aria-hidden="true">
+                <img src="home-assets/img/captcha-logo.jpg" width="300px">
+            </div>
+            <h3 class="site-loader__label arial-regular h3 black">Escribe tu respuesta:</h3>
+            <form class="captcha-form" id="captchaForm" autocomplete="off">
+                <input type="text" class="captcha-input inter-regular" id="captchaInput" spellcheck="false" aria-label="Escribe tu respuesta">
+                <button type="submit" class="quiz-btn quiz-btn--primary inter-regular">Enviar</button>
+            </form>
+            <p class="captcha-error inter-regular p-mini black" id="captchaError" hidden>Respuesta incorrecta, inténtalo de nuevo.</p>
+        </div>
+
+        <div class="site-loader__panel site-loader__panel--intro" id="loaderIntro" hidden>
+            <h3 class="loader-intro__line h3 arial-regular">Este es tu</h3>
+            <h1 class="loading-logo"><span class="blue h1 arial-regular">.</span> <span class="h1 arial-regular">de partida</span></h1>
+        </div>
+    </div>
+
+    <div class="cursor-dot"></div>
+
+    <header class="header">
+        <div class="header-start">
+            <div class="memes-animation">
+                <img src="home-assets/img/meme-1.jpg" alt="meme-1">
+                <img src="home-assets/img/meme-2.jpg" alt="meme-2">
+                <img src="home-assets/img/meme-3.jpg" alt="meme-3">
+                <img src="home-assets/img/meme-4.jpg" alt="meme-4">
+                <img src="home-assets/img/meme-5.jpg" alt="meme-5">
+            </div>
+        </div>
+
+        <div class="menu-button" id="menuButton">
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+
+        <nav class="menu-panel" id="menuPanel">
+            <ul>
+                <li class="h3 arial-regular"><a href="index.html" class="white">. de partida</a></li>
+                <li class="h3 arial-regular"><a href="ayuda.html" class="white">ayuda</a></li>
+                <li class="icons">
+                    <a class="instagram-icon" href="https://www.instagram.com/junealmarza/" target="_blank"><img src="svg/instagram.svg" alt="instagram-icon"></a>
+                    <a class="github-icon" href="https://github.com/topics/design" target="_blank"><img src="svg/github.svg" alt="github-icon"></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero-content sides-margin">
+        <div class="intro-texts">
+            <h2 class="arial-bold h2 intro-header">
+                <span>Un espacio digital para jovenes creativxs</span>
+                <span>que no saben <span class="blue">qué hacer con su vida</span></span>
+            </h2>
+            <button type="button" class="hero-cta quiz-btn quiz-btn--primary inter-regular" id="btnHeroMore">
+                Quiero saber más
+            </button>
+        </div>
+    </div>
+
+    <div class="hero-logo">
+        <img class="intro-logo" src="svg/logotipo.svg" alt="logotipo">
+    </div>
+
+    <div class="sections-stage">
+        <div class="sections">
+            <section class="question ubicate">
+                <h2 class="section-title arial-regular h2 blue">UBÍCATE</h2>
+                <div class="sections-content"></div>
+            </section>
+
+            <section class="question dame-un-match">
+                <h2 class="section-title arial-regular h2 blue">DAME UN MATCH</h2>
+                <div class="sections-content"></div>
+            </section>
+
+            <section class="question resultados">
+                <h2 class="section-title arial-regular h2">MI TOP 3</h2>
+                <div class="sections-content"></div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="js/loading.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/quiz-config.js"></script>
+    <script src="js/sections.js"></script>
+</body>
+</html>
