@@ -336,11 +336,14 @@ body.quiz-started {
 
 /* memes */
 
+.memes-animation--mobile {
+  display: none;
+}
+
 .hero-logo .memes-animation {
   flex: 0 0 auto;
   margin-left: auto;
   position: relative;
-  /* height: 200px; */
   overflow: hidden;
   top: 10px;
 }
@@ -475,7 +478,7 @@ body.quiz-started .sections {
 }
 
 .quiz-panel__hint {
-  margin: 0 0 16px;
+  margin: 20px 0 20px;
   color: var(--black);
 }
 
@@ -1338,6 +1341,18 @@ body.is-loading .cursor-dot {
     display: none;
   }
 
+  .memes-animation--mobile {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .memes-animation--mobile img {
+    object-fit: contain;
+    object-position: right bottom;
+  }
+
   .intro-logo {
     width: var(--logo-hero-w);
     max-width: calc(100vw - 80px);
@@ -1584,6 +1599,7 @@ body.is-loading .cursor-dot {
   .referente-row {
     padding: 0;
   }
+
   .ayuda-main {
     flex-direction: column;
     gap: 48px;
