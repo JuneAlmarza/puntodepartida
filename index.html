@@ -8,14 +8,14 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="is-loading">
+<body class="is-loading page-index">
     <div id="siteLoader" class="site-loader">
         <div class="site-loader__panel site-loader__panel--captcha" id="loaderCaptcha">
-            <h3 class="site-loader__heading arial-regular h3 black">Demuestra que eres unx artista:</h3>
+            <h4 class="site-loader__heading arial-regular h4 black">Demuestra que eres unx artista:</h4>
             <div class="captcha-box" aria-hidden="true">
-                <img src="home-assets/img/captcha-logo.jpg" width="300px">
+                <img src="home-assets/img/captcha-logo.jpg" width="250px">
             </div>
-            <h3 class="site-loader__label arial-regular h3 black">Escribe tu respuesta:</h3>
+            <h4 class="site-loader__label arial-regular h4 black">Escribe tu respuesta:</h4>
             <form class="captcha-form" id="captchaForm" autocomplete="off">
                 <input type="text" class="captcha-input inter-regular" id="captchaInput" spellcheck="false" aria-label="Escribe tu respuesta">
                 <button type="submit" class="quiz-btn quiz-btn--primary inter-regular">Enviar</button>
@@ -31,16 +31,8 @@
 
     <div class="cursor-dot"></div>
 
-    <header class="header">
-        <div class="header-start">
-            <div class="memes-animation">
-                <img src="home-assets/img/meme-1.jpg" alt="meme-1">
-                <img src="home-assets/img/meme-2.jpg" alt="meme-2">
-                <img src="home-assets/img/meme-3.jpg" alt="meme-3">
-                <img src="home-assets/img/meme-4.jpg" alt="meme-4">
-                <img src="home-assets/img/meme-5.jpg" alt="meme-5">
-            </div>
-        </div>
+    <header class="header header--index">
+        <div class="header-spacer" aria-hidden="true"></div>
 
         <div class="menu-button" id="menuButton">
             <div class="dot"></div><div class="dot"></div><div class="dot"></div>
@@ -62,10 +54,13 @@
 
     <div class="hero-content sides-margin">
         <div class="intro-texts">
-            <h2 class="arial-bold h2 intro-header">
+            <h2 class="arial-regular h2 intro-header">
                 <span>Un espacio digital para jovenes creativxs</span>
                 <span>que no saben <span class="blue">qué hacer con su vida</span></span>
             </h2>
+            <p class="intro-desc inter-regular p-mini">
+                La idea es sencilla: ubicarte, hacer match con imágenes que te inspiren y descubrir un top 3 de referentes. Para así desbloquear la base de datos y seguir investigando por tu cuenta.
+            </p>
             <button type="button" class="hero-cta quiz-btn quiz-btn--primary inter-regular" id="btnHeroMore">
                 Quiero saber más
             </button>
@@ -74,17 +69,24 @@
 
     <div class="hero-logo">
         <img class="intro-logo" src="svg/logotipo.svg" alt="logotipo">
+        <div class="memes-animation" id="heroMemes">
+            <img src="home-assets/img/meme-1.jpg" alt="meme-1">
+            <img src="home-assets/img/meme-2.jpg" alt="meme-2">
+            <img src="home-assets/img/meme-3.jpg" alt="meme-3">
+            <img src="home-assets/img/meme-4.jpg" alt="meme-4">
+            <img src="home-assets/img/meme-5.jpg" alt="meme-5">
+        </div>
     </div>
 
     <div class="sections-stage">
         <div class="sections">
             <section class="question ubicate">
-                <h2 class="section-title arial-regular h2 blue">UBÍCATE</h2>
+                <h2 class="section-title arial-regular h2">UBÍCATE</h2>
                 <div class="sections-content"></div>
             </section>
 
             <section class="question dame-un-match">
-                <h2 class="section-title arial-regular h2 blue">DAME UN MATCH</h2>
+                <h2 class="section-title arial-regular h2">DAME UN MATCH</h2>
                 <div class="sections-content"></div>
             </section>
 
