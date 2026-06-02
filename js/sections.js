@@ -32,8 +32,8 @@
   let heroCompact = false;
   let heroTl = null;
 
-  const HERO_DURATION = 0.5;
-  const LOGO_COMPACT_TOP = 50;
+  const HERO_DURATION = 0.45;
+  const LOGO_COMPACT_TOP = 45;
 
   function getLogoCompactWidth() {
     const raw = getComputedStyle(document.documentElement).getPropertyValue("--logo-compact-w");
@@ -46,7 +46,7 @@
   function enterHeroTransition() {
     if (heroCompact || typeof gsap === "undefined") return;
 
-    const memes = document.querySelector(".memes-animation");
+    const memes = document.querySelector(".hero-logo .memes-animation");
     const heroContent = document.querySelector(".hero-content");
     const heroLogoWrap = document.querySelector(".hero-logo");
     const logo = document.querySelector(".intro-logo");
@@ -77,7 +77,7 @@
 
     heroTl
       .to(memes, { y: -460, opacity: 1, duration: HERO_DURATION }, 0)
-      .to(heroContent, { y: -430, opacity: 1, duration: HERO_DURATION }, 0)
+      .to(heroContent, { y: -430, opacity: 0, duration: HERO_DURATION }, 0)
       .to(
         logo,
         {
@@ -95,7 +95,7 @@
       return;
     }
 
-    const memes = document.querySelector(".memes-animation");
+    const memes = document.querySelector(".hero-logo .memes-animation");
     const heroContent = document.querySelector(".hero-content");
     const heroLogoWrap = document.querySelector(".hero-logo");
     const logo = document.querySelector(".intro-logo");
@@ -500,9 +500,9 @@
     if (topSubs.length === 0) {
       sectionResults.innerHTML = `
         <div class="quiz-panel quiz-panel--results">
-          <p class="results-thanks">¡Gracias por rellenar la encuesta!</p>
-          <p class="results-thanks-sub">No seleccionaste imágenes en la segunda sección. Vuelve atrás o empieza de nuevo.</p>
-          <button type="button" class="quiz-btn quiz-btn--outline js-restart-btn">Empezar de 0</button>
+          <p class="results-thanks inter-regular">¡Gracias por rellenar la encuesta!</p>
+          <p class="results-thanks-sub inter-regular">No seleccionaste imágenes en la segunda sección. Vuelve atrás o empieza de nuevo.</p>
+          <button type="button" class="quiz-btn quiz-btn--blue-outline js-restart-btn">Empezar de 0</button>
         </div>
       `;
       bindRestart();
@@ -641,7 +641,7 @@
     applySectionUI(0);
   }
 
-  // al hacer click sobre el boton del hero, iniciamos la pre-carga
+  // al hacer click sobre el boton del hero, iniciamos el quiz
   if (btnHeroMore) {
     btnHeroMore.addEventListener("click", openQuizFromHero);
   }
