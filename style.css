@@ -16,17 +16,28 @@
     --p-mini: 15px;
 
     --header-offset: 120px;
-    --header-offset-compact: 88px;
+    --header-offset-compact: 120px;
     --section-title-h: 35px;
     --hero-transition: 0.75s cubic-bezier(0.22, 1, 0.36, 1);
     --logo-compact-w: 150px;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    overflow-x: clip;
+}
+
 body {
     margin: 0;
-    width: 100vw;
+    max-width: 100%;
+    overflow-x: clip;
     background: #fff;
-    overflow-x: hidden;
     cursor: none;
 }
 
@@ -101,15 +112,19 @@ a {
 }
 
 .header {
+    position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    width: 100%;
     height: auto;
     pointer-events: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    margin: 50px 50px 20px 50px;
+    padding: 50px 50px 20px 50px;
+    margin: 0;
     z-index: 100;
 }
 
@@ -157,7 +172,7 @@ a {
   position: fixed;
   top: 20px;
   right: 20px;
-  width: 150px;
+  width: 200px;
   padding: 25px;
   background: var(--black);
   color: var(--white);
@@ -170,7 +185,7 @@ a {
 }
 
 .menu-panel ul {
-  padding-top: 40px;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -207,32 +222,79 @@ a {
 
 
 /* ESTILOS DE LA PAGINA . DE PARTIDA */
+body.page-index {
+  --header-offset: 70px;
+  position: relative;
+  min-height: 100vh;
+}
+
+.header--index {
+  margin-bottom: 0;
+  z-index: 900;
+}
+
+.header-spacer {
+  flex: 1;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .hero-content {
     position: relative;
     z-index: 600;
     pointer-events: auto;
+    padding-top: 100px;
     will-change: transform, opacity;
 }
 
 .hero-logo {
-    position: relative;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(var(--section-title-h) * 2.5);
     z-index: 100;
     padding: 0 50px;
     pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    box-sizing: border-box;
     overflow: hidden;
-    transition: height var(--hero-transition), margin var(--hero-transition);
+    transition: height var(--hero-transition), margin var(--hero-transition), opacity var(--hero-transition);
 }
 
 .hero-logo.is-collapsed {
     height: 0 !important;
     margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .intro-texts {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding-bottom: 50px;
+  gap: 16px;
+  padding-bottom: 20px;
+  max-width: 42em;
+}
+
+.intro-desc {
+  margin: 0;
+  line-height: 150%;
+  max-width: 400px;
+  color: var(--black);
+  padding-bottom: 30px;
 }
 
 .intro-header {
@@ -241,7 +303,10 @@ a {
 }
 
 .intro-logo {
-  width: 57vw;
+  flex: 0 0 auto;
+  width: 58vw;
+  max-width: 800px;
+  height: auto;
   display: block;
 }
 
@@ -259,18 +324,29 @@ body.quiz-started {
 }
 
 /* memes */
-.memes-animation {
-  height: 210px;
-  margin-bottom: 20px;
+
+.hero-logo .memes-animation {
+  flex: 0 0 auto;
+  margin-left: auto;
   position: relative;
-  will-change: transform, opacity;
+  /* height: 200px; */
+  overflow: hidden;
+  top: 10px;
 }
 
 .memes-animation img {
-  height: 210px;
+  height: 150px;
+  width: auto;
   position: absolute;
+  top: 0;
+  right: 0;
   opacity: 0;
-  transition: opacity .2s ease;
+  transition: opacity 0.4s ease;
+}
+
+.hero-logo .memes-animation img {
+  object-fit: contain;
+  object-position: right bottom;
 }
 
 .memes-animation img.active {
@@ -307,9 +383,8 @@ body.quiz-started .sections {
 }
 
 .sections section {
-  width: 100vw;
+  width: 100%;
   box-sizing: border-box;
-  padding: 10px 50px 0 50px;
   overflow: hidden;
   flex: 0 0 var(--section-title-h);
   display: flex;
@@ -320,7 +395,6 @@ body.quiz-started .sections {
 .ubicate {
   border-top: 1px solid var(--blue);
   background-color: var(--white);
-  margin-top: 30px;
 }
 
 .dame-un-match {
@@ -329,12 +403,37 @@ body.quiz-started .sections {
 }
 
 .resultados {
+  background-color: var(--white);
+  border-top: 1px solid var(--blue);
+  color: var(--white);
+}
+
+.section-title {
+  padding: 10px 50px;
+  color: var(--blue);
+  background-color: transparent;
+  transition:
+    background-color 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.4s ease;
+  flex-shrink: 0;
+}
+
+.resultados .sections-content {
+  background-color: var(--blue);
+}
+
+.sections section.is-open > .section-title {
   background-color: var(--blue);
   color: var(--white);
 }
 
-.resultados .section-title {
-  color: var(--white);
+.sections section.is-done > .section-title {
+  background-color: transparent;
+  color: var(--blue);
+}
+
+.sections-content {
+  padding: 0 50px;
 }
 
 /* --- Encuesta (UBÍCATE / MATCH / TOP 3) --- */
@@ -462,8 +561,8 @@ body.quiz-started .sections {
 .quiz-btn {
   font-family: var(--inter);
   font-size: var(--p-mini);
-  border-radius: 999px;
-  padding: 8px 20px;
+  /* border-radius: 10px; */
+  padding: 18px 28px;
   border: none;
   cursor: none;
   text-decoration: none;
@@ -939,10 +1038,11 @@ body.quiz-started .sections {
 }
 
 .tagline {
-    line-height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding-left: 300px;
+  margin-top: 120px;
+  line-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 300px;
 }
 
 .www {
@@ -952,7 +1052,7 @@ body.quiz-started .sections {
 /* ESTILOS DE LA PAGINA AYUDA */
 .ayuda-main {
   width: 100%;
-  margin: 0 50px;
+  margin: 120px 50px 0 50px;
   padding: 2rem 0 4rem;
   display: flex;
   flex-direction: row;
@@ -1096,7 +1196,7 @@ body.is-loading .cursor-dot {
 }
 
 .site-loader__panel {
-    width: min(450px, 100%);
+    width: min(400px, 100%);
 }
 
 .site-loader__panel--intro {
@@ -1117,12 +1217,11 @@ body.is-loading .cursor-dot {
 
 .captcha-box {
     border: 1px solid var(--blue);
-    padding: 30px 40px;
+    padding: 30px 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    min-height: 140px;
     margin-bottom: 28px;
     box-sizing: border-box;
     user-select: none;
@@ -1138,7 +1237,7 @@ body.is-loading .cursor-dot {
     flex: 1;
     min-width: 0;
     border: 1px solid var(--blue);
-    padding: 10px;
+    padding: 5px;
     font-size: var(--p-mini);
     color: var(--black);
     background: var(--white);
