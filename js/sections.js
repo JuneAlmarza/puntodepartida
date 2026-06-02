@@ -530,13 +530,17 @@
       });
   }
 
-  // recopilacion de artistas segun las tres subcategorias mas votadas
-  function collectArtistsFromTopSubs(topSubs) {
+  function isMobileResults() {
+    return window.matchMedia("(max-width: 900px)").matches;
+  }
+
+  function collectArtistsFromRanks(topSubs, ranks) {
     const seen = new Set();
     const artists = [];
 
-    topSubs.forEach((sub) => {
-      (sub.referentes || []).forEach((ref) => {
+    ranks.forEach((rank) => {
+      const sub = topSubs.find((item) => item.rank === rank);
+      (sub?.referentes || []).forEach((ref) => {
         if (seen.has(ref.slug)) return;
         seen.add(ref.slug);
         artists.push(ref);
@@ -544,6 +548,10 @@
     });
 
     return artists;
+  }
+
+  function getResultsArtistRanks() {
+    return isMobileResults() ? [1] : [1, 2];
   }
 
   // renderizamos los resultados
@@ -578,7 +586,7 @@
       })
       .join("");
 
-    const artists = collectArtistsFromTopSubs(topSubs);
+    const artists = collectArtistsFromRanks(topSubs, getResultsArtistRanks());
     const artistsHtml = artists
       .map(
         (ref) => `
@@ -701,6 +709,7 @@
 
   window.addEventListener("resize", () => {
     if (state.step === 2) renderMatch();
+    if (state.step === 3) renderResults();
   });
 
   if (document.readyState === "loading") {
