@@ -33,12 +33,38 @@
   let heroTl = null;
 
   const HERO_DURATION = 0.45;
-  const LOGO_COMPACT_TOP = 45;
+  const LOGO_COMPACT_LEFT = 50;
 
   function getLogoCompactWidth() {
     const raw = getComputedStyle(document.documentElement).getPropertyValue("--logo-compact-w");
     const parsed = parseFloat(raw);
     return Number.isFinite(parsed) ? parsed : 130;
+  }
+
+  function getLogoCompactTop() {
+    const raw = getComputedStyle(document.documentElement).getPropertyValue("--logo-compact-top");
+    const parsed = parseFloat(raw);
+    return Number.isFinite(parsed) ? parsed : 45;
+  }
+
+  function getLogoCompactLeft() {
+    const raw = getComputedStyle(document.documentElement).getPropertyValue("--page-gutter");
+    const parsed = parseFloat(raw);
+    return Number.isFinite(parsed) ? parsed : 20;
+  }
+
+  function getHeroExitY() {
+    const raw = getComputedStyle(document.documentElement).getPropertyValue("--hero-exit-y");
+    const parsed = parseFloat(raw);
+    return Number.isFinite(parsed) ? parsed : -430;
+  }
+
+  function isMobileView() {
+    return window.matchMedia("(max-width: 900px)").matches;
+  }
+
+  function getMatchPageSize() {
+    return isMobileView() ? 9 : MATCH_PAGE_SIZE;
   }
 
   // compacta el logo, mueve el contenido hacia arriba y crea la transicion inicial
@@ -55,8 +81,20 @@
 
     heroTl?.kill();
 
+    if (isMobileView()) {
+      heroTl = gsap.timeline({
+        defaults: { duration: HERO_DURATION },
+        onComplete: () => {
+          heroCompact = true;
+        },
+      });
+      heroTl.to(heroContent, { y: getHeroExitY(), opacity: 0, duration: HERO_DURATION }, 0);
+      return;
+    }
+
     const startRect = logo.getBoundingClientRect();
     const compactWidth = getLogoCompactWidth();
+    const compactLeft = getLogoCompactLeft();
 
     gsap.set(logo, {
       position: "fixed",
@@ -72,16 +110,22 @@
       onComplete: () => {
         heroCompact = true;
         heroLogoWrap.classList.add("is-collapsed");
+        gsap.set(logo, {
+          top: getLogoCompactTop(),
+          left: compactLeft,
+          width: compactWidth,
+        });
       },
     });
 
     heroTl
       .to(memes, { y: -460, opacity: 1, duration: HERO_DURATION }, 0)
-      .to(heroContent, { y: -430, opacity: 0, duration: HERO_DURATION }, 0)
+      .to(heroContent, { y: getHeroExitY(), opacity: 0, duration: HERO_DURATION }, 0)
       .to(
         logo,
         {
-          top: LOGO_COMPACT_TOP,
+          top: getLogoCompactTop(),
+          left: compactLeft,
           width: compactWidth,
           duration: HERO_DURATION,
         },
@@ -108,6 +152,13 @@
 
     heroTl?.kill();
 
+    if (isMobileView()) {
+      gsap.set(heroContent, { clearProps: "all" });
+      heroCompact = false;
+      onComplete?.();
+      return;
+    }
+
     heroLogoWrap.classList.remove("is-collapsed");
     gsap.set(logo, { clearProps: "all" });
     void heroLogoWrap.offsetHeight;
@@ -118,7 +169,8 @@
     gsap.set(logo, {
       position: "fixed",
       zIndex: 1100,
-      top: LOGO_COMPACT_TOP,
+      top: getLogoCompactTop(),
+      left: getLogoCompactLeft(),
       width: compactWidth,
       margin: 0,
     });
@@ -359,13 +411,14 @@
   function renderMatch() {
     const subs = getFilteredSubcategories();
     // las paginas de la seccion "dame un match"
-    const totalPages = Math.max(1, Math.ceil(subs.length / MATCH_PAGE_SIZE));
+    const totalPages = Math.max(1, Math.ceil(subs.length / getMatchPageSize()));
     if (state.matchPage >= totalPages) state.matchPage = totalPages - 1;
     if (state.matchPage < 0) state.matchPage = 0;
 
+    const pageSize = getMatchPageSize();
     const pageItems = subs.slice(
-      state.matchPage * MATCH_PAGE_SIZE,
-      state.matchPage * MATCH_PAGE_SIZE + MATCH_PAGE_SIZE
+      state.matchPage * pageSize,
+      state.matchPage * pageSize + pageSize
     );
 
     const gridHtml = pageItems
@@ -645,6 +698,10 @@
   if (btnHeroMore) {
     btnHeroMore.addEventListener("click", openQuizFromHero);
   }
+
+  window.addEventListener("resize", () => {
+    if (state.step === 2) renderMatch();
+  });
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
