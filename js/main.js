@@ -1,5 +1,181 @@
+// ANIMACIÓN BOTONES (relleno izquierda → derecha)
+document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
+
+    const DURATION = 0.45;
+    const EASE = "power2.inOut";
+    const BTN_SELECTOR = ".quiz-btn";
+    const MOBILE_MQ = window.matchMedia("(max-width: 900px)");
+    const buttonControllers = new WeakMap();
+
+    function isMobileView() {
+        return MOBILE_MQ.matches;
+    }
+
+    function resolveCssColor(el, customProp) {
+        const raw = getComputedStyle(el).getPropertyValue(customProp).trim();
+        if (!raw) return "";
+        const probe = document.createElement("span");
+        probe.style.color = raw;
+        document.body.appendChild(probe);
+        const resolved = getComputedStyle(probe).color;
+        probe.remove();
+        return resolved;
+    }
+
+    function deactivateButton(btn) {
+        if (typeof btn._btnAnimate !== "function") return;
+        btn._btnAnimate(false);
+        btn.dataset.btnActive = "0";
+    }
+
+    document.addEventListener("click", (e) => {
+        if (!isMobileView()) return;
+        document.querySelectorAll(`${BTN_SELECTOR}[data-btn-active='1']`).forEach((btn) => {
+            if (!btn.contains(e.target)) deactivateButton(btn);
+        });
+    });
+
+    function bindButtonInteractions(btn, animateButton, setRestingState) {
+        const prev = buttonControllers.get(btn);
+        if (prev) prev.abort();
+
+        const controller = new AbortController();
+        buttonControllers.set(btn, controller);
+        const opts = { signal: controller.signal };
+
+        if (isMobileView()) {
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(`${BTN_SELECTOR}[data-btn-active='1']`).forEach((other) => {
+                    if (other !== btn) deactivateButton(other);
+                });
+                animateButton(true);
+                btn.dataset.btnActive = "1";
+            }, opts);
+        } else {
+            btn.addEventListener("mouseenter", () => animateButton(true), opts);
+            btn.addEventListener("mouseleave", () => animateButton(false), opts);
+        }
+    }
+
+    function enhanceButton(btn) {
+        if (btn.dataset.btnFillInit) {
+            bindButtonInteractions(btn, btn._btnAnimate, btn._btnSetResting);
+            return;
+        }
+        btn.dataset.btnFillInit = "1";
+
+        let fill = btn.querySelector(".quiz-btn__fill");
+        let label = btn.querySelector(".quiz-btn__label");
+        const icon = btn.querySelector(".quiz-btn__icon");
+
+        if (!label) {
+            const text = btn.textContent.trim();
+            btn.textContent = "";
+            fill = document.createElement("span");
+            fill.className = "quiz-btn__fill";
+            fill.setAttribute("aria-hidden", "true");
+            label = document.createElement("span");
+            label.className = "quiz-btn__label";
+            label.textContent = text;
+            btn.append(fill, label);
+        } else if (!fill) {
+            fill = document.createElement("span");
+            fill.className = "quiz-btn__fill";
+            fill.setAttribute("aria-hidden", "true");
+            btn.prepend(fill);
+        }
+
+        function getFillRestWidth() {
+            return icon ? icon.offsetWidth : 0;
+        }
+
+        function setRestingState() {
+            gsap.set(fill, { width: getFillRestWidth() });
+            gsap.set(label, { clearProps: "color" });
+            btn.dataset.btnActive = "0";
+        }
+
+        setRestingState();
+
+        const colors = {
+            rest: getComputedStyle(label).color,
+            hover: resolveCssColor(btn, "--btn-text-hover"),
+        };
+
+        function animateButton(hovering) {
+            gsap.killTweensOf([fill, label]);
+
+            if (hovering) {
+                gsap.to(fill, { width: "100%", duration: DURATION, ease: EASE });
+                gsap.to(label, {
+                    color: colors.hover,
+                    duration: DURATION * 0.75,
+                    ease: EASE,
+                    delay: 0.08,
+                });
+            } else {
+                gsap.to(fill, {
+                    width: getFillRestWidth(),
+                    duration: DURATION,
+                    ease: EASE,
+                });
+                gsap.to(label, {
+                    color: colors.rest,
+                    duration: DURATION * 0.75,
+                    ease: EASE,
+                    delay: 0.06,
+                });
+            }
+        }
+
+        btn._btnAnimate = animateButton;
+        btn._btnSetResting = setRestingState;
+
+        bindButtonInteractions(btn, animateButton, setRestingState);
+
+        window.addEventListener("resize", () => {
+            if (isMobileView()) {
+                if (btn.dataset.btnActive !== "1") setRestingState();
+            } else if (!btn.matches(":hover")) {
+                setRestingState();
+            }
+            bindButtonInteractions(btn, animateButton, setRestingState);
+        });
+    }
+
+    function scanButtons(root = document) {
+        root.querySelectorAll(BTN_SELECTOR).forEach(enhanceButton);
+    }
+
+    scanButtons();
+
+    MOBILE_MQ.addEventListener("change", () => {
+        document.querySelectorAll(BTN_SELECTOR).forEach((btn) => {
+            if (btn._btnSetResting) btn._btnSetResting();
+            if (btn._btnAnimate && btn._btnSetResting) {
+                bindButtonInteractions(btn, btn._btnAnimate, btn._btnSetResting);
+            }
+        });
+    });
+
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach(({ addedNodes }) => {
+            addedNodes.forEach((node) => {
+                if (node.nodeType !== 1) return;
+                if (node.matches?.(BTN_SELECTOR)) enhanceButton(node);
+                node.querySelectorAll?.(BTN_SELECTOR).forEach(enhanceButton);
+            });
+        });
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+});
+
 // ANIMACIÓN MEMES
 document.addEventListener("DOMContentLoaded", () => {
+    if (window.matchMedia("(max-width: 900px)").matches) return;
+
     const container = document.getElementById("heroMemes");
     const memes = container
         ? container.querySelectorAll("img")
@@ -129,18 +305,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
       DATA = await response.json();
 
-      bindRefsPreview();
       renderCats();
     } catch (error) {
       console.error("Error cargando la base de datos:", error);
     }
   }
 
+  function isMobileWww() {
+    return window.matchMedia("(max-width: 900px)").matches;
+  }
+
+  function colHeading(text) {
+    return isMobileWww() ? `<p class="col-label">${text}</p>` : "";
+  }
+
+  function syncEmptyCols() {
+    document.querySelectorAll(".wrap .col").forEach((col) => {
+      col.classList.toggle("is-empty", col.childElementCount === 0);
+    });
+  }
+
+  function scrollToWwwCol(id) {
+    if (!isMobileWww()) return;
+    const el = document.getElementById(id);
+    if (!el || el.classList.contains("is-empty")) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   function renderCats() {
     const el = document.getElementById("col-cats");
     if (!el) return;
 
-    el.innerHTML = DATA.map(cat => `
+    el.innerHTML = colHeading("Categorías") + DATA.map(cat => `
       <div
         class="item ${activeCat === cat.id ? "active" : ""}"
         data-cat="${cat.id}"
@@ -157,8 +353,11 @@ document.addEventListener("DOMContentLoaded", () => {
         renderCats();
         renderSubs();
         renderRefs();
+        scrollToWwwCol("col-subs");
       });
     });
+
+    syncEmptyCols();
   }
 
   function renderSubs() {
@@ -167,12 +366,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!activeCat) {
       el.innerHTML = "";
+      syncEmptyCols();
       return;
     }
 
     const cat = DATA.find(c => c.id === activeCat);
 
-    el.innerHTML = cat.subcategorias.map(sub => `
+    el.innerHTML = colHeading("Subcategorías") + cat.subcategorias.map(sub => `
       <div
         class="item ${activeSub === sub.id ? "active" : ""}"
         data-sub="${sub.id}"
@@ -187,25 +387,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         renderSubs();
         renderRefs();
+        scrollToWwwCol("col-refs");
       });
     });
+
+    syncEmptyCols();
   }
 
   function renderRefs() {
       const el = document.getElementById("col-refs");
-      const imgCol = document.getElementById("col-img");
-      if (!el || !imgCol) return;
+      if (!el) return;
 
       if (!activeCat || !activeSub) {
           el.innerHTML = "";
-          imgCol.innerHTML = "";
+          syncEmptyCols();
           return;
       }
 
       const cat = DATA.find(c => c.id === activeCat);
       const sub = cat.subcategorias.find(s => s.id === activeSub);
 
-      el.innerHTML = sub.referentes.map(ref => `
+      el.innerHTML = colHeading("Referentes") + sub.referentes.map(ref => `
           <div class="referente-row"
               data-ref="${ref.slug}"
               data-url="${ref.url}">
@@ -219,57 +421,9 @@ document.addEventListener("DOMContentLoaded", () => {
               if (url) window.open(url, "_blank");
           });
       });
+
+      syncEmptyCols();
   }
-
-  function bindRefsPreview() {
-      const el = document.getElementById("col-refs");
-      const imgCol = document.getElementById("col-img");
-      if (!el || !imgCol || el.dataset.previewBound) return;
-
-      el.dataset.previewBound = "1";
-      let hidePreviewTimer;
-
-      function showPreview(row) {
-          clearTimeout(hidePreviewTimer);
-          const slug = row.dataset.ref;
-          const src = `./www-assets/img/${slug}.jpg`;
-
-          const current = imgCol.querySelector("img");
-          if (current && current.dataset.slug === slug) return;
-
-          imgCol.innerHTML = "";
-          const img = document.createElement("img");
-          img.dataset.slug = slug;
-          img.src = src;
-          img.alt = slug;
-          imgCol.appendChild(img);
-
-          const reveal = () => {
-              requestAnimationFrame(() => img.classList.add("is-visible"));
-          };
-
-          if (img.complete) {
-              reveal();
-          } else {
-              img.addEventListener("load", reveal, { once: true });
-          }
-      }
-
-      el.addEventListener("mouseover", (e) => {
-          const row = e.target.closest(".referente-row");
-          if (!row || !el.contains(row)) return;
-          showPreview(row);
-      });
-
-      el.addEventListener("mouseout", (e) => {
-          const related = e.relatedTarget;
-          if (related instanceof Node && el.contains(related)) return;
-
-          hidePreviewTimer = setTimeout(() => {
-              imgCol.innerHTML = "";
-          }, 40);
-      });
-}
 
 const colabForm = document.getElementById("colabForm");
 if (colabForm) {
