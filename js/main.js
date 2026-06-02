@@ -305,6 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       DATA = await response.json();
 
+      bindRefsPreview();
       renderCats();
     } catch (error) {
       console.error("Error cargando la base de datos:", error);
@@ -396,10 +397,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderRefs() {
       const el = document.getElementById("col-refs");
+      const imgCol = document.getElementById("col-img");
       if (!el) return;
 
       if (!activeCat || !activeSub) {
           el.innerHTML = "";
+          if (imgCol) imgCol.innerHTML = "";
           syncEmptyCols();
           return;
       }
@@ -423,6 +426,63 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       syncEmptyCols();
+  }
+
+  function showReferentePreview(row) {
+      if (isMobileWww()) return;
+
+      const imgCol = document.getElementById("col-img");
+      if (!imgCol) return;
+
+      const slug = row.dataset.ref;
+      const src = `./www-assets/img/${slug}.jpg`;
+
+      const current = imgCol.querySelector("img");
+      if (current && current.dataset.slug === slug) return;
+
+      imgCol.innerHTML = "";
+      const img = document.createElement("img");
+      img.dataset.slug = slug;
+      img.src = src;
+      img.alt = slug;
+      imgCol.appendChild(img);
+
+      const reveal = () => {
+          requestAnimationFrame(() => img.classList.add("is-visible"));
+      };
+
+      if (img.complete) reveal();
+      else img.addEventListener("load", reveal, { once: true });
+
+      syncEmptyCols();
+  }
+
+  function bindRefsPreview() {
+      const el = document.getElementById("col-refs");
+      const imgCol = document.getElementById("col-img");
+      if (!el || !imgCol || el.dataset.previewBound) return;
+
+      el.dataset.previewBound = "1";
+      let hidePreviewTimer;
+
+      el.addEventListener("mouseover", (e) => {
+          if (isMobileWww()) return;
+          const row = e.target.closest(".referente-row");
+          if (!row || !el.contains(row)) return;
+          clearTimeout(hidePreviewTimer);
+          showReferentePreview(row);
+      });
+
+      el.addEventListener("mouseout", (e) => {
+          if (isMobileWww()) return;
+          const related = e.relatedTarget;
+          if (related instanceof Node && el.contains(related)) return;
+
+          hidePreviewTimer = setTimeout(() => {
+              imgCol.innerHTML = "";
+              syncEmptyCols();
+          }, 40);
+      });
   }
 
 const colabForm = document.getElementById("colabForm");
