@@ -375,7 +375,8 @@ body.quiz-started {
   left: 0;
   right: 0;
   top: var(--header-offset);
-  height: calc(100vh - var(--header-offset));
+  bottom: 0;
+  height: auto;
   z-index: 500;
 
   display: flex;
@@ -383,9 +384,7 @@ body.quiz-started {
   justify-content: flex-end;
   overflow: hidden;
   pointer-events: none;
-  transition:
-    top var(--hero-transition),
-    height var(--hero-transition);
+  transition: top var(--hero-transition);
 }
 
 body.quiz-started .sections {
@@ -944,7 +943,7 @@ body.quiz-started .sections {
 .wrap {
   margin: 0 var(--page-gutter) 0 var(--page-gutter);
   display: grid;
-  grid-template-columns: 30% 32% 1fr;
+  grid-template-columns: 28% 22% 20% 30%;
   padding: 2rem 0 3rem;
 }
 
@@ -1006,7 +1005,26 @@ body.quiz-started .sections {
 }
 
 #col-img {
-  display: none;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  cursor: none;
+}
+
+#col-img img {
+  width: 100%;
+  height: auto;
+  max-height: 350px;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#col-img img.is-visible {
+  opacity: 1;
 }
 
 
@@ -1352,12 +1370,19 @@ body.is-loading .cursor-dot {
     padding-top: calc(var(--header-offset) + 50px);
   }
 
-  .sections {
-    top: 70px;
-  }
-
   .sections-stage {
     order: 2;
+  }
+
+  body.page-index .sections {
+    top: var(--header-offset);
+    bottom: 0;
+  }
+
+  body.page-index .sections-content {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
   }
 
   .intro-texts {
@@ -1425,6 +1450,122 @@ body.is-loading .cursor-dot {
     padding-bottom: 32px;
   }
 
+  .resultados.is-open .sections-content {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 32px;
+  }
+
+  .resultados .quiz-panel--results {
+    min-height: auto;
+    flex: none;
+  }
+
+  .resultados .results-col--thanks {
+    position: static;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+  }
+
+  .resultados .results-thanks {
+    font-size: var(--h2);
+  }
+
+  .resultados .results-thanks-sub {
+    font-size: var(--h3);
+    padding-top: 8px;
+  }
+
+  .resultados .results-graphics {
+    flex: none;
+    min-height: auto;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 24px;
+  }
+
+  .resultados .results-col--podium {
+    flex: 0 0 42%;
+    max-width: 42%;
+  }
+
+  .resultados .results-col--artists {
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .resultados .podium {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 8px;
+    flex: none;
+  }
+
+  .resultados .podium-card {
+    flex: 0 0 auto;
+    padding: 10px;
+  }
+
+  .resultados .podium-card--first {
+    order: 1;
+    min-height: 92px;
+  }
+
+  .resultados .podium-card--second {
+    order: 2;
+    min-height: 72px;
+  }
+
+  .resultados .podium-card--third {
+    order: 3;
+    min-height: 56px;
+  }
+
+  .resultados .podium-card__rank {
+    margin-bottom: 6px;
+    font-size: 10px;
+  }
+
+  .resultados .podium-card__title {
+    font-size: var(--p-mini);
+    margin: 0 0 4px;
+  }
+
+  .resultados .podium-card__cat {
+    font-size: 10px;
+  }
+
+  .resultados .results-artists-title {
+    font-size: var(--p-mini);
+    padding-bottom: 10px;
+    line-height: 130%;
+  }
+
+  .resultados .artist-row__photo,
+  .resultados .artist-row__fallback {
+    display: none !important;
+  }
+
+  .resultados .results-artists-list {
+    padding-bottom: 12px;
+    overflow: visible;
+  }
+
+  .resultados .results-actions {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 12px;
+    flex-shrink: 0;
+  }
+
+  .resultados .results-actions .quiz-btn {
+    text-align: center;
+  }
+
   .wrap {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -1450,6 +1591,10 @@ body.is-loading .cursor-dot {
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 0.04em;
+  }
+
+  #col-img {
+    display: none;
   }
 
   .wrap .item,
