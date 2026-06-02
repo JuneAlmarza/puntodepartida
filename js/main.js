@@ -1,25 +1,64 @@
 // ANIMACIÓN MEMES
 document.addEventListener("DOMContentLoaded", () => {
-    const memes = document.querySelectorAll(".memes-animation img");
+    const container = document.getElementById("heroMemes");
+    const memes = container
+        ? container.querySelectorAll("img")
+        : document.querySelectorAll(".hero-logo .memes-animation img");
+
+    if (!memes.length) return;
+
+    const MEME_HEIGHT = 200;
+    const MIN_GAP = 30;
     let index = 0;
 
-    // Oculta todos
-    memes.forEach(m => m.classList.remove("active"));
+    function getMemeWidth(img) {
+        if (!img.naturalWidth || !img.naturalHeight) return 0;
+        return (img.naturalWidth / img.naturalHeight) * MEME_HEIGHT;
+    }
 
-    // Muestra el primero
-    memes[0].classList.add("active");
+    function getMaxMemeWidth() {
+        if (!container) return Infinity;
+        const heroRow = container.closest(".hero-logo");
+        const logo = heroRow?.querySelector(".intro-logo");
+        if (!heroRow || !logo) return Infinity;
+        return Math.max(0, heroRow.clientWidth - logo.offsetWidth - MIN_GAP);
+    }
+
+    function resizeMemeBox(img) {
+        if (!container || !img) return;
+        const naturalWidth = getMemeWidth(img);
+        const maxWidth = getMaxMemeWidth();
+        const width = naturalWidth ? Math.min(naturalWidth, maxWidth) : 0;
+
+        container.style.width = `${width}px`;
+        container.style.height = `${MEME_HEIGHT}px`;
+    }
+
+    function showMeme(nextIndex) {
+        const next = memes[nextIndex];
+        resizeMemeBox(next);
+
+        index = nextIndex;
+        memes.forEach((m) => m.classList.remove("active"));
+        next.classList.add("active");
+    }
+
+    memes.forEach((img) => {
+        const onReady = () => {
+            if (img.classList.contains("active")) resizeMemeBox(img);
+        };
+
+        if (img.complete) onReady();
+        else img.addEventListener("load", onReady, { once: true });
+    });
+
+    showMeme(0);
 
     setInterval(() => {
-        // Oculta el actual
-        memes[index].classList.remove("active");
+        showMeme((index + 1) % memes.length);
+    }, 2000);
 
-        // Avanza al siguiente
-        index = (index + 1) % memes.length;
-
-        // Muestra el nuevo
-        memes[index].classList.add("active");
-
-    }, 1000); // cambia cada 2 segundos (ajusta si quieres)
+    window.addEventListener("resize", () => resizeMemeBox(memes[index]));
 });
 
 // ANIMACIÓN DEL CURSOR
