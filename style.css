@@ -1168,36 +1168,6 @@ body.quiz-started .sections {
     max-width: 28em;
 }
 
-@media (max-width: 900px) {
-  .ayuda-main {
-    flex-direction: column;
-    gap: 48px;
-    margin-top: 90px;
-    padding-bottom: 2rem;
-  }
-
-  .ayuda-about,
-  .ayuda-form-section {
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  .ayuda-text {
-    max-width: none;
-  }
-
-  .first-field,
-  .second-field {
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  .footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-  }
-}
 
 /* --- Loading (captcha + intro) --- */
 
@@ -1318,6 +1288,14 @@ body.is-loading .cursor-dot {
     --header-offset: 54px;
     --header-offset-compact: 54px;
     --logo-compact-top: 20px;
+  }
+
+  body {
+    cursor: pointer;
+  }
+
+  .cursor-dot {
+    display: none;
   }
 
   .header--index {
@@ -1605,6 +1583,28 @@ body.is-loading .cursor-dot {
 
   .referente-row {
     padding: 0;
+  }
+  .ayuda-main {
+    flex-direction: column;
+    gap: 48px;
+    margin-top: 90px;
+    padding-bottom: 2rem;
+  }
+
+  .ayuda-about,
+  .ayuda-form-section {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .ayuda-text {
+    max-width: none;
+  }
+
+  .first-field,
+  .second-field {
+    flex-direction: column;
+    gap: 18px;
   }
 
   .footer {
