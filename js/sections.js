@@ -353,8 +353,8 @@
       (axis) => `
       <div class="quiz-slider" data-axis="${axis.id}">
         <div class="quiz-slider__labels">
-          <span class="h1 arial-regular">${axis.left}</span>
-          <span class="h1 arial-regular">${axis.right}</span>
+          <span class="h3 inter-bold">${axis.left}</span>
+          <span class="h3 inter-bold">${axis.right}</span>
         </div>
         <div class="quiz-slider__track">
           <input
@@ -371,7 +371,7 @@
 
     sectionUbicate.innerHTML = `
       <div class="quiz-panel quiz-panel--ubicate">
-        <p class="quiz-panel__hint arial-regular h3">¿Qué prefieres…</p>
+        <p class="quiz-panel__hint inter-regular h4">¿Qué prefieres…</p>
         <div class="quiz-sliders">${slidersHtml}</div>
         <div class="quiz-panel__actions">
           <button type="button" class="quiz-btn quiz-btn--primary" id="btnUbicateNext">Siguiente</button>
@@ -617,8 +617,8 @@
     sectionResults.innerHTML = `
       <div class="quiz-panel quiz-panel--results">
         <div class="results-col results-col--thanks">
-          <p class="results-thanks arial-regular h1"><span>¡Gracias por rellenar</span><span>la encuesta!</span></p>
-          <p class="results-thanks-sub arial-regular h3"><span>Esperamos que te haya</span><span>servido de ayuda.</span></p>
+          <p class="results-thanks inter-regular h2"><span>¡Gracias por rellenar</span><span>la encuesta!</span></p>
+          <p class="results-thanks-sub inter-regular h4"><span>Esperamos que te haya</span><span>servido de ayuda.</span></p>
         </div>
         <div class="results-graphics">
           <div class="results-col results-col--podium">
