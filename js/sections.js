@@ -8,8 +8,7 @@
 
   // aquí creo unas constantes como las variables de un CSS
   const STORAGE_KEY = "punto-de-partida-quiz-v1"; // aqui guardo los valores de cada sesión 
-  const DATA_URL = "data/base-de-datos.json";
-  const IMG_BASE = "www-assets/img/";
+  const DATA_URL = "./data/base-de-datos.json";
 
   // guardamos todo lo que haga el usuario
   const state = {
@@ -282,7 +281,7 @@
   }
 
   function referenteImgSrc(slug) {
-    return `${IMG_BASE}${slug}.jpg`;
+    return window.ReferenteImages?.referenteImgSrc(slug) ?? `./www-assets/img/${slug}.jpg`;
   }
 
   // precargo las imagenes de la base de datos
@@ -353,8 +352,8 @@
       (axis) => `
       <div class="quiz-slider" data-axis="${axis.id}">
         <div class="quiz-slider__labels">
-          <span class="h3 inter-bold">${axis.left}</span>
-          <span class="h3 inter-bold">${axis.right}</span>
+          <span class="h4 inter-bold">${axis.left}</span>
+          <span class="h4 inter-bold">${axis.right}</span>
         </div>
         <div class="quiz-slider__track">
           <input
@@ -371,7 +370,7 @@
 
     sectionUbicate.innerHTML = `
       <div class="quiz-panel quiz-panel--ubicate">
-        <p class="quiz-panel__hint inter-regular h4">¿Qué prefieres…</p>
+        <p class="quiz-panel__hint arial-regular h3">¿Qué prefieres…</p>
         <div class="quiz-sliders">${slidersHtml}</div>
         <div class="quiz-panel__actions">
           <button type="button" class="quiz-btn quiz-btn--primary" id="btnUbicateNext">Siguiente</button>
@@ -617,8 +616,8 @@
     sectionResults.innerHTML = `
       <div class="quiz-panel quiz-panel--results">
         <div class="results-col results-col--thanks">
-          <p class="results-thanks inter-regular h2"><span>¡Gracias por rellenar</span><span>la encuesta!</span></p>
-          <p class="results-thanks-sub inter-regular h4"><span>Esperamos que te haya</span><span>servido de ayuda.</span></p>
+          <h3 class="results-thanks arial-regular h3"><span>¡Gracias por rellenar</span><span>la encuesta!</span></h3>
+          <p class="results-thanks-sub inter-regular p"><span>Esperamos que te haya</span><span>servido de ayuda.</span></p>
         </div>
         <div class="results-graphics">
           <div class="results-col results-col--podium">
@@ -677,6 +676,7 @@
     });
 
     try {
+      await window.ReferenteImages?.loadImageMap?.();
       const res = await fetch(DATA_URL);
       if (!res.ok) throw new Error(res.status);
       state.database = await res.json();
