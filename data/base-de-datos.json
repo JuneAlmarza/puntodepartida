@@ -426,7 +426,7 @@
         "referentes": [
           {
             "nombre": "Paula Scher",
-            "slug": "paula-scher",
+            "slug": "paula-scher-2",
             "url": "https://disenadorasgraficas.com/biografia/paula-scher/"
           },
           {
@@ -3047,32 +3047,27 @@
           {
             "nombre": "Ben Burtt (Star Wars)",
             "slug": "ben-burtt",
-            "url": ""
+            "url": "https://starwars.fandom.com/es/wiki/Ben_Burtt"
           },
           {
             "nombre": "Walter Murch",
             "slug": "walter-murch",
-            "url": ""
+            "url": "https://www.imdb.com/es-es/name/nm0004555/"
           },
           {
             "nombre": "Randy Thom (Skywalker Sound)",
             "slug": "randy-thom",
-            "url": ""
+            "url": "https://www.imdb.com/es-es/name/nm0858378/"
           },
           {
             "nombre": "Ren Klyce",
             "slug": "ren-klyce",
-            "url": ""
-          },
-          {
-            "nombre": "Richard King",
-            "slug": "richard-king",
-            "url": ""
+            "url": "https://starwars.fandom.com/wiki/Ren_Klyce"
           },
           {
             "nombre": "Nicolas Becker",
             "slug": "nicolas-becker",
-            "url": ""
+            "url": "https://www.imdb.com/es-es/name/nm0065545/"
           }
         ]
       },
@@ -3083,27 +3078,27 @@
           {
             "nombre": "Holly Herndon",
             "slug": "holly-herndon",
-            "url": ""
+            "url": "https://herndondryhurst.studio/"
           },
           {
             "nombre": "Matmos",
             "slug": "matmos",
-            "url": ""
+            "url": "https://open.spotify.com/intl-es/artist/0xBkYJzwFzcIYev4fOkvk0?si=uTps8KxHQVKlk-_6O1bS6w"
           },
           {
             "nombre": "Robert Henke (Monolake)",
             "slug": "robert-henke",
-            "url": ""
+            "url": "https://roberthenke.com/"
           },
           {
             "nombre": "Ryoji Ikeda",
             "slug": "ryoji-ikeda",
-            "url": ""
+            "url": "https://www.ryojiikeda.com/"
           },
           {
             "nombre": "Alva Noto",
             "slug": "alva-noto",
-            "url": ""
+            "url": "https://www.alvanoto.com/"
           }
         ]
       },
@@ -3114,32 +3109,27 @@
           {
             "nombre": "Sixième Son",
             "slug": "sixieme-son",
-            "url": ""
+            "url": "https://www.sixiemeson.com/"
           },
           {
             "nombre": "Amp Sound Branding",
             "slug": "amp-sound-branding",
-            "url": ""
+            "url": "https://ampsoundbranding.com/"
           },
           {
             "nombre": "Man Made Music",
             "slug": "man-made-music",
-            "url": ""
+            "url": "https://www.mademusicstudio.com/"
           },
           {
             "nombre": "MassiveMusic",
             "slug": "massivemusic",
-            "url": ""
+            "url": "https://massivemusic.com/"
           },
           {
             "nombre": "Sonicbrand",
             "slug": "sonicbrand",
-            "url": ""
-          },
-          {
-            "nombre": "Resonance",
-            "slug": "resonance",
-            "url": ""
+            "url": "https://sonicbrand.com/"
           }
         ]
       },
@@ -3150,32 +3140,32 @@
           {
             "nombre": "Akira Yamaoka (Silent Hill)",
             "slug": "akira-yamaoka",
-            "url": ""
+            "url": "https://www.akira-yamaoka.com/"
           },
           {
             "nombre": "Nobuo Uematsu (Final Fantasy)",
             "slug": "nobuo-uematsu",
-            "url": ""
+            "url": "https://www.imdb.com/es-es/name/nm0879965/"
           },
           {
             "nombre": "Martin O'Donnell (Halo)",
             "slug": "martin-o-donnell",
-            "url": ""
+            "url": "https://open.spotify.com/intl-es/artist/5oERdzrfb6kmNMzPNINZib?si=6-Huy9WFS2y6hmrRcxyfIQ"
           },
           {
             "nombre": "Jesper Kyd",
             "slug": "jesper-kyd",
-            "url": ""
+            "url": "https://www.imdb.com/es/name/nm1224245/"
           },
           {
             "nombre": "Yoko Shimomura",
             "slug": "yoko-shimomura",
-            "url": ""
+            "url": "https://www.imdb.com/es-es/name/nm0793738/"
           },
           {
             "nombre": "Disasterpeace (FEZ)",
             "slug": "disasterpeace",
-            "url": ""
+            "url": "https://disasterpeace.com/"
           }
         ]
       },
@@ -3186,32 +3176,32 @@
           {
             "nombre": "Janet Cardiff",
             "slug": "janet-cardiff",
-            "url": ""
+            "url": "https://cardiffmiller.com/"
           },
           {
             "nombre": "Chris Watson",
             "slug": "chris-watson",
-            "url": ""
+            "url": "https://www.itischriswatson.com/"
           },
           {
             "nombre": "Francisco López",
             "slug": "francisco-lopez",
-            "url": ""
+            "url": "https://www.franciscolopez.net/"
           },
           {
             "nombre": "Bill Fontana",
             "slug": "bill-fontana",
-            "url": ""
+            "url": "https://www.instagram.com/soundsculpture1/?hl=es"
           },
           {
             "nombre": "Zimoun",
             "slug": "zimoun",
-            "url": ""
+            "url": "https://www.zimoun.net/"
           },
           {
             "nombre": "Scanner (Robin Rimbaud)",
             "slug": "scanner",
-            "url": ""
+            "url": "https://scannerdot.com/"
           }
         ]
       },
@@ -3220,34 +3210,24 @@
         "nombre": "Audio para UI y productos digitales",
         "referentes": [
           {
-            "nombre": "Earworm",
-            "slug": "earworm",
-            "url": ""
-          },
-          {
             "nombre": "Antfood",
             "slug": "antfood",
-            "url": ""
+            "url": "https://www.antfood.com/"
           },
           {
             "nombre": "Squeak E. Clean Studios",
             "slug": "squeak-e-clean-studios",
-            "url": ""
+            "url": "https://www.squeakeclean.com/"
           },
           {
             "nombre": "Resonance",
             "slug": "resonance",
-            "url": ""
-          },
-          {
-            "nombre": "Twang",
-            "slug": "twang",
-            "url": ""
+            "url": "https://www.instagram.com/resonance_javier/"
           },
           {
             "nombre": "MassiveMusic (digital)",
             "slug": "massivemusic",
-            "url": ""
+            "url": "https://massivemusic.com/"
           }
         ]
       }
