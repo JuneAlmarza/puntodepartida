@@ -174,67 +174,113 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ANIMACIÓN MEMES
 document.addEventListener("DOMContentLoaded", () => {
-    if (window.matchMedia("(max-width: 900px)").matches) return;
+    const mobileQuery = window.matchMedia("(max-width: 900px)");
+    let intervalId = null;
+    let resizeHandler = null;
+    let activeIndex = 0;
+    let activeContainer = null;
+    let activeMemes = [];
 
-    const container = document.getElementById("heroMemes");
-    const memes = container
-        ? container.querySelectorAll("img")
-        : document.querySelectorAll(".hero-logo .memes-animation img");
-
-    if (!memes.length) return;
-
-    const MEME_HEIGHT = 200;
-    const MIN_GAP = 30;
-    let index = 0;
-
-    function getMemeWidth(img) {
-        if (!img.naturalWidth || !img.naturalHeight) return 0;
-        return (img.naturalWidth / img.naturalHeight) * MEME_HEIGHT;
+    function getMemeContainer() {
+        return mobileQuery.matches
+            ? document.getElementById("heroMemesMobile")
+            : document.getElementById("heroMemesDesktop");
     }
 
-    function getMaxMemeWidth() {
-        if (!container) return Infinity;
+    function getMemeHeight() {
+        return mobileQuery.matches ? 150 : 200;
+    }
+
+    function getMemeWidth(img, memeHeight) {
+        if (!img.naturalWidth || !img.naturalHeight) return 0;
+        return (img.naturalWidth / img.naturalHeight) * memeHeight;
+    }
+
+    function getMaxMemeWidth(container) {
+        if (mobileQuery.matches) {
+            const parent = container.closest(".intro-texts") || container.parentElement;
+            return parent ? parent.clientWidth : Math.max(0, window.innerWidth - 40);
+        }
+
         const heroRow = container.closest(".hero-logo");
         const logo = heroRow?.querySelector(".intro-logo");
+        const MIN_GAP = 30;
         if (!heroRow || !logo) return Infinity;
         return Math.max(0, heroRow.clientWidth - logo.offsetWidth - MIN_GAP);
     }
 
-    function resizeMemeBox(img) {
+    function resizeMemeBox(container, img) {
         if (!container || !img) return;
-        const naturalWidth = getMemeWidth(img);
-        const maxWidth = getMaxMemeWidth();
+        const memeHeight = getMemeHeight();
+        const naturalWidth = getMemeWidth(img, memeHeight);
+        const maxWidth = getMaxMemeWidth(container);
         const width = naturalWidth ? Math.min(naturalWidth, maxWidth) : 0;
 
-        container.style.width = `${width}px`;
-        container.style.height = `${MEME_HEIGHT}px`;
+        container.style.width = mobileQuery.matches ? "100%" : `${width}px`;
+        container.style.height = `${memeHeight}px`;
     }
 
     function showMeme(nextIndex) {
-        const next = memes[nextIndex];
-        resizeMemeBox(next);
+        if (!activeMemes.length) return;
 
-        index = nextIndex;
-        memes.forEach((m) => m.classList.remove("active"));
+        const next = activeMemes[nextIndex];
+        resizeMemeBox(activeContainer, next);
+
+        activeIndex = nextIndex;
+        activeMemes.forEach((m) => m.classList.remove("active"));
         next.classList.add("active");
     }
 
-    memes.forEach((img) => {
-        const onReady = () => {
-            if (img.classList.contains("active")) resizeMemeBox(img);
+    function stopMemeRotation() {
+        if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
+        if (resizeHandler) {
+            window.removeEventListener("resize", resizeHandler);
+            resizeHandler = null;
+        }
+        activeMemes.forEach((img) => img.classList.remove("active"));
+        activeContainer = null;
+        activeMemes = [];
+        activeIndex = 0;
+    }
+
+    function startMemeRotation() {
+        stopMemeRotation();
+
+        const container = getMemeContainer();
+        if (!container) return;
+
+        const memes = [...container.querySelectorAll("img")];
+        if (!memes.length) return;
+
+        activeContainer = container;
+        activeMemes = memes;
+
+        memes.forEach((img) => {
+            const onReady = () => {
+                if (img.classList.contains("active")) resizeMemeBox(container, img);
+            };
+
+            if (img.complete) onReady();
+            else img.addEventListener("load", onReady, { once: true });
+        });
+
+        showMeme(0);
+
+        intervalId = setInterval(() => {
+            showMeme((activeIndex + 1) % memes.length);
+        }, 2000);
+
+        resizeHandler = () => {
+            if (activeMemes[activeIndex]) resizeMemeBox(activeContainer, activeMemes[activeIndex]);
         };
+        window.addEventListener("resize", resizeHandler);
+    }
 
-        if (img.complete) onReady();
-        else img.addEventListener("load", onReady, { once: true });
-    });
-
-    showMeme(0);
-
-    setInterval(() => {
-        showMeme((index + 1) % memes.length);
-    }, 2000);
-
-    window.addEventListener("resize", () => resizeMemeBox(memes[index]));
+    startMemeRotation();
+    mobileQuery.addEventListener("change", startMemeRotation);
 });
 
 // ANIMACIÓN DEL CURSOR
@@ -297,6 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!colCats) return;
 
     try {
+      await window.ReferenteImages?.loadImageMap?.();
       const response = await fetch("./data/base-de-datos.json");
 
       if (!response.ok) {
@@ -435,7 +482,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!imgCol) return;
 
       const slug = row.dataset.ref;
-      const src = `./www-assets/img/${slug}.jpg`;
+      const src = window.ReferenteImages.referenteImgSrc(slug);
 
       const current = imgCol.querySelector("img");
       if (current && current.dataset.slug === slug) return;
