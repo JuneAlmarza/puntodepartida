@@ -1437,6 +1437,10 @@ body.is-loading .cursor-dot {
     height: 11px;
   }
 
+  .captcha-input {
+    border-radius: 0;
+  }
+
   .quiz-panel--match {
     grid-template-columns: 1fr;
   }
