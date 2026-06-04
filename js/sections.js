@@ -351,10 +351,6 @@
     const slidersHtml = QUIZ_AXES.map(
       (axis) => `
       <div class="quiz-slider" data-axis="${axis.id}">
-        <div class="quiz-slider__labels">
-          <span class="h4 inter-bold">${axis.left}</span>
-          <span class="h4 inter-bold">${axis.right}</span>
-        </div>
         <div class="quiz-slider__track">
           <input
             type="range"
@@ -363,6 +359,10 @@
             value="${state.sliders[axis.id] ?? 50}"
             aria-label="${axis.left} — ${axis.right}"
           />
+        </div>
+        <div class="quiz-slider__labels">
+          <span class="p inter-bold">${axis.left}</span>
+          <span class="p inter-bold" style="text-align:right">${axis.right}</span>
         </div>
       </div>
     `
@@ -617,7 +617,7 @@
       <div class="quiz-panel quiz-panel--results">
         <div class="results-col results-col--thanks">
           <h3 class="results-thanks arial-regular h3"><span>¡Gracias por rellenar</span><span>la encuesta!</span></h3>
-          <p class="results-thanks-sub inter-regular p"><span>Esperamos que te haya</span><span>servido de ayuda.</span></p>
+          <p class="results-thanks-sub inter-regular p-mini"><span>Esperamos que te haya</span><span>servido de ayuda.</span></p>
         </div>
         <div class="results-graphics">
           <div class="results-col results-col--podium">
