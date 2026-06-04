@@ -1209,7 +1209,7 @@ body.is-loading .cursor-dot {
 }
 
 .loading-logo {
-  margin: 10px 0
+  margin: 6px 0
 }
 
 .site-loader__heading {
@@ -1287,9 +1287,16 @@ body.is-loading .cursor-dot {
   body.page-index {
     display: flex;
     flex-direction: column;
-    --header-offset: 54px;
-    --header-offset-compact: 120px;
+    --header-offset-compact: 80px;
     --logo-compact-top: 20px;
+  }
+
+  body.page-index:not(.quiz-started) {
+    --header-offset: 54px;
+  }
+
+  body.page-index.quiz-started .sections {
+    top: var(--header-offset-compact);
   }
 
   body {
