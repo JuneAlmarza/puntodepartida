@@ -338,12 +338,15 @@ document.addEventListener("DOMContentLoaded", () => {
   let activeCat = null;
   let activeSub = null;
 
+  function referenteImgSrc(slug) {
+    return `./www-assets/img/${slug}.jpg`;
+  }
+
   async function loadData() {
     const colCats = document.getElementById("col-cats");
     if (!colCats) return;
 
     try {
-      await window.ReferenteImages?.loadImageMap?.();
       const response = await fetch("./data/base-de-datos.json");
 
       if (!response.ok) {
@@ -482,7 +485,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!imgCol) return;
 
       const slug = row.dataset.ref;
-      const src = window.ReferenteImages.referenteImgSrc(slug);
+      const src = referenteImgSrc(slug);
 
       const current = imgCol.querySelector("img");
       if (current && current.dataset.slug === slug) return;
