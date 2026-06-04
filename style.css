@@ -1243,7 +1243,7 @@ body.is-loading .cursor-dot {
     flex: 1;
     min-width: 0;
     border: 1px solid var(--blue);
-    padding: 5px;
+    padding: 5px 10px;
     font-size: var(--p-mini);
     color: var(--black);
     background: var(--white);
