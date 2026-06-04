@@ -478,14 +478,14 @@ body.quiz-started .sections {
 }
 
 .quiz-panel__hint {
-  margin: 20px 0 20px;
+  margin: 20px 0 30px 0;
   color: var(--black);
 }
 
 .quiz-sliders {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 50px;
   padding-top: 10px;
 }
 
@@ -495,7 +495,6 @@ body.quiz-started .sections {
   gap: 12px;
   font-family: var(--inter);
   font-size: var(--p-mini);
-  margin-bottom: 8px;
 }
 
 .quiz-slider__track {
@@ -567,7 +566,7 @@ body.quiz-started .sections {
 .quiz-panel__actions {
   display: flex;
   justify-content: flex-end;
-  margin-top: 24px;
+  margin-top: 30px;
   gap: 10px;
 }
 
@@ -1289,7 +1288,7 @@ body.is-loading .cursor-dot {
     display: flex;
     flex-direction: column;
     --header-offset: 54px;
-    --header-offset-compact: 54px;
+    --header-offset-compact: 120px;
     --logo-compact-top: 20px;
   }
 
@@ -1350,7 +1349,9 @@ body.is-loading .cursor-dot {
 
   .memes-animation--mobile img {
     object-fit: contain;
-    object-position: right bottom;
+    object-position: left bottom;
+    right: auto;
+    left: 0;
   }
 
   .intro-logo {
@@ -1404,6 +1405,10 @@ body.is-loading .cursor-dot {
   .quiz-slider__labels {
     margin-bottom: 4px;
     gap: 8px;
+
+    span {
+      font-size: var(--p-mini);
+    }
   }
 
   .quiz-slider__track {
@@ -1465,7 +1470,6 @@ body.is-loading .cursor-dot {
   }
 
   .resultados .results-thanks-sub {
-    font-size: var(--h3);
     padding-top: 8px;
   }
 
@@ -1475,7 +1479,7 @@ body.is-loading .cursor-dot {
     flex-direction: row;
     align-items: flex-start;
     gap: 16px;
-    padding-bottom: 24px;
+    padding: 10px 0 24px 0;
   }
 
   .resultados .results-col--podium {
@@ -1494,7 +1498,7 @@ body.is-loading .cursor-dot {
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    gap: 8px;
+    gap: 0;
     flex: none;
   }
 
@@ -1505,17 +1509,17 @@ body.is-loading .cursor-dot {
 
   .resultados .podium-card--first {
     order: 1;
-    min-height: 92px;
+    min-height: 120px;
   }
 
   .resultados .podium-card--second {
     order: 2;
-    min-height: 72px;
+    min-height: 100px;
   }
 
   .resultados .podium-card--third {
     order: 3;
-    min-height: 56px;
+    min-height: 80px;
   }
 
   .resultados .podium-card__rank {
