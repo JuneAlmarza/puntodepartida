@@ -17,6 +17,7 @@
     categoryScores: [],       // puntuacion calculada de cada apartado
     filteredCategoryIds: [],  // categorias seleccionadas para pasar a la segunda fase
     matchPage: 0,             // pagina actual del carrusel de imagenes
+    matchItems: [],           // subcategorias en orden aleatorio para el match
     subcategoryVotes: {},     // votos de cada imagen
     database: [],             // datos del json
   };
@@ -280,8 +281,22 @@
     return list;
   }
 
+  function shuffleArray(items) {
+    const arr = items.slice();
+    for (let i = arr.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function prepareMatchItems() {
+    state.matchItems = shuffleArray(getFilteredSubcategories());
+    state.matchPage = 0;
+  }
+
   function referenteImgSrc(slug) {
-    return window.ReferenteImages?.referenteImgSrc(slug) ?? `./www-assets/img/${slug}.jpg`;
+    return `./www-assets/img/${slug}.jpg`;
   }
 
   // precargo las imagenes de la base de datos
@@ -395,7 +410,7 @@
       state.filteredCategoryIds = state.categoryScores
         .slice(0, TOP_CATEGORIES_FOR_MATCH)
         .map((c) => c.id);
-      state.matchPage = 0;
+      prepareMatchItems();
       renderMatch();
       setStep(2);
     });
@@ -408,7 +423,7 @@
 
   // escribimos el contenido de la segunda seccion
   function renderMatch() {
-    const subs = getFilteredSubcategories();
+    const subs = state.matchItems.length ? state.matchItems : getFilteredSubcategories();
     // las paginas de la seccion "dame un match"
     const totalPages = Math.max(1, Math.ceil(subs.length / getMatchPageSize()));
     if (state.matchPage >= totalPages) state.matchPage = totalPages - 1;
@@ -659,6 +674,7 @@
         state.categoryScores = [];
         state.filteredCategoryIds = [];
         state.matchPage = 0;
+        state.matchItems = [];
         state.subcategoryVotes = {};
         renderUbicate();
         applySectionUI(0);
@@ -676,7 +692,6 @@
     });
 
     try {
-      await window.ReferenteImages?.loadImageMap?.();
       const res = await fetch(DATA_URL);
       if (!res.ok) throw new Error(res.status);
       state.database = await res.json();
@@ -695,6 +710,7 @@
       state.filteredCategoryIds = state.categoryScores
         .slice(0, TOP_CATEGORIES_FOR_MATCH)
         .map((c) => c.id);
+      prepareMatchItems();
       renderMatch();
     }
     if (state.step >= 3) renderResults();
