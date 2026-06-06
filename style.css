@@ -654,6 +654,7 @@ body.quiz-started .sections {
 
 .last-button {
   margin-top: 20px;
+  width: 20%;
 }
 
 .quiz-btn--has-icon {
@@ -1607,6 +1608,10 @@ body.is-loading .cursor-dot {
 
   .resultados .results-actions .quiz-btn {
     text-align: center;
+  }
+
+  .last-button {
+    width: 50%;
   }
 
   .wrap {
