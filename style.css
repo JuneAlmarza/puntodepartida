@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+/* ==========================================================================
+   1. Variables
+   ========================================================================== */
+
 :root {
     --white: white;
     --black: black;
@@ -28,6 +32,10 @@
     --btn-padding-x: 28px;
 }
 
+/* ==========================================================================
+   2. Reset y base
+   ========================================================================== */
+
 *,
 *::before,
 *::after {
@@ -36,8 +44,7 @@
 }
 
 html {
-    /* overflow-x: clip; */
-    scroll-behavior: smooth
+    scroll-behavior: smooth;
 }
 
 body {
@@ -67,12 +74,9 @@ li {
     cursor: none;
 }
 
-.arial-bold {
-    font-family: 'Arial Narrow', sans-serif;
-    font-weight: 700;
-    line-height: 100%;
-    margin: 0;
-}
+/* ==========================================================================
+   3. Tipografía y utilidades
+   ========================================================================== */
 
 .arial-regular {
     font-family: 'Arial Narrow', sans-serif;
@@ -88,6 +92,13 @@ li {
     margin: 0;
 }
 
+.inter-bold {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 100%;
+    margin: 0;
+}
+
 .h1 { font-size: var(--h1); }
 .h2 { font-size: var(--h2); }
 .h3 { font-size: var(--h3); }
@@ -99,13 +110,7 @@ a {
     cursor: none;
 }
 
-.flex-column-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* colors */
+/* colores */
 .white { color: var(--white); }
 .black { color: var(--black); }
 .blue { color: var(--blue); }
@@ -114,9 +119,9 @@ a {
     margin: 0 var(--page-gutter);
 }
 
-.top-margin {
-    margin-top: 50px;
-}
+/* ==========================================================================
+   4. Header, menú y logo secundario
+   ========================================================================== */
 
 .header {
     position: fixed;
@@ -133,17 +138,6 @@ a {
     padding: var(--page-gutter) var(--page-gutter) 20px var(--page-gutter);
     margin: 0;
     z-index: 100;
-}
-
-.header-start {
-    flex: 1;
-    min-width: 0;
-    overflow: hidden;
-}
-
-.logo {
-    width: var(--logo-compact-w);
-    height: auto;
 }
 
 body:not(.page-index) .site-logo {
@@ -191,6 +185,7 @@ body:not(.page-index) .site-logo img {
   background-color: var(--black);
   border-radius: 50%;
   transition: background .25s ease;
+  cursor: none;
 }
 
 .menu-button .dot.white {
@@ -255,7 +250,10 @@ body:not(.page-index) .site-logo img {
 }
 
 
-/* ESTILOS DE LA PAGINA . DE PARTIDA */
+/* ==========================================================================
+   5. Index — hero, memes y quiz
+   ========================================================================== */
+
 body.page-index {
   --header-offset: 70px;
   --logo-compact-top: 45px;
@@ -270,18 +268,6 @@ body.page-index {
 
 .header-spacer {
   flex: 1;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 
 .hero-content {
@@ -362,7 +348,7 @@ body.quiz-started {
   --btn-text: var(--black);
 }
 
-/* memes */
+/* --- Memes --- */
 
 .memes-animation--mobile {
   display: none;
@@ -395,7 +381,7 @@ body.quiz-started {
   opacity: 1;
 }
 
-/* --- Secciones + GSAP --- */
+/* --- Secciones del quiz --- */
 
 .sections-stage {
   position: relative;
@@ -463,6 +449,10 @@ body.quiz-started .sections {
   background-color: var(--blue);
 }
 
+.resultados.is-open {
+  background-color: var(--blue);
+}
+
 .sections section.is-open > .section-title {
   background-color: var(--blue);
   color: var(--white);
@@ -473,11 +463,7 @@ body.quiz-started .sections {
   color: var(--blue);
 }
 
-.sections-content {
-  padding: 0 var(--page-gutter);
-}
-
-/* --- Encuesta (UBÍCATE / MATCH / TOP 3) --- */
+/* --- Componentes del quiz --- */
 
 .sections section.is-open {
   flex: 1 1 0;
@@ -489,10 +475,10 @@ body.quiz-started .sections {
 }
 
 .sections-content {
+  padding: 0 var(--page-gutter) 24px;
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  padding-bottom: 24px;
   opacity: 0;
   transition: opacity 0.55s ease 0.2s;
 }
@@ -597,7 +583,7 @@ body.quiz-started .sections {
 .quiz-panel__actions {
   display: flex;
   justify-content: flex-end;
-  margin-top: 30px;
+  margin-top: 20px;
   gap: 10px;
 }
 
@@ -725,7 +711,7 @@ body.quiz-started .sections {
 .match-card {
   border: 2px solid transparent;
   padding: 0;
-  /* background: #eee; */
+
   aspect-ratio: 1;
   position: relative;
   overflow: hidden;
@@ -745,19 +731,6 @@ body.quiz-started .sections {
 
 .match-card__img.is-placeholder {
   opacity: 0;
-}
-
-.match-card__label {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 6px;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
-  color: var(--white);
-  font-size: 11px;
-  line-height: 1.2;
-  text-align: left;
 }
 
 .match-aside {
@@ -800,6 +773,7 @@ body.quiz-started .sections {
   flex-direction: column;
   overflow: hidden;
   padding-bottom: 0;
+  background: var(--blue);
 }
 
 .results-graphics {
@@ -852,7 +826,7 @@ body.quiz-started .sections {
 
 .podium-card {
   flex: 1;
-  /* max-width: 140px; */
+
   padding: 12px;
   box-sizing: border-box;
   display: flex;
@@ -914,29 +888,24 @@ body.quiz-started .sections {
 
 .artist-row {
   position: relative;
-  display: inline-block;
   display: flex;
   flex-direction: column;
 }
 
 .artist-row__photo {
   position: absolute;
-  /* top: -60px; distancia encima del texto */
   left: 50%;
   object-fit: cover;
-  /* transform: translateX(-50%); */
-  z-index: 100;
-  
+
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-
+  transition: opacity 0.3s ease;
   z-index: 10;
 }
 
 .artist-row:hover .artist-row__photo {
   opacity: 1;
-  /* transform: translateX(-50%) translateY(-8px); */
+
 }
 
 .artist-row__fallback {
@@ -978,7 +947,10 @@ body.quiz-started .sections {
 
 
 
-/* ESTILOS DE LA PAGINA WWW */
+/* ==========================================================================
+   6. WWW — biblioteca de referencias
+   ========================================================================== */
+
 .wrap {
   margin: 0 var(--page-gutter) 0 var(--page-gutter);
   display: grid;
@@ -1067,19 +1039,14 @@ body.quiz-started .sections {
 }
 
 
-/* FOOTER */
-.footer {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin: 0 var(--page-gutter) var(--page-gutter) var(--page-gutter);
-}
+/* ==========================================================================
+   7. Footer compartido
+   ========================================================================== */
 
 .footer-text {
     font-weight: 500;
     color: var(--black);
     line-height: 110%;
-    margin-bottom: 10px;
 }
 
 .instagram-btn:hover {
@@ -1095,14 +1062,17 @@ body.quiz-started .sections {
   padding-left: 300px;
 }
 
-.www {
+.footer-page-name {
     color: var(--blue);
 }
 
-/* ESTILOS DE LA PAGINA AYUDA */
+/* ==========================================================================
+   8. Ayuda — contenido y formulario
+   ========================================================================== */
+
 .ayuda-main {
   margin: 120px var(--page-gutter) 0;
-  padding: 2rem 0 4rem;
+  padding-top: 15px;
   display: flex;
   flex-direction: row;
   gap: 50px;
@@ -1140,6 +1110,35 @@ body.quiz-started .sections {
 
 .ayuda-form-section {
   max-width: 40%;
+}
+
+body.page-ayuda .footer,
+body.page-www .footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: var(--page-gutter);
+  box-sizing: border-box;
+}
+
+@media (min-width: 901px) {
+  body.page-ayuda .footer,
+  body.page-www .footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    z-index: 50;
+  }
+}
+
+body.page-ayuda .footer .footer-page-name {
+  flex-shrink: 0;
+  line-height: 1;
+  text-align: right;
 }
 
 .colab-form {
@@ -1208,7 +1207,9 @@ body.quiz-started .sections {
 }
 
 
-/* --- Loading (captcha + intro) --- */
+/* ==========================================================================
+   9. Loading (captcha + intro)
+   ========================================================================== */
 
 body.is-loading {
     overflow: hidden;
@@ -1296,14 +1297,11 @@ body.is-loading .cursor-dot {
     margin-bottom: 8px;
 }
 
-.loader-intro__brand {
-    font-size: clamp(56px, 14vw, 96px);
-    line-height: 100%;
-    margin: 0;
-}
 
+/* ==========================================================================
+   10. Móvil (max-width: 900px)
+   ========================================================================== */
 
-/* MEDIA QUERY DE MOVIL */
 @media (max-width: 900px) {
   :root {
     --h1: 30px;
@@ -1365,9 +1363,9 @@ body.is-loading .cursor-dot {
   }
 
   .menu-panel {
-    top: 0;
-    right: 0;
-    border-radius: 0 0 0 20px;
+    top: 10px;
+    right: 10px;
+    border-radius: 10px;
     width: 150px;
     padding-left: 0;
   }
@@ -1444,7 +1442,7 @@ body.is-loading .cursor-dot {
   }
 
   .quiz-panel {
-    padding-top: 24px;
+    padding-top: 15px;
   }
 
   .quiz-sliders {
@@ -1686,9 +1684,22 @@ body.is-loading .cursor-dot {
     gap: 18px;
   }
 
-  .footer {
-    flex-direction: row;
+  body.page-ayuda .footer,
+  body.page-www .footer {
+    position: static;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    z-index: auto;
+    background: transparent;
+  }
+
+  body.page-ayuda .footer {
     align-items: flex-end;
-    gap: 24px;
+    gap: 16px;
+  }
+
+  body.page-ayuda .footer-text {
+    min-width: 0;
   }
 }
