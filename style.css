@@ -146,12 +146,7 @@ a {
     height: auto;
 }
 
-body:not(.page-index) .header {
-  padding: var(--logo-compact-top) var(--page-gutter) 0;
-  justify-content: flex-end;
-}
-
-body:not(.page-index) .header .logo {
+body:not(.page-index) .site-logo {
   position: fixed;
   top: var(--logo-compact-top);
   left: var(--page-gutter);
@@ -160,10 +155,17 @@ body:not(.page-index) .header .logo {
   pointer-events: auto;
 }
 
-body:not(.page-index) .header .logo img {
+body:not(.page-index) .site-logo img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+@media (min-width: 901px) {
+  body:not(.page-index) .header {
+    padding: var(--logo-compact-top) var(--page-gutter) 0;
+    justify-content: flex-end;
+  }
 }
 
 .header .menu-button,
@@ -1311,13 +1313,13 @@ body.is-loading .cursor-dot {
     --p: 16px;
     --p-mini: 14px;
     --page-gutter: 20px;
-    --logo-hero-w: 148px;
-    --logo-compact-w: 148px;
+    --logo-hero-w: 135px;
+    --logo-compact-w: 135px;
     --hero-exit-y: -220;
     --btn-padding-y: 12px;
     --btn-padding-x: 16px;
     --section-title-h: 30px;
-    --logo-compact-top: 20px;
+    --logo-compact-top: 25px;
   }
 
   body.page-index {
@@ -1345,7 +1347,7 @@ body.is-loading .cursor-dot {
 
   .header--index {
     align-items: center;
-    padding-bottom: 12px;
+    padding: var(--page-gutter) var(--page-gutter) 12px;
   }
 
   .header--index .header-spacer {
@@ -1354,6 +1356,12 @@ body.is-loading .cursor-dot {
 
   .header--index .menu-button {
     margin-left: auto;
+  }
+
+  body:not(.page-index) .site-logo {
+    top: var(--page-gutter);
+    width: var(--logo-hero-w);
+    max-width: calc(100vw - 80px);
   }
 
   .menu-panel {
