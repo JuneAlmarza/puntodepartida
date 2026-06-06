@@ -385,7 +385,7 @@
 
     sectionUbicate.innerHTML = `
       <div class="quiz-panel quiz-panel--ubicate">
-        <p class="quiz-panel__hint arial-regular h3">¿Qué prefieres…</p>
+        <p class="quiz-panel__hint arial-regular h3"><span>¿Dónde te ves más?</span><span>Mueve los sliders según tu instinto.</span></p>
         <div class="quiz-sliders">${slidersHtml}</div>
         <div class="quiz-panel__actions">
           <button type="button" class="quiz-btn quiz-btn--primary" id="btnUbicateNext">Siguiente</button>
@@ -472,10 +472,10 @@
           <div class="match-grid">${gridHtml || '<p class="inter-regular p-mini">No hay subcategorías para tus categorías filtradas.</p>'}</div>
         </div>
         <div class="match-aside inter-regular p-mini">
-          <p style="display:flex;flex-direction:column;gap:20px;">Vale, ahora toca ver si nuestras almas visuales hacen clic. Selecciona las imágenes que te enciendan una chispa, te remuevan algo o simplemente te hagan decir «uff, esto soy yo».</span> <span>No hay respuestas correctas, solo tu instinto.</span></p>
+          <p style="display:flex;flex-direction:column;gap:20px;">Elige las imágenes que te enciendan algo — da igual si no sabes por qué. Tu instinto sabe más de lo que crees.</p>
 
           <div class="quiz-panel__actions">
-            <button type="button" class="quiz-btn quiz-btn--blue-outline js-restart-btn">Empezar de 0</button>
+            <button type="button" class="quiz-btn quiz-btn--blue-outline js-restart-btn">Volver a empezar</button>
             <button type="button" class="quiz-btn quiz-btn--primary" id="btnMatchFinish">Finalizar</button>
           </div>
         </div>
@@ -575,9 +575,8 @@
     if (topSubs.length === 0) {
       sectionResults.innerHTML = `
         <div class="quiz-panel quiz-panel--results">
-          <p class="results-thanks inter-regular">¡Gracias por rellenar la encuesta!</p>
           <p class="results-thanks-sub inter-regular">No seleccionaste imágenes en la segunda sección. Vuelve atrás o empieza de nuevo.</p>
-          <button type="button" class="quiz-btn quiz-btn--blue-outline js-restart-btn">Empezar de 0</button>
+          <button type="button" class="quiz-btn quiz-btn--outline js-restart-btn last-button">Volver a empezar</button>
         </div>
       `;
       bindRestart();
@@ -631,7 +630,7 @@
     sectionResults.innerHTML = `
       <div class="quiz-panel quiz-panel--results">
         <div class="results-col results-col--thanks">
-          <h3 class="results-thanks arial-regular h3"><span>¡Gracias por rellenar</span><span>la encuesta!</span></h3>
+          <h3 class="results-thanks arial-regular h3">Ya tienes tu . de partida</h3>
           <p class="results-thanks-sub inter-regular p-mini"><span>Esperamos que te haya</span><span>servido de ayuda.</span></p>
         </div>
         <div class="results-graphics">
@@ -639,11 +638,11 @@
             <div class="podium">${podiumHtml}</div>
           </div>
           <div class="results-col results-col--artists">
-            <h2 class="results-artists-title arial-regular h3">Lxs siguientes artistas podrían gustarte:</h2>
+            <h2 class="results-artists-title arial-regular h3">Referentes que vale la pena conocer:</h2>
             <ul class="results-artists-list">${artistsHtml}</ul>
             <div class="results-actions">
-              <a class="quiz-btn quiz-btn--outline" href="www.html">Ver todas las referencias</a>
-              <button type="button" class="quiz-btn quiz-btn--outline js-restart-btn">Empezar de 0</button>
+              <a class="quiz-btn quiz-btn--outline" href="www.html">Explorar la biblioteca</a>
+              <button type="button" class="quiz-btn quiz-btn--outline js-restart-btn">Volver a empezar</button>
             </div>
           </div>
         </div>
@@ -677,8 +676,7 @@
         state.matchItems = [];
         state.subcategoryVotes = {};
         renderUbicate();
-        applySectionUI(0);
-        persistState();
+        setStep(1);
       });
     });
   }
