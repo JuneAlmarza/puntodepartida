@@ -321,13 +321,89 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuPanel = document.getElementById("menuPanel");
     const dots = document.querySelectorAll(".menu-button .dot");
 
-    menuButton.addEventListener("click", () => {
-        menuPanel.classList.toggle("active");
+    if (!menuButton || !menuPanel) return;
 
-        // Cambiar color de los dots
-        dots.forEach(dot => {
-            dot.classList.toggle("white");
-        });
+    let menuOpen = false;
+    let menuTween = null;
+
+    function setDotsActive(active) {
+        dots.forEach((dot) => dot.classList.toggle("white", active));
+    }
+
+    function setMenuOpen(open) {
+        if (open === menuOpen) return;
+
+        menuOpen = open;
+        menuTween?.kill();
+        setDotsActive(open);
+
+        const menuItems = menuPanel.querySelectorAll("li");
+
+        if (typeof gsap !== "undefined") {
+            if (open) {
+                menuPanel.style.pointerEvents = "auto";
+                menuTween = gsap.timeline();
+                menuTween
+                    .fromTo(
+                        menuPanel,
+                        { opacity: 0, x: 18 },
+                        { opacity: 1, x: 0, duration: 0.55, ease: "power2.out" }
+                    )
+                    .fromTo(
+                        menuItems,
+                        { opacity: 0, x: 10 },
+                        {
+                            opacity: 1,
+                            x: 0,
+                            duration: 0.4,
+                            stagger: 0.055,
+                            ease: "power2.out",
+                        },
+                        "-=0.32"
+                    );
+                return;
+            }
+
+            menuTween = gsap.timeline({
+                onComplete: () => {
+                    gsap.set(menuItems, { clearProps: "opacity,transform" });
+                    menuPanel.style.pointerEvents = "none";
+                },
+            });
+            menuTween
+                .to(menuItems, {
+                    opacity: 0,
+                    x: 6,
+                    duration: 0.18,
+                    stagger: 0.025,
+                    ease: "power2.in",
+                })
+                .to(
+                    menuPanel,
+                    { opacity: 0, x: 14, duration: 0.38, ease: "power2.inOut" },
+                    "-=0.05"
+                );
+            return;
+        }
+
+        menuPanel.classList.toggle("active", open);
+    }
+
+    if (typeof gsap !== "undefined") {
+        gsap.set(menuPanel, { opacity: 0, x: 18, pointerEvents: "none" });
+    }
+
+    menuButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setMenuOpen(!menuOpen);
+    });
+
+    menuPanel.addEventListener("click", (e) => {
+        e.stopPropagation();
+    });
+
+    document.addEventListener("click", () => {
+        if (menuOpen) setMenuOpen(false);
     });
 });
 
