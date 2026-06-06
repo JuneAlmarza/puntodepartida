@@ -1,25 +1,26 @@
 /**
- * Este video me ha ayudado un poco a saber como funciona un quiz:
- * https://pablomonteserin.com/curso/javascript/como-hacer-un-trivial/
-**/
+ * Quiz . de partida — UBÍCATE → DAME UN MATCH → MI TOP 3
+ * Referencia: https://pablomonteserin.com/curso/javascript/como-hacer-un-trivial/
+ */
+document.addEventListener("DOMContentLoaded", () => {
+  /* ==========================================================================
+     1. Configuración y referencias DOM
+     ========================================================================== */
 
-// Encuesta . de partida — UBÍCATE → DAME UN MATCH → MI TOP 3
-(function () {
+  const STORAGE_KEY = "punto-de-partida-quiz-v1";   // sirve para guardar los datos de una sesion
+  const DATA_URL = "./data/base-de-datos.json";     // en este archivo se encuentran las categorias, subcategorias y referentes
+  const HERO_DURATION = 0.45;                       // duracion de las animaciones del hero con GSAP
 
-  // aquí creo unas constantes como las variables de un CSS
-  const STORAGE_KEY = "punto-de-partida-quiz-v1"; // aqui guardo los valores de cada sesión 
-  const DATA_URL = "./data/base-de-datos.json";
-
-  // guardamos todo lo que haga el usuario
+  // como se encuentran los elementos al cargar la pagina
   const state = {
-    step: 1,                  // la fase del quiz en la que se encuentra
+    step: 1,
     sliders: {},
-    categoryScores: [],       // puntuacion calculada de cada apartado
-    filteredCategoryIds: [],  // categorias seleccionadas para pasar a la segunda fase
-    matchPage: 0,             // pagina actual del carrusel de imagenes
-    matchItems: [],           // subcategorias en orden aleatorio para el match
-    subcategoryVotes: {},     // votos de cada imagen
-    database: [],             // datos del json
+    categoryScores: [],
+    filteredCategoryIds: [],
+    matchPage: 0,
+    matchItems: [],
+    subcategoryVotes: {},
+    database: [],
   };
 
   const sectionUbicate = document.querySelector(".ubicate .sections-content");
@@ -28,47 +29,37 @@
   const sectionEls = document.querySelectorAll(".sections section");
   const btnHeroMore = document.getElementById("btnHeroMore");
 
-  let uiStep = 0;
   let heroCompact = false;
   let heroTl = null;
 
-  const HERO_DURATION = 0.45;
-  const LOGO_COMPACT_LEFT = 50;
+  /* ==========================================================================
+     2. Helpers de layout (CSS vars y viewport)
+     ========================================================================== */
 
-  function getLogoCompactWidth() {
-    const raw = getComputedStyle(document.documentElement).getPropertyValue("--logo-compact-w");
+  // lee una variable del CSS y la convierte en un numero
+  function readCssPx(varName, fallback) {
+    const raw = getComputedStyle(document.documentElement).getPropertyValue(varName);
     const parsed = parseFloat(raw);
-    return Number.isFinite(parsed) ? parsed : 130;
+    return Number.isFinite(parsed) ? parsed : fallback;
   }
 
-  function getLogoCompactTop() {
-    const raw = getComputedStyle(document.documentElement).getPropertyValue("--logo-compact-top");
-    const parsed = parseFloat(raw);
-    return Number.isFinite(parsed) ? parsed : 45;
-  }
+  function getLogoCompactWidth() { return readCssPx("--logo-compact-w", 130); }
+  function getLogoCompactTop() { return readCssPx("--logo-compact-top", 45); }
+  function getLogoCompactLeft() { return readCssPx("--page-gutter", 20); }
+  function getHeroExitY() { return readCssPx("--hero-exit-y", -430); }
 
-  function getLogoCompactLeft() {
-    const raw = getComputedStyle(document.documentElement).getPropertyValue("--page-gutter");
-    const parsed = parseFloat(raw);
-    return Number.isFinite(parsed) ? parsed : 20;
-  }
+  function isMobileView() { return window.matchMedia("(max-width: 900px)").matches; }       // detecta si está en abriendose en un movil (ayuda en las animaciones)
+  function isMobileResults() { return window.matchMedia("(max-width: 900px)").matches; }
 
-  function getHeroExitY() {
-    const raw = getComputedStyle(document.documentElement).getPropertyValue("--hero-exit-y");
-    const parsed = parseFloat(raw);
-    return Number.isFinite(parsed) ? parsed : -430;
-  }
+  function getMatchPageSize() { return isMobileView() ? 9 : MATCH_PAGE_SIZE; }              // tamaño del grid dependiendo del dispositivo
+  
+  function referenteImgSrc(slug) { return `./www-assets/img/${slug}.jpg`; }                 // las rutas de imagen de los referentes  
 
-  function isMobileView() {
-    return window.matchMedia("(max-width: 900px)").matches;
-  }
+  /* ==========================================================================
+     3. Transiciones del hero (index)
+     ========================================================================== */
 
-  function getMatchPageSize() {
-    return isMobileView() ? 9 : MATCH_PAGE_SIZE;
-  }
-
-  // compacta el logo, mueve el contenido hacia arriba y crea la transicion inicial
-  // lo animamos con un timeline
+  // si ya está compactado o GSAP no existe, no hace nada
   function enterHeroTransition() {
     if (heroCompact || typeof gsap === "undefined") return;
 
@@ -79,6 +70,7 @@
 
     if (!memes || !heroContent || !logo || !heroLogoWrap) return;
 
+    // si habia una animacion previa la cancela
     heroTl?.kill();
 
     if (isMobileView()) {
@@ -200,13 +192,16 @@
       .to(heroContent, { y: 0, opacity: 1, duration: HERO_DURATION }, 0);
   }
 
-  // carga el ultimo estado si el usuario recarga la página
+  /* ==========================================================================
+     4. Estado — sessionStorage
+     ========================================================================== */
+
   function loadStoredState() {
     try {
-      const raw = sessionStorage.getItem(STORAGE_KEY);
+      const raw = sessionStorage.getItem(STORAGE_KEY);    // recupera el estado guardado
       if (!raw) return;
       const saved = JSON.parse(raw);
-      Object.assign(state, {
+      Object.assign(state, {                              // mezcla el estado guardado con el actual
         step: saved.step || 1,
         sliders: saved.sliders || {},
         subcategoryVotes: saved.subcategoryVotes || {},
@@ -217,7 +212,7 @@
     }
   }
 
-  // guarda los parametros que hemos clasificado antes
+  // guarda el estado actual
   function persistState() {
     sessionStorage.setItem(
       STORAGE_KEY,
@@ -230,12 +225,29 @@
     );
   }
 
-  // los valores de los sliders serán menores o mayores de 50 (la mitad)
+  // resetea todo
+  function resetQuizState() {
+    sessionStorage.removeItem(STORAGE_KEY);
+    state.step = 1;
+    state.sliders = {};
+    state.categoryScores = [];
+    state.filteredCategoryIds = [];
+    state.matchPage = 0;
+    state.matchItems = [];
+    state.subcategoryVotes = {};
+    renderUbicate();
+    setStep(1);
+  }
+
+  /* ==========================================================================
+     5. Puntuación y datos del match
+     ========================================================================== */
+
   function normalizeSlider(value) {
     return (Number(value) - 50) / 50;
   }
 
-  // utiliza los ejes del usuario para calcular qué categorías encajan mejor
+  // para cada categoria busca su perfil
   function scoreCategories() {
     return state.database
       .map((cat) => {
@@ -251,22 +263,17 @@
 
         return { id: cat.id, categoria: cat.categoria, score };
       })
+      // ordena de mayor afinidad a menor
       .sort((a, b) => b.score - a.score);
   }
 
-  // devuelve todas las subcategorías pertenecientes a las categorías mejor puntuadas
   function getFilteredSubcategories() {
-    // creo un set con las categorias filtradas (los ids) y luego creamos un array con estas
     const ids = new Set(state.filteredCategoryIds);
     const list = [];
 
-    // recorro toda la base de datos
     state.database.forEach((cat) => {
-      // filtrar solo las categorias relevantes
       if (!ids.has(cat.id)) return;
-      // ahora recorremos las subcategorias de las categorias seleccionadas
       cat.subcategorias.forEach((sub) => {
-        // limpiar cada subcategoria para luego completarla con cada respuesta
         list.push({
           subId: sub.id,
           subNombre: sub.nombre,
@@ -295,11 +302,6 @@
     state.matchPage = 0;
   }
 
-  function referenteImgSrc(slug) {
-    return `./www-assets/img/${slug}.jpg`;
-  }
-
-  // precargo las imagenes de la base de datos
   function preloadReferenteImages(database) {
     const slugs = new Set();
 
@@ -317,16 +319,55 @@
     });
   }
 
-  function applySectionUI(step) {
-    uiStep = step;
+  function getTopSubcategories(limit = 3) {
+    const subs = getFilteredSubcategories();
+    const subMap = new Map(subs.map((s) => [s.subId, s]));
 
+    return Object.entries(state.subcategoryVotes)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, limit)
+      .map(([subId, votes], index) => {
+        const data = subMap.get(subId);
+        return {
+          rank: index + 1,
+          votes,
+          subId,
+          subNombre: data?.subNombre || subId,
+          catNombre: data?.catNombre || "",
+          referentes: data?.referentes || [],
+        };
+      });
+  }
+
+  function collectArtistsFromRanks(topSubs, ranks) {
+    const seen = new Set();
+    const artists = [];
+
+    ranks.forEach((rank) => {
+      const sub = topSubs.find((item) => item.rank === rank);
+      (sub?.referentes || []).forEach((ref) => {
+        if (seen.has(ref.slug)) return;
+        seen.add(ref.slug);
+        artists.push(ref);
+      });
+    });
+
+    return artists;
+  }
+
+  function getResultsArtistRanks() {
+    return isMobileResults() ? [1] : [1, 2];
+  }
+
+  /* ==========================================================================
+     6. UI de secciones
+     ========================================================================== */
+
+  function applySectionUI(step) {
     sectionEls.forEach((el, i) => {
       const index = i + 1;
-      const shouldOpen = step > 0 && index === step;
-      const shouldDone = step > 0 && index < step;
-
-      el.classList.toggle("is-open", shouldOpen);
-      el.classList.toggle("is-done", shouldDone);
+      el.classList.toggle("is-open", step > 0 && index === step);
+      el.classList.toggle("is-done", step > 0 && index < step);
     });
 
     if (step > 0) {
@@ -354,14 +395,19 @@
     applySectionUI(step);
   }
 
-  // --- EMPEZAMOS CON EL QUIZ --- //
-  // abrimos el primer apartado del quiz "ubícate"
   function openQuizFromHero() {
-    const target = Math.max(1, state.step);
-    setStep(target);
+    setStep(Math.max(1, state.step));
   }
 
-  // escribimos el contenido de la primera seccion
+  function updateSliderFill(input) {
+    input.style.setProperty("--value", `${input.value}%`);
+  }
+
+  /* ==========================================================================
+     7. Render — UBÍCATE
+     ========================================================================== */
+
+  // genera cada uno de los sliders (el contenido)
   function renderUbicate() {
     const slidersHtml = QUIZ_AXES.map(
       (axis) => `
@@ -376,8 +422,8 @@
           />
         </div>
         <div class="quiz-slider__labels">
-          <span class="p inter-bold">${axis.left}</span>
-          <span class="p inter-bold" style="text-align:right">${axis.right}</span>
+          <span class="p inter-regular">${axis.left}</span>
+          <span class="p inter-regular" style="text-align:right">${axis.right}</span>
         </div>
       </div>
     `
@@ -385,7 +431,10 @@
 
     sectionUbicate.innerHTML = `
       <div class="quiz-panel quiz-panel--ubicate">
-        <p class="quiz-panel__hint arial-regular h3"><span>¿Dónde te ves más?</span><span>Mueve los sliders según tu instinto.</span></p>
+        <p class="quiz-panel__hint arial-regular h3">
+          <span>¿Dónde te ves más?</span>
+          <span>Mueve los sliders según tu instinto.</span>
+        </p>
         <div class="quiz-sliders">${slidersHtml}</div>
         <div class="quiz-panel__actions">
           <button type="button" class="quiz-btn quiz-btn--primary" id="btnUbicateNext">Siguiente</button>
@@ -397,6 +446,7 @@
       const axisId = input.closest(".quiz-slider").dataset.axis;
       updateSliderFill(input);
 
+      // guarda cada movimiento del slider
       input.addEventListener("input", () => {
         state.sliders[axisId] = input.value;
         updateSliderFill(input);
@@ -404,7 +454,7 @@
       });
     });
 
-    // al hacer flick en finalizar cambiaremos de seccion
+    // calcula categorías → filtra → prepara match → pasa a fase 2
     document.getElementById("btnUbicateNext").addEventListener("click", () => {
       state.categoryScores = scoreCategories();
       state.filteredCategoryIds = state.categoryScores
@@ -416,25 +466,24 @@
     });
   }
 
-  function updateSliderFill(input) {
-    const pct = input.value;
-    input.style.setProperty("--value", `${pct}%`);
-  }
+  /* ==========================================================================
+     8. Render — DAME UN MATCH
+     ========================================================================== */
 
-  // escribimos el contenido de la segunda seccion
   function renderMatch() {
-    const subs = state.matchItems.length ? state.matchItems : getFilteredSubcategories();
-    // las paginas de la seccion "dame un match"
+    const subs = state.matchItems.length ? state.matchItems : getFilteredSubcategories();     // usa las subcategorías mezcladas o las originales
     const totalPages = Math.max(1, Math.ceil(subs.length / getMatchPageSize()));
+
     if (state.matchPage >= totalPages) state.matchPage = totalPages - 1;
     if (state.matchPage < 0) state.matchPage = 0;
 
     const pageSize = getMatchPageSize();
-    const pageItems = subs.slice(
+    const pageItems = subs.slice(             // corta la pagina actual
       state.matchPage * pageSize,
       state.matchPage * pageSize + pageSize
     );
 
+    // genera cada tarjeta de imagen
     const gridHtml = pageItems
       .map((item) => {
         const selected = (state.subcategoryVotes[item.subId] || 0) > 0;
@@ -453,8 +502,8 @@
           />
         </button>
       `;
-    })
-    .join("");
+      })
+      .join("");
 
     sectionMatch.innerHTML = `
       <div class="quiz-panel quiz-panel--match">
@@ -473,7 +522,6 @@
         </div>
         <div class="match-aside inter-regular p-mini">
           <p style="display:flex;flex-direction:column;gap:20px;">Elige las imágenes que te enciendan algo — da igual si no sabes por qué. Tu instinto sabe más de lo que crees.</p>
-
           <div class="quiz-panel__actions">
             <button type="button" class="quiz-btn quiz-btn--blue-outline js-restart-btn">Volver a empezar</button>
             <button type="button" class="quiz-btn quiz-btn--primary" id="btnMatchFinish">Finalizar</button>
@@ -487,6 +535,7 @@
     });
 
     sectionMatch.querySelectorAll(".match-card").forEach((card) => {
+      // marca/desmarca votos
       card.addEventListener("click", () => {
         const id = card.dataset.subId;
         if (state.subcategoryVotes[id]) {
@@ -499,77 +548,32 @@
       });
     });
 
-    const prev = document.getElementById("matchPrev");
-    const next = document.getElementById("matchNext");
-    if (prev) {
-      prev.addEventListener("click", () => {
-        state.matchPage -= 1;
-        persistState();
-        renderMatch();
-      });
-    }
-    if (next) {
-      next.addEventListener("click", () => {
-        state.matchPage += 1;
-        persistState();
-        renderMatch();
-      });
-    }
+    document.getElementById("matchPrev")?.addEventListener("click", () => {
+      state.matchPage -= 1;
+      persistState();
+      renderMatch();
+    });
+
+    document.getElementById("matchNext")?.addEventListener("click", () => {
+      state.matchPage += 1;
+      persistState();
+      renderMatch();
+    });
 
     document.getElementById("btnMatchFinish").addEventListener("click", () => {
       renderResults();
       setStep(3);
     });
+
     bindRestart();
   }
 
-  // guardamos las 3 subcategorias mas votadas para crear el ranking
-  function getTopSubcategories(limit = 3) {
-    const subs = getFilteredSubcategories();
-    const subMap = new Map(subs.map((s) => [s.subId, s]));
+  /* ==========================================================================
+     9. Render — MI TOP 3
+     ========================================================================== */
 
-    return Object.entries(state.subcategoryVotes)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, limit)
-      .map(([subId, votes], index) => {
-        const data = subMap.get(subId);
-        return {
-          rank: index + 1,
-          votes,
-          subId,
-          subNombre: data?.subNombre || subId,
-          catNombre: data?.catNombre || "",
-          referentes: data?.referentes || [],
-        };
-      });
-  }
-
-  function isMobileResults() {
-    return window.matchMedia("(max-width: 900px)").matches;
-  }
-
-  function collectArtistsFromRanks(topSubs, ranks) {
-    const seen = new Set();
-    const artists = [];
-
-    ranks.forEach((rank) => {
-      const sub = topSubs.find((item) => item.rank === rank);
-      (sub?.referentes || []).forEach((ref) => {
-        if (seen.has(ref.slug)) return;
-        seen.add(ref.slug);
-        artists.push(ref);
-      });
-    });
-
-    return artists;
-  }
-
-  function getResultsArtistRanks() {
-    return isMobileResults() ? [1] : [1, 2];
-  }
-
-  // renderizamos los resultados
   function renderResults() {
+    // guarda las 3 categorias mas votadas
     const topSubs = getTopSubcategories(3);
 
     if (topSubs.length === 0) {
@@ -584,11 +588,13 @@
     }
 
     const podiumOrder = [3, 2, 1];
+    // creamos el podium
     const podiumHtml = podiumOrder
       .map((rank) => {
         const item = topSubs.find((t) => t.rank === rank);
         if (!item) return "";
-        const heightClass = rank === 1 ? "podium-card--first" : rank === 2 ? "podium-card--second" : "podium-card--third";
+        const heightClass =
+          rank === 1 ? "podium-card--first" : rank === 2 ? "podium-card--second" : "podium-card--third";
         return `
         <article class="podium-card ${heightClass}">
           <span class="podium-card__rank">Top ${rank}</span>
@@ -599,6 +605,7 @@
       })
       .join("");
 
+    // recoge referentes de las subcategorías ganadoras
     const artists = collectArtistsFromRanks(topSubs, getResultsArtistRanks());
     const artistsHtml = artists
       .map(
@@ -613,7 +620,6 @@
           loading="lazy"
           data-fallback="${ref.nombre.charAt(0).replace(/"/g, "")}"
         />
-        
         <a
           class="artist-row__name"
           href="${ref.url}"
@@ -631,7 +637,9 @@
       <div class="quiz-panel quiz-panel--results">
         <div class="results-col results-col--thanks">
           <h3 class="results-thanks arial-regular h3">Ya tienes tu . de partida</h3>
-          <p class="results-thanks-sub inter-regular p-mini"><span>Esperamos que te haya</span><span>servido de ayuda.</span></p>
+          <p class="results-thanks-sub inter-regular p-mini">
+            <span>Esperamos que te haya</span><span>servido de ayuda.</span>
+          </p>
         </div>
         <div class="results-graphics">
           <div class="results-col results-col--podium">
@@ -661,27 +669,18 @@
     bindRestart();
   }
 
-  // Busca todos los botones .js-restart-btn y limpia todo al hacer click sobre ellos
+  /* ==========================================================================
+     10. Reinicio e inicialización
+     ========================================================================== */
+
   function bindRestart() {
-    const buttons = document.querySelectorAll(".js-restart-btn");
-    
-    buttons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        sessionStorage.removeItem(STORAGE_KEY);
-        state.step = 1;
-        state.sliders = {};
-        state.categoryScores = [];
-        state.filteredCategoryIds = [];
-        state.matchPage = 0;
-        state.matchItems = [];
-        state.subcategoryVotes = {};
-        renderUbicate();
-        setStep(1);
-      });
+    document.querySelectorAll(".js-restart-btn:not([data-restart-bound])").forEach((btn) => {
+      btn.dataset.restartBound = "1";
+      btn.addEventListener("click", resetQuizState);
     });
   }
 
-  // carga la base de datos y pre-carga las imagenes
+  // carga el estado, la base de datos, pre-carga las imagenes (??) y renderiza la seccion correcta segun el estado guardado
   async function init() {
     loadStoredState();
 
@@ -711,12 +710,12 @@
       prepareMatchItems();
       renderMatch();
     }
+
     if (state.step >= 3) renderResults();
 
     applySectionUI(0);
   }
 
-  // al hacer click sobre el boton del hero, iniciamos el quiz
   if (btnHeroMore) {
     btnHeroMore.addEventListener("click", openQuizFromHero);
   }
