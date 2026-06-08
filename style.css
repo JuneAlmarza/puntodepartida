@@ -155,7 +155,7 @@ body:not(.page-index) .site-logo img {
   display: block;
 }
 
-@media (min-width: 901px) {
+@media (min-width: 769px) {
   body:not(.page-index) .header {
     padding: var(--logo-compact-top) var(--page-gutter) 0;
     justify-content: flex-end;
@@ -580,15 +580,17 @@ body.quiz-started .sections {
   background: var(--blue);
 }
 
-.quiz-panel__actions {
+.quiz-panel__match {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-top: 20px;
   gap: 10px;
 }
 
-.btn-ubicate--next {
-  margin-top: 20px;
+.quiz-panel__ubicate {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 40px;
 }
 
 .quiz-btn {
@@ -1125,7 +1127,7 @@ body.page-www .footer {
   box-sizing: border-box;
 }
 
-@media (min-width: 901px) {
+@media (min-width: 769px) {
   body.page-ayuda .footer,
   body.page-www .footer {
     position: fixed;
@@ -1303,10 +1305,10 @@ body.is-loading .cursor-dot {
 
 
 /* ==========================================================================
-   10. Móvil (max-width: 900px)
+   10. Móvil (max-width: 768px)
    ========================================================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   :root {
     --h1: 30px;
     --h2: 23px;
@@ -1705,5 +1707,198 @@ body.is-loading .cursor-dot {
 
   body.page-ayuda .footer-text {
     min-width: 0;
+  }
+}
+
+
+/* ==========================================================================
+   11. Tablet (769px – 1199px)
+   ========================================================================== */
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  :root {
+    --logo-hero-w: 48vw;
+    --logo-compact-w: 170px;
+    --logo-compact-top: 32px;
+    --hero-exit-y: -280;
+    --page-gutter: 32px;
+    --header-offset-compact: 100px;
+  }
+
+  body {
+    cursor: pointer;
+  }
+
+  .cursor-dot {
+    display: none;
+  }
+
+  /* Hero — logo abajo con memes; animación desktop al pulsar Empecemos */
+  .memes-animation--mobile {
+    display: none !important;
+  }
+
+  .hero-logo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(var(--section-title-h) * 2.5);
+    top: auto;
+    z-index: 50;
+    padding: 0 var(--page-gutter);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .intro-logo {
+    width: 60vw;
+    margin-bottom: 12px;
+  }
+
+  .hero-logo .memes-animation {
+    display: block;
+  }
+
+  .hero-content {
+    z-index: 600;
+    padding-top: 80px;
+  }
+
+  body.page-index {
+    --header-offset: 70px;
+  }
+
+  body.page-index.quiz-started {
+    --header-offset: var(--header-offset-compact);
+  }
+
+  .header--index .header-spacer {
+    display: block;
+  }
+
+  /* UBÍCATE — sliders en una columna */
+  .quiz-sliders {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-top: 4px;
+  }
+
+  /* Match — 4 columnas × 3 filas; texto y botones debajo del grid */
+  .quiz-panel--match {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .match-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .match-aside {
+    height: auto;
+    justify-content: flex-start;
+    gap: 20px;
+    max-width: 50%;
+  }
+
+  /* Podium — altura completa; 25px de separación con la lista */
+  .resultados.is-open .sections-content {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .resultados .quiz-panel--results {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .resultados .results-col--thanks {
+    position: static;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+  }
+
+  .results-graphics {
+    flex: 1;
+    min-height: 0;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 32px;
+  }
+
+  .results-col--podium {
+    flex: 1 1 0;
+    width: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .podium {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 12px;
+    flex: 1 1 auto;
+    min-height: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .podium-card {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .podium-card--first {
+    min-height: calc(100%);
+  }
+
+  .podium-card--second {
+    min-height: calc(100% - 100px);
+  }
+
+  .podium-card--third {
+    min-height: calc(100% - 200px);
+  }
+
+  .results-col--artists {
+    flex: none;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .resultados .results-artists-list {
+    flex: none;
+    overflow: visible;
+  }
+
+  .resultados .artist-row__photo,
+  .resultados .artist-row__fallback {
+    display: none !important;
+  }
+
+  /* WWW — columnas sin preview de imagen */
+  .wrap {
+    grid-template-columns: 32% 28% 1fr;
+    gap: 20px;
+    padding: 60px 0;
+  }
+
+  #col-img {
+    display: none;
+  }
+
+  /* AYUDA - columnas */
+  .ayuda-main {
+    flex-direction: column;
+  }
+
+  .ayuda-about, .ayuda-form-section, .ayuda-text {
+    max-width: 100%;
   }
 }
