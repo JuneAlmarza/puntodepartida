@@ -48,10 +48,19 @@ document.addEventListener("DOMContentLoaded", () => {
   function getLogoCompactLeft() { return readCssPx("--page-gutter", 20); }
   function getHeroExitY() { return readCssPx("--hero-exit-y", -430); }
 
-  function isMobileView() { return window.matchMedia("(max-width: 900px)").matches; }       // detecta si está en abriendose en un movil (ayuda en las animaciones)
-  function isMobileResults() { return window.matchMedia("(max-width: 900px)").matches; }
+  function isMobileView() { return window.matchMedia("(max-width: 768px)").matches; }
+  function isTabletView() { return window.matchMedia("(min-width: 769px) and (max-width: 1199px)").matches; }
+  function isMobileResults() { return window.matchMedia("(max-width: 768px)").matches; }
 
-  function getMatchPageSize() { return isMobileView() ? 9 : MATCH_PAGE_SIZE; }              // tamaño del grid dependiendo del dispositivo
+  function getMatchPageSize() {
+    if (isMobileView()) return 9;
+    if (isTabletView()) return 12;
+    return MATCH_PAGE_SIZE;
+  }
+
+  function getMemesExitY() {
+    return isTabletView() ? -320 : -460;
+  }
   
   function referenteImgSrc(slug) { return `./www-assets/img/${slug}.jpg`; }                 // las rutas de imagen de los referentes  
 
@@ -111,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     heroTl
-      .to(memes, { y: -460, opacity: 1, duration: HERO_DURATION }, 0)
+      .to(memes, { y: getMemesExitY(), opacity: 1, duration: HERO_DURATION }, 0)
       .to(heroContent, { y: getHeroExitY(), opacity: 0, duration: HERO_DURATION }, 0)
       .to(
         logo,
