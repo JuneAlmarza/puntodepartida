@@ -730,4 +730,4 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     init();
   }
-})();
+});
