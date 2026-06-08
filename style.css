@@ -587,6 +587,10 @@ body.quiz-started .sections {
   gap: 10px;
 }
 
+.btn-ubicate--next {
+  margin-top: 20px;
+}
+
 .quiz-btn {
   position: relative;
   display: inline-block;
