@@ -161,4 +161,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   initLoader();
-})();
+});
