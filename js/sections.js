@@ -436,7 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <span>Mueve los sliders según tu instinto.</span>
         </p>
         <div class="quiz-sliders">${slidersHtml}</div>
-        <div class="quiz-panel__actions">
+        <div class="quiz-panel__actions btn-ubicate--next">
           <button type="button" class="quiz-btn quiz-btn--primary" id="btnUbicateNext">Siguiente</button>
         </div>
       </div>
