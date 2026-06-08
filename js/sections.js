@@ -589,10 +589,14 @@ document.addEventListener("DOMContentLoaded", () => {
       sectionResults.innerHTML = `
         <div class="quiz-panel quiz-panel--results">
           <p class="results-thanks-sub inter-regular">No seleccionaste imágenes en la segunda sección. Vuelve atrás o empieza de nuevo.</p>
-          <button type="button" class="quiz-btn quiz-btn--outline js-restart-btn last-button">Volver a empezar</button>
+          <div class="quiz-panel__results">
+            <button type="button" class="quiz-btn quiz-btn--outline js-back-btn last-button">Volver atrás</button>
+            <button type="button" class="quiz-btn quiz-btn--outline js-restart-btn last-button">Empezar de nuevo</button>
+          </div>
         </div>
       `;
       bindRestart();
+      bindBack();
       return;
     }
 
@@ -686,6 +690,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".js-restart-btn:not([data-restart-bound])").forEach((btn) => {
       btn.dataset.restartBound = "1";
       btn.addEventListener("click", resetQuizState);
+    });
+  }
+
+  function bindBack() {
+    document.querySelectorAll(".js-back-btn:not([data-back-bound])").forEach((btn) => {
+      btn.dataset.backBound = "1";
+      btn.addEventListener("click", () => setStep(2));
     });
   }
 
