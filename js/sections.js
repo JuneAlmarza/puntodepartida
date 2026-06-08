@@ -436,7 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <span>Mueve los sliders según tu instinto.</span>
         </p>
         <div class="quiz-sliders">${slidersHtml}</div>
-        <div class="quiz-panel__actions btn-ubicate--next">
+        <div class="quiz-panel__ubicate">
           <button type="button" class="quiz-btn quiz-btn--primary" id="btnUbicateNext">Siguiente</button>
         </div>
       </div>
@@ -522,7 +522,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="match-aside inter-regular p-mini">
           <p style="display:flex;flex-direction:column;gap:20px;">Elige las imágenes que te enciendan algo — da igual si no sabes por qué. Tu instinto sabe más de lo que crees.</p>
-          <div class="quiz-panel__actions">
+          <div class="quiz-panel__match">
             <button type="button" class="quiz-btn quiz-btn--blue-outline js-restart-btn">Volver a empezar</button>
             <button type="button" class="quiz-btn quiz-btn--primary" id="btnMatchFinish">Finalizar</button>
           </div>
