@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const DURATION = 0.45;
   const EASE = "power2.inOut";
   const BTN_SELECTOR = ".quiz-btn";
-  const MOBILE_MQ = window.matchMedia("(max-width: 900px)");
+  const MOBILE_MQ = window.matchMedia("(max-width: 768px)");
   const buttonControllers = new WeakMap();
 
   function isMobileView() {
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-  const mobileQuery = window.matchMedia("(max-width: 900px)");
+  const mobileQuery = window.matchMedia("(max-width: 768px)");
   let intervalId = null;
   let resizeHandler = null;
   let activeIndex = 0;
@@ -437,7 +437,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function isMobileWww() {
-    return window.matchMedia("(max-width: 900px)").matches;
+    return window.matchMedia("(max-width: 768px)").matches;
+  }
+
+  function hasWwwImagePreview() {
+    return window.matchMedia("(min-width: 1200px)").matches;
   }
 
   function colHeading(text) {
@@ -559,7 +563,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showReferentePreview(row) {
-    if (isMobileWww()) return;
+    if (!hasWwwImagePreview()) return;
 
     const imgCol = document.getElementById("col-img");
     if (!imgCol) return;
@@ -594,7 +598,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let hidePreviewTimer;
 
     el.addEventListener("mouseover", (e) => {
-      if (isMobileWww()) return;
+      if (!hasWwwImagePreview()) return;
       const row = e.target.closest(".referente-row");
       if (!row || !el.contains(row)) return;
       clearTimeout(hidePreviewTimer);
@@ -602,7 +606,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     el.addEventListener("mouseout", (e) => {
-      if (isMobileWww()) return;
+      if (!hasWwwImagePreview()) return;
       const related = e.relatedTarget;
       if (related instanceof Node && el.contains(related)) return;
 
