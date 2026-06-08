@@ -677,7 +677,7 @@ body.quiz-started .sections {
 .match-intro {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 16px;
   margin-bottom: 16px;
   grid-column: 1 / -1;
@@ -698,10 +698,12 @@ body.quiz-started .sections {
 
 .match-pagination__btn {
   border: none;
-  background: none;
   font-size: var(--p);
   cursor: none;
   padding: 4px 8px;
+  background-color: var(--blue);
+  color: var(--white);
+  border-radius: 100px;
 }
 
 .match-pagination__btn:disabled {
