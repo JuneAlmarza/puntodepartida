@@ -8,14 +8,16 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page-www">
 
     <div class="cursor-dot"></div>
 
-    <header class="header">
-        <div class="logo">
-            <a href="index.html"><img src="svg/logotipo.svg" alt="logotipo"></a>
-        </div>
+    <div class="site-logo">
+        <a href="index.html"><img src="svg/logotipo.svg" alt="logotipo"></a>
+    </div>
+
+    <header class="header header--index">
+        <div class="header-spacer" aria-hidden="true"></div>
 
         <div class="menu-button" id="menuButton">
             <div class="dot"></div><div class="dot"></div><div class="dot"></div>
@@ -49,9 +51,8 @@
 
     <div class="footer">
       <div>
-        <div class="footer-text h3 arial-regular">
-          Ayúdanos a completar<br>
-          esta biblioteca :)
+        <div class="footer-text h4 arial-regular">
+          Ayúdanos a completar esta biblioteca :)
         </div>
 
         <a href="ayuda.html" class="quiz-btn quiz-btn--primary" style="margin-top: 10px;">
@@ -59,7 +60,7 @@
         </a>
       </div>
 
-      <div class="www h1 arial-regular">WWW</div>
+      <div class="footer-page-name h2 arial-regular">www</div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
