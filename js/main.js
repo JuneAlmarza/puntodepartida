@@ -423,6 +423,8 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ==========================================================================
 
   5. WWW — columnas de categorías y preview de referentes
+     Preload de referentes solo en esta página (preview al hover en desktop).
+     Ver loading.js (hero) y sections.js (quiz).
 
   ========================================================================== */
 
@@ -465,6 +467,7 @@ document.addEventListener("DOMContentLoaded", () => {
     el.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
+  // Preload de www.html: guarda en caché para mostrar el preview al instante.
   function preloadReferenteImages() {
     preloadedImages.clear();
     
