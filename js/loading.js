@@ -1,8 +1,15 @@
+/**
+ * Loader de index.html — captcha e intro.
+ *
+ * Preload de imágenes (cada archivo tiene su parte):
+ *   - loading.js  → assets del hero (logo captcha + memes)
+ *   - sections.js → referentes del quiz (match y resultados)
+ *   - main.js     → referentes de www.html (preview al hover)
+ */
 document.addEventListener("DOMContentLoaded", () => {
   const STORAGE_KEY = "punto-de-partida-intro-done";
   const CAPTCHA_ANSWERS = [".de partida", ". de partida"];
   const INTRO_HOLD_MS = 2200;
-  const DATA_URL = "./data/base-de-datos.json";
 
   const loader = document.getElementById("siteLoader");
   if (!loader) return;
@@ -14,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     img.src = src;
   }
 
+  // Solo hero: se aprovecha el tiempo del captcha/intro antes de mostrar la home.
   function preloadHeroAssets() {
     preloadImage("./home-assets/img/captcha-logo.jpg");
     for (let i = 1; i <= 5; i += 1) {
@@ -21,27 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function preloadReferenteImages() {
-    fetch(DATA_URL)
-      .then((res) => (res.ok ? res.json() : Promise.reject()))
-      .then((database) => {
-        const slugs = new Set();
-        database.forEach((cat) => {
-          cat.subcategorias?.forEach((sub) => {
-            sub.referentes?.forEach((ref) => {
-              if (ref.slug) slugs.add(ref.slug);
-            });
-          });
-        });
-        slugs.forEach((slug) => {
-          preloadImage(`./www-assets/img/${slug}.jpg`);
-        });
-      })
-      .catch(() => {});
-  }
-
   preloadHeroAssets();
-  preloadReferenteImages();
 
   function normalizeAnswer(value) {
     return value.trim().toLowerCase().replace(/\s+/g, " ");
