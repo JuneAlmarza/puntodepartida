@@ -1,6 +1,11 @@
 /**
  * Quiz . de partida — UBÍCATE → DAME UN MATCH → MI TOP 3
  * Referencia: https://pablomonteserin.com/curso/javascript/como-hacer-un-trivial/
+ *
+ * Preload de imágenes:
+ *   - loading.js  → hero (captcha + memes)
+ *   - sections.js → referentes del quiz
+ *   - main.js     → referentes de www.html
  */
 document.addEventListener("DOMContentLoaded", () => {
   /* ==========================================================================
@@ -311,6 +316,8 @@ document.addEventListener("DOMContentLoaded", () => {
     state.matchPage = 0;
   }
 
+  // Preload del quiz (index): imágenes de referentes para DAME UN MATCH y resultados.
+  // Ver también loading.js (hero) y main.js (www.html).
   function preloadReferenteImages(database) {
     const slugs = new Set();
 
@@ -700,7 +707,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // carga el estado, la base de datos, pre-carga las imagenes (??) y renderiza la seccion correcta segun el estado guardado
+  // Carga la base de datos, precarga referentes del quiz y renderiza la sección activa.
   async function init() {
     loadStoredState();
 
