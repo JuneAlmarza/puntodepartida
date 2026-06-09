@@ -1380,7 +1380,7 @@ body.is-loading .cursor-dot {
 
   .header--index {
     align-items: center;
-    padding: var(--page-gutter) var(--page-gutter) 12px;
+    padding: var(--page-gutter) var(--page-gutter) 20px;
     background-color: var(--white);
   }
 
