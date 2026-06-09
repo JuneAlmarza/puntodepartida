@@ -1344,6 +1344,26 @@ body.is-loading .cursor-dot {
 
   body.page-index:not(.quiz-started) {
     --header-offset: 54px;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  html:has(body.page-index:not(.quiz-started)) {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  body.page-index.quiz-started {
+    position: relative;
+    height: auto;
+    max-height: none;
+    min-height: 100dvh;
+    overflow-x: clip;
   }
 
   body.page-index.quiz-started .sections {
