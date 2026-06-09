@@ -421,16 +421,20 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ==========================================================================
-   5. WWW — columnas de categorías y preview de referentes
-   ========================================================================== */
+
+  5. WWW — columnas de categorías y preview de referentes
+
+  ========================================================================== */
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const colCats = document.getElementById("col-cats");
   if (!colCats) return;
-
   let DATA = [];
   let activeCat = null;
   let activeSub = null;
+  let preloadedImages = new Map();
 
   function referenteImgSrc(slug) {
     return `./www-assets/img/${slug}.jpg`;
@@ -461,32 +465,57 @@ document.addEventListener("DOMContentLoaded", () => {
     el.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
+  function preloadReferenteImages() {
+    preloadedImages.clear();
+    
+    DATA.forEach((cat) => {
+      cat.subcategorias.forEach((sub) => {
+        sub.referentes.forEach((ref) => {
+          if (!ref.slug) return;
+          const src = referenteImgSrc(ref.slug);
+          if (preloadedImages.has(src)) return;
+          const img = new Image();
+          img.src = src;
+          preloadedImages.set(src, img);
+        });
+      });
+    });
+  }
+
+  function getPreloadedReferenteImage(slug) {
+    const src = referenteImgSrc(slug);
+    const cached = preloadedImages.get(src);
+    if (!cached) return null;
+    const img = cached.cloneNode(false);
+    img.dataset.slug = slug;
+    img.alt = slug;
+    return img;
+  }
+
   function renderCats() {
     const el = document.getElementById("col-cats");
     if (!el) return;
-
     el.innerHTML =
-      colHeading("Categorías") +
-      DATA.map(
-        (cat) => `
-      <div class="item ${activeCat === cat.id ? "active" : ""}" data-cat="${cat.id}">
-        ${cat.categoria}
-      </div>
-    `
+      colHeading("Categorías") + DATA.map((cat) => `
+        <div class="item ${activeCat === cat.id ? "active" : ""}" data-cat="${cat.id}">
+          ${cat.categoria}
+        </div>
+        `
       ).join("");
-
+    
     el.querySelectorAll(".item").forEach((item) => {
       item.addEventListener("click", () => {
         activeCat = item.dataset.cat;
         activeSub = null;
+
         renderCats();
         renderSubs();
         renderRefs();
+        
         scrollToWwwCol("col-subs");
       });
     });
-
-    syncEmptyCols();
+  syncEmptyCols();
   }
 
   function renderSubs() {
@@ -500,24 +529,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const cat = DATA.find((c) => c.id === activeCat);
-
+    if (!cat) return;
+    
     el.innerHTML =
       colHeading("Subcategorías") +
       cat.subcategorias
-        .map(
-          (sub) => `
-      <div class="item ${activeSub === sub.id ? "active" : ""}" data-sub="${sub.id}">
-        ${sub.nombre}
-      </div>
-    `
-        )
-        .join("");
+      .map((sub) => `
+        <div class="item ${activeSub === sub.id ? "active" : ""}" data-sub="${sub.id}">
+          ${sub.nombre}
+        </div>
+        `
+      )
+      .join("");
 
     el.querySelectorAll(".item").forEach((item) => {
       item.addEventListener("click", () => {
         activeSub = item.dataset.sub;
+        
         renderSubs();
         renderRefs();
+
         scrollToWwwCol("col-refs");
       });
     });
@@ -533,58 +564,72 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!activeCat || !activeSub) {
       el.innerHTML = "";
       if (imgCol) imgCol.innerHTML = "";
+
       syncEmptyCols();
       return;
     }
 
     const cat = DATA.find((c) => c.id === activeCat);
+    if (!cat) return;
+
     const sub = cat.subcategorias.find((s) => s.id === activeSub);
+    if (!sub) return;
 
     el.innerHTML =
       colHeading("Referentes") +
       sub.referentes
-        .map(
-          (ref) => `
-      <div class="referente-row" data-ref="${ref.slug}" data-url="${ref.url}">
-        <span class="referente-name">${ref.nombre}</span>
-      </div>
-    `
-        )
-        .join("");
+      .map((ref) => `
+        <div class="referente-row" data-ref="${ref.slug}" data-url="${ref.url}">
+          <span class="referente-name">${ref.nombre}</span>
+        </div>
+        `
+      )
+      .join("");
 
-    el.querySelectorAll(".referente-row").forEach((row) => {
-      row.addEventListener("click", () => {
-        const url = row.dataset.url;
-        if (url) window.open(url, "_blank");
+      el.querySelectorAll(".referente-row").forEach((row) => {
+        row.addEventListener("click", () => {
+          const url = row.dataset.url;
+          if (url) window.open(url, "_blank");
+        });
       });
-    });
-
     syncEmptyCols();
   }
 
   function showReferentePreview(row) {
     if (!hasWwwImagePreview()) return;
-
     const imgCol = document.getElementById("col-img");
-    if (!imgCol) return;
 
+    if (!imgCol) return;
     const slug = row.dataset.ref;
+
+    if (!slug) return;
     const current = imgCol.querySelector("img");
+
     if (current && current.dataset.slug === slug) return;
 
     imgCol.innerHTML = "";
-    const img = document.createElement("img");
-    img.dataset.slug = slug;
-    img.src = referenteImgSrc(slug);
-    img.alt = slug;
-    imgCol.appendChild(img);
+    let img = getPreloadedReferenteImage(slug);
 
+    if (!img) {
+      img = document.createElement("img");
+      img.src = referenteImgSrc(slug);
+      img.alt = slug;
+      img.dataset.slug = slug;
+    }
+
+    imgCol.appendChild(img);
+    
     const reveal = () => {
-      requestAnimationFrame(() => img.classList.add("is-visible"));
+      requestAnimationFrame(() => {
+        img.classList.add("is-visible");
+      });
     };
 
-    if (img.complete) reveal();
-    else img.addEventListener("load", reveal, { once: true });
+    if (img.complete) {
+      reveal();
+    } else {
+      img.addEventListener("load", reveal, { once: true });
+    }
 
     syncEmptyCols();
   }
@@ -592,9 +637,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function bindRefsPreview() {
     const el = document.getElementById("col-refs");
     const imgCol = document.getElementById("col-img");
+
     if (!el || !imgCol || el.dataset.previewBound) return;
 
     el.dataset.previewBound = "1";
+
     let hidePreviewTimer;
 
     el.addEventListener("mouseover", (e) => {
@@ -621,10 +668,13 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response = await fetch("./data/base-de-datos.json");
       if (!response.ok) throw new Error(`Error HTTP ${response.status}`);
-
+      
       DATA = await response.json();
+
+      preloadReferenteImages();
       bindRefsPreview();
       renderCats();
+
     } catch (error) {
       console.error("Error cargando la base de datos:", error);
     }
