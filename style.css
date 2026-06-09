@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* ==========================================================================
    1. Variables
@@ -9,7 +9,8 @@
     --black: black;
     --blue: #0144FE;
 
-    --arial: 'Arial Narrow', sans-serif;
+    /* Archivo Narrow sustituye Arial Narrow en móvil y navegadores sin esa fuente */
+    --arial: 'Archivo Narrow', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
     --inter: 'Inter', sans-serif;
 
     --h1: 40px;
@@ -79,7 +80,7 @@ li {
    ========================================================================== */
 
 .arial-regular {
-    font-family: 'Arial Narrow', sans-serif;
+    font-family: var(--arial);
     font-weight: 400;
     line-height: 100%;
     margin: 0;
