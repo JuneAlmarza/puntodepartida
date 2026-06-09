@@ -274,7 +274,7 @@ body.page-index {
     position: relative;
     z-index: 600;
     pointer-events: auto;
-    padding-top: 100px;
+    padding-top: 150px;
     will-change: transform, opacity;
 }
 
@@ -325,7 +325,6 @@ body.page-index {
 .intro-logo {
   flex: 0 0 auto;
   width: var(--logo-hero-w);
-  /* max-width: 800px; */
   height: auto;
   display: block;
   padding-bottom: 8px;
