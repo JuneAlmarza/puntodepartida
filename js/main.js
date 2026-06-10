@@ -355,6 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof gsap !== "undefined") {
       if (open) {
         menuPanel.style.pointerEvents = "auto";
+        gsap.set(menuPanel, { visibility: "visible" });
         menuTween = gsap.timeline();
         menuTween
           .fromTo(
@@ -379,7 +380,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       menuTween = gsap.timeline({
         onComplete: () => {
-          gsap.set(menuItems, { clearProps: "opacity,transform" });
+          gsap.set(menuPanel, { opacity: 0, x: 18, visibility: "hidden" });
+          gsap.set(menuItems, { opacity: 0, x: 10 });
           menuPanel.style.pointerEvents = "none";
         },
       });
@@ -400,10 +402,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     menuPanel.classList.toggle("active", open);
+    menuPanel.style.visibility = open ? "visible" : "hidden";
   }
 
   if (typeof gsap !== "undefined") {
-    gsap.set(menuPanel, { opacity: 0, x: 18, pointerEvents: "none" });
+    gsap.set(menuPanel, { opacity: 0, x: 18, visibility: "hidden", pointerEvents: "none" });
   }
 
   menuButton.addEventListener("click", (e) => {
