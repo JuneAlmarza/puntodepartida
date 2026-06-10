@@ -54,12 +54,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function getHeroExitY() { return readCssPx("--hero-exit-y", -430); }
 
   function isMobileView() { return window.matchMedia("(max-width: 768px)").matches; }
-  function isTabletView() { return window.matchMedia("(min-width: 769px) and (max-width: 1199px)").matches; }
+  function isTabletView() {
+    return window.matchMedia("(min-width: 769px) and (max-width: 1199px) and (orientation: landscape)").matches;
+  }
   function isMobileResults() { return window.matchMedia("(max-width: 768px)").matches; }
 
   function getMatchPageSize() {
     if (isMobileView()) return 9;
-    if (isTabletView()) return 12;
+    if (isTabletView()) return 8;
     return MATCH_PAGE_SIZE;
   }
 
@@ -747,10 +749,13 @@ document.addEventListener("DOMContentLoaded", () => {
     btnHeroMore.addEventListener("click", openQuizFromHero);
   }
 
-  window.addEventListener("resize", () => {
+  function onViewportChange() {
     if (state.step === 2) renderMatch();
     if (state.step === 3) renderResults();
-  });
+  }
+
+  window.addEventListener("resize", onViewportChange);
+  window.addEventListener("orientationchange", onViewportChange);
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
