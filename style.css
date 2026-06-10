@@ -10,7 +10,7 @@
     --blue: #0144FE;
 
     /* Archivo Narrow sustituye Arial Narrow en móvil y navegadores sin esa fuente */
-    --arial: 'Archivo Narrow', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+    --arial: 'Arial Narrow', 'Archivo Narrow', 'Helvetica Neue', Arial, sans-serif;
     --inter: 'Inter', sans-serif;
 
     --h1: 40px;
