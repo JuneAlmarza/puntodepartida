@@ -158,8 +158,9 @@ body:not(.page-index) .site-logo img {
 
 @media (min-width: 769px) {
   body:not(.page-index) .header {
-    padding: var(--logo-compact-top) var(--page-gutter) 0;
+    padding: var(--logo-compact-top) var(--page-gutter) var(--logo-compact-top);
     justify-content: flex-end;
+    background-color: var(--white);
   }
 }
 
@@ -1691,7 +1692,7 @@ body.is-loading .cursor-dot {
 
   .hero-cta.quiz-btn {
     display: inline-block;
-    width: auto;
+    width: 100%;
     background: var(--blue);
     border-color: var(--blue);
     padding: 4px 16px;
@@ -1810,14 +1811,36 @@ body.is-loading .cursor-dot {
   body.page-ayuda .footer-text {
     min-width: 0;
   }
+
+  body.page-ayuda .footer .footer-page-name,
+  body.page-www .footer .footer-page-name {
+    display: none;
+  }
+
+  body.page-www .footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  body.page-www .footer > div:first-child {
+    width: 100%;
+  }
+
+  body.page-www .footer .quiz-btn {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+  }
 }
 
 
 /* ==========================================================================
-   11. Tablet (769px – 1199px)
+   11. Tablet horizontal (769px – 1199px, landscape)
    ========================================================================== */
 
-@media (min-width: 769px) and (max-width: 1199px) {
+@media (min-width: 769px) and (max-width: 1199px) and (orientation: landscape) {
   :root {
     --logo-hero-w: 48vw;
     --logo-compact-w: 170px;
@@ -1857,8 +1880,8 @@ body.is-loading .cursor-dot {
   }
 
   .intro-logo {
-    width: 60vw;
-    margin-bottom: 12px;
+    width: 50vw;
+    margin-bottom: 0;
   }
 
   .hero-logo .memes-animation {
@@ -1867,7 +1890,7 @@ body.is-loading .cursor-dot {
 
   .hero-content {
     z-index: 600;
-    padding-top: 80px;
+    padding-top: 120px;
   }
 
   body.page-index {
@@ -1882,18 +1905,19 @@ body.is-loading .cursor-dot {
     display: block;
   }
 
-  /* UBÍCATE — sliders en una columna */
+  /* UBÍCATE — sliders en dos columnas */
   .quiz-sliders {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding-top: 4px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding-top: 10px;
   }
 
-  /* Match — 4 columnas × 3 filas; texto y botones debajo del grid */
+  /* Match — 4 columnas × 2 filas; texto y botones a la derecha */
   .quiz-panel--match {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    display: grid;
+    grid-template-columns: 1fr minmax(160px, 30%);
+    gap: 20px 28px;
+    align-items: start;
   }
 
   .match-grid {
@@ -1901,16 +1925,15 @@ body.is-loading .cursor-dot {
   }
 
   .match-aside {
-    height: auto;
-    justify-content: flex-start;
+    height: 100%;
+    max-width: none;
+    justify-content: flex-end;
     gap: 20px;
-    max-width: 50%;
   }
 
-  /* Podium — altura completa; 25px de separación con la lista */
+  /* Resultados — podium a la izquierda, referentes a la derecha (como desktop) */
   .resultados.is-open .sections-content {
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
   }
 
   .resultados .quiz-panel--results {
@@ -1919,22 +1942,25 @@ body.is-loading .cursor-dot {
   }
 
   .resultados .results-col--thanks {
-    position: static;
-    margin-bottom: 8px;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    margin-bottom: 0;
     flex-shrink: 0;
   }
 
   .results-graphics {
     flex: 1;
     min-height: 0;
-    flex-direction: column;
-    gap: 40px;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 28px;
     padding-bottom: 32px;
   }
 
   .results-col--podium {
-    flex: 1 1 0;
-    width: 100%;
+    flex: 0 0 58%;
+    width: auto;
     min-height: 0;
     display: flex;
     flex-direction: column;
@@ -1945,9 +1971,8 @@ body.is-loading .cursor-dot {
     align-items: flex-end;
     justify-content: center;
     gap: 12px;
-    flex: 1 1 auto;
+    flex: 1;
     min-height: 0;
-    height: 100%;
     width: 100%;
   }
 
@@ -1969,14 +1994,17 @@ body.is-loading .cursor-dot {
   }
 
   .results-col--artists {
-    flex: none;
-    width: 100%;
-    justify-content: flex-start;
+    flex: 1 1 auto;
+    width: auto;
+    min-height: 0;
+    min-width: 0;
+    justify-content: space-between;
   }
 
   .resultados .results-artists-list {
-    flex: none;
-    overflow: visible;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
   }
 
   .resultados .artist-row__photo,
@@ -1995,12 +2023,38 @@ body.is-loading .cursor-dot {
     display: none;
   }
 
-  /* AYUDA - columnas */
+  /* AYUDA — dos columnas a ancho completo */
   .ayuda-main {
-    flex-direction: column;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+    max-width: none;
+    margin: 100px var(--page-gutter) 0;
+    padding-bottom: calc(80px + var(--page-gutter));
+    box-sizing: border-box;
   }
 
-  .ayuda-about, .ayuda-form-section, .ayuda-text {
-    max-width: 100%;
+  .ayuda-about,
+  .ayuda-form-section {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .ayuda-text {
+    max-width: none;
+  }
+
+  .first-field,
+  .second-field {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .first-field .colab-field,
+  .second-field .colab-field {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
   }
 }
