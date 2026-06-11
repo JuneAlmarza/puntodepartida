@@ -303,7 +303,105 @@ document.addEventListener("DOMContentLoaded", () => {
   let mouseY = 0;
   let dotX = 0;
   let dotY = 0;
+  let dotScale = 1;
   let activated = false;
+
+  const DOT_SIZE = 20;
+  const DOT_SCALE_LARGE = 1.5;
+
+  function parseRgb(color) {
+    const match = color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+    if (!match) return null;
+    return [Number(match[1]), Number(match[2]), Number(match[3])];
+  }
+
+  function getTargetAt(x, y) {
+    const stack = document.elementsFromPoint(x, y);
+    return stack.find((el) => el !== dot && !el.closest(".cursor-dot"));
+  }
+
+  function isBlueBackground(color) {
+    const rgb = parseRgb(color);
+    if (!rgb) return false;
+
+    const rgbaMatch = color.match(/rgba?\([^)]+,\s*([\d.]+)\)/);
+    const alpha = rgbaMatch ? Number(rgbaMatch[1]) : 1;
+    if (alpha < 0.15) return false;
+
+    const [r, g, b] = rgb;
+    // --blue: #0144FE → rgb(1, 68, 254)
+    const isBrandBlue =
+      Math.abs(r - 1) <= 15 &&
+      Math.abs(g - 68) <= 35 &&
+      Math.abs(b - 254) <= 15;
+
+    return isBrandBlue;
+  }
+
+  function isOverBlueSurface(x, y) {
+    const target = getTargetAt(x, y);
+    if (!target) return false;
+
+    let node = target;
+    while (node && node !== document.documentElement) {
+      const { backgroundColor } = getComputedStyle(node);
+      if (backgroundColor && !/rgba?\(0,\s*0,\s*0,\s*0\)/.test(backgroundColor)) {
+        return isBlueBackground(backgroundColor);
+      }
+      node = node.parentElement;
+    }
+
+    return false;
+  }
+
+  function isButtonFillActive(btn) {
+    return btn.dataset.btnActive === "1" || btn.matches(":hover");
+  }
+
+  function shouldUseWhiteCursor(x, y) {
+    const target = getTargetAt(x, y);
+    if (!target) return false;
+
+    const btn = target.closest(".quiz-btn");
+    if (btn && isButtonFillActive(btn)) {
+      if (btn.classList.contains("quiz-btn--outline")) return false;
+      if (
+        btn.classList.contains("quiz-btn--primary") ||
+        btn.classList.contains("quiz-btn--blue-outline")
+      ) {
+        return true;
+      }
+    }
+
+    const podiumCard = target.closest(".podium-card");
+    if (podiumCard?.matches(":hover")) return false;
+
+    return isOverBlueSurface(x, y);
+  }
+
+  function shouldEnlargeCursor(target) {
+    if (!target) return false;
+
+    return !!(
+      target.closest(".quiz-btn") ||
+      target.closest(".menu-button") ||
+      target.closest(".site-logo") ||
+      target.closest(".intro-logo") ||
+      target.closest(".referente-name") ||
+      target.closest(".colab-input") ||
+      target.closest("a")
+    );
+  }
+
+  function updateCursorState() {
+    const target = getTargetAt(mouseX, mouseY);
+    dot.classList.toggle("is-light", shouldUseWhiteCursor(mouseX, mouseY));
+    dot.classList.toggle("is-large", shouldEnlargeCursor(target));
+  }
+
+  function updateCursorColor() {
+    updateCursorState();
+  }
 
   document.addEventListener("mousemove", (e) => {
     mouseX = e.clientX;
@@ -313,12 +411,19 @@ document.addEventListener("DOMContentLoaded", () => {
       dot.style.opacity = "1";
       activated = true;
     }
+
+    updateCursorColor();
   });
 
   function animate() {
+    const targetScale = dot.classList.contains("is-large") ? DOT_SCALE_LARGE : 1;
+
     dotX += (mouseX - dotX) * 0.15;
     dotY += (mouseY - dotY) * 0.15;
-    dot.style.transform = `translate(${dotX}px, ${dotY}px)`;
+    dotScale += (targetScale - dotScale) * 0.18;
+
+    const offset = DOT_SIZE / 2;
+    dot.style.transform = `translate(${dotX - offset}px, ${dotY - offset}px) scale(${dotScale})`;
     requestAnimationFrame(animate);
   }
 
