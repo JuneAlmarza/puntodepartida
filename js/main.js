@@ -362,6 +362,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const target = getTargetAt(x, y);
     if (!target) return false;
 
+    if (target.closest(".menu-panel")) return true;
+
     const btn = target.closest(".quiz-btn");
     if (btn && isButtonFillActive(btn)) {
       if (btn.classList.contains("quiz-btn--outline")) return false;
