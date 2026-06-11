@@ -67,6 +67,13 @@ body {
     opacity: 0;
     z-index: 9999;
     mix-blend-mode: multiply;
+    pointer-events: none;
+    transition: background-color 0.15s ease;
+}
+
+.cursor-dot.is-light {
+    background: var(--white);
+    mix-blend-mode: normal;
 }
 
 li {
@@ -845,12 +852,15 @@ body.quiz-started .sections {
 
 .podium-card {
   flex: 1;
-
   padding: 12px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+.podium-card--first:hover {
+  color: var(--blue);
 }
 
 .podium-card--first {
